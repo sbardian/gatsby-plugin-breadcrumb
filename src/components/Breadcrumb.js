@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'gatsby';
 import { connect } from 'react-redux';
 
 const Breadcrumb = ({ crumbs }) => {
@@ -8,8 +9,14 @@ const Breadcrumb = ({ crumbs }) => {
       {crumbs.map(c => {
         return (
           <div style={{ display: 'inline' }} key={Math.random()}>
-            {`${c.pathname} : `}
-            {/* <Link to={c.value}>{c.value}</Link> */}
+            <Link
+              to={c.pathname}
+              state={{
+                crumbClicked: true,
+              }}
+            >
+              {c.pathname} :
+            </Link>
           </div>
         );
       })}
