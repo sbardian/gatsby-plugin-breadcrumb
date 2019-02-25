@@ -29,6 +29,5 @@ node_modules
 decls
 dist
 components
-redux
 
 /*.js
