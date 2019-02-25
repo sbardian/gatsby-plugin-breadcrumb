@@ -1,21 +1,26 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import store from './redux/store';
-import { addCrumb } from './redux/actions';
+import { addCrumb, removeCrumb } from './redux/actions';
 
-const unsubscribe = store.subscribe(() =>
-  console.log('subscribe: ', store.getState()),
-);
+const unsubscribe = store.subscribe(() => {});
 
 export const wrapRootElement = ({ element }) => (
   <Provider store={store}>{element}</Provider>
 );
 
 export const onRouteUpdate = ({ location, prevLocation }) => {
-  console.log('new pathname', location.pathname);
-  console.log('old pathname', prevLocation ? prevLocation.pathname : null);
-
-  store.dispatch(addCrumb(location));
-
-  console.log('After dispatch', store.getState());
+  const {
+    getCrumbs: { crumbs },
+  } = store.getState();
+  if (
+    (location.state && location.state.crumbClicked) ||
+    crumbs.find(
+      crumb => crumb.pathname === location.pathname && crumbs.length > 0,
+    )
+  ) {
+    store.dispatch(removeCrumb(location));
+  } else {
+    store.dispatch(addCrumb(location));
+  }
 };
