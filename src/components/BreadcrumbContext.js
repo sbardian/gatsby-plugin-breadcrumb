@@ -4,7 +4,7 @@ export const BreadcrumbContext = React.createContext('Breadcrumb');
 
 export const BreadcrumbProvider = ({ children }) => {
   const [crumbs, setCrumbs] = React.useState([]);
-  const updateCrumbs = (location, crumbLabel) => {
+  const updateCrumbs = ({ location, crumbLabel, crumbSeparator }) => {
     if (
       (location.state && location.state.crumbClicked) ||
       crumbs.find(
@@ -17,7 +17,7 @@ export const BreadcrumbProvider = ({ children }) => {
       crumbs.splice(removeAfter + 1);
       setCrumbs([...crumbs]);
     } else {
-      setCrumbs([...crumbs, { ...location, crumbLabel }]);
+      setCrumbs([...crumbs, { ...location, crumbLabel, crumbSeparator }]);
     }
   };
 
