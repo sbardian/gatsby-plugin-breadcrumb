@@ -3,29 +3,34 @@ import React from 'react';
 export const BreadcrumbContext = React.createContext('Breadcrumb');
 
 export const BreadcrumbProvider = ({ children }) => {
-  const crumb = [];
-  const updateCrumb = value => {
-    crumb.push({ value });
+  const [crumbs, setCrumbs] = React.useState([]);
+  const updateCrumbs = (location, crumbLabel) => {
+    if (
+      (location.state && location.state.crumbClicked) ||
+      crumbs.find(
+        crumb => crumb.pathname === location.pathname && crumbs.length > 0,
+      )
+    ) {
+      const removeAfter = crumbs.findIndex(
+        crumb => crumb.pathname === location.pathname,
+      );
+      crumbs.splice(removeAfter + 1);
+      setCrumbs([...crumbs]);
+    } else {
+      setCrumbs([...crumbs, { ...location, crumbLabel }]);
+    }
   };
 
-  const history = {
-    crumb,
-    updateCrumb,
+  const crumb = {
+    crumbs,
+    updateCrumbs,
   };
 
   return (
-    <BreadcrumbContext.Provider value={history}>
+    <BreadcrumbContext.Provider value={crumb}>
       {children}
     </BreadcrumbContext.Provider>
   );
 };
 
-export const BreadcrumbConsumer = ({ children: WrappedComponent }) => {
-  return (
-    <BreadcrumbContext.Consumer>
-      {history => {
-        return <WrappedComponent {...history} />;
-      }}
-    </BreadcrumbContext.Consumer>
-  );
-};
+export const BreadcrumbConsumer = BreadcrumbContext.Consumer;

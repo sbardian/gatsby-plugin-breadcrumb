@@ -1,8 +1,15 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
+import { BreadcrumbContext } from './BreadcrumbContext';
 
-const Breadcrumb = ({ crumbs }) => {
+const Breadcrumb = ({ location, crumbLabel }) => {
+  const { crumbs, updateCrumbs } = React.useContext(BreadcrumbContext);
+
+  React.useEffect(() => {
+    updateCrumbs(location, crumbLabel);
+  }, [location, crumbLabel]);
+
   return (
     <div>
       <span>Breadcrumbs: </span>
@@ -15,7 +22,7 @@ const Breadcrumb = ({ crumbs }) => {
                 crumbClicked: true,
               }}
             >
-              {c.pathname} :
+              {c.crumbLabel} :
             </Link>
           </div>
         );
@@ -24,11 +31,4 @@ const Breadcrumb = ({ crumbs }) => {
   );
 };
 
-const mapStateToProps = state => {
-  const { crumbs } = state.getCrumbs;
-  return {
-    crumbs,
-  };
-};
-
-export default connect(mapStateToProps)(Breadcrumb);
+export default Breadcrumb;
