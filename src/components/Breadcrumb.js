@@ -9,6 +9,7 @@ const Breadcrumb = ({ crumbs }) => {
         return (
           <div style={{ display: 'inline' }} key={Math.random()}>
             {`${c.pathname} : `}
+            {/* <Link to={c.value}>{c.value}</Link> */}
           </div>
         );
       })}
