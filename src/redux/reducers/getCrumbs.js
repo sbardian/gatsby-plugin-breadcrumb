@@ -18,10 +18,14 @@ export default function(state = initialState, action) {
     }
     case REMOVE_CRUMB: {
       const { payload } = action;
-      const { crumbs } = payload;
+      const { crumbs } = state;
+      const removeAfter = crumbs.findIndex(
+        crumb => crumb.pathname === payload.pathname,
+      );
+      crumbs.splice(removeAfter + 1);
+
       return {
-        ...state,
-        crumb: [...crumbs.filter(crumb => crumb.pathname !== payload.pathname)],
+        crumbs: [...crumbs],
       };
     }
     default:
