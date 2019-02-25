@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 import useBreadcrumb from './useBreadcrumb';
 
 const Breadcrumb = ({ location, crumbLabel, crumbSeparator, ...rest }) => {
-  const { crumbs, updateCrumbs } = useBreadcrumb({
+  const { crumbs } = useBreadcrumb({
     location,
     crumbLabel,
     crumbSeparator,
@@ -26,7 +26,7 @@ const Breadcrumb = ({ location, crumbLabel, crumbSeparator, ...rest }) => {
               }}
             >
               {c.crumbLabel}
-              {crumbSeparator}
+              {c.crumbSeparator || ' / '}
             </Link>
           </div>
         );
