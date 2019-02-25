@@ -18,12 +18,7 @@
     "watch": "babel -w src --out-dir . --ignore **/__tests__",
     "prepare": "cross-env NODE_ENV=production npm run build"
   },
-  "dependencies": {
-    "react": "^16.8.3",
-    "react-dom": "^16.8.3",
-    "react-redux": "^6.0.1",
-    "redux": "^4.0.1"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@babel/cli": "^7.0.0",
     "@babel/core": "^7.0.0",
@@ -31,6 +26,7 @@
     "cross-env": "^5.0.5"
   },
   "peerDependencies": {
-    "gatsby": "^2.0.0"
+    "gatsby": "^2.0.0",
+    "react": "^16.8.3"
   }
 }
