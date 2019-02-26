@@ -3,6 +3,7 @@ import {
   BreadcrumbContext,
   BreadcrumbConsumer,
   BreadcrumbProvider,
+  useBreadcrumb,
 } from './components';
 
 export {
@@ -10,4 +11,5 @@ export {
   BreadcrumbContext,
   BreadcrumbConsumer,
   BreadcrumbProvider,
+  useBreadcrumb,
 };
