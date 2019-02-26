@@ -14,6 +14,10 @@ or
 npm install gatsby-plugin-breadcrumb
 ```
 
+## Demo
+
+CodeSandbox.io [Demo](https://codesandbox.io/s/vn8nprpo23)
+
 ## Usage
 
 There are two ways to use `gatsby-plugin-breadcrumb` to add breadcrumbs to your
