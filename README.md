@@ -11,12 +11,10 @@ yarn add gatsby-plugin-breadcrumb
 or
 
 ```
-npm install gatsby-plugin-breadcrub
+npm install gatsby-plugin-breadcrumb
 ```
 
 ## Usage
-
-### Built-in Breadcrumb component
 
 There are two ways to use `gatsby-plugin-breadcrumb` to add breadcrumbs to your
 Gatsby site:
@@ -29,7 +27,7 @@ Gatsby site:
   `gatsby-config.js`. - Importing and using the `useBreadcrumb` hook to get and
   update breadcrumbs
 
-### Basic use example:
+### Built-in Breadcrumb component example:
 
 `gatsby-config.js`
 
@@ -54,20 +52,14 @@ import React from 'react'
 import Breadcrumb from 'gatsby-plugin-breadcrumb'
 
 export const AboutUs = ({ location, data: { allPageJson } }) => {
-	  ...
-    ...
-    ...
-    return(
-    	<div>
-        	  ...
-            ...
-            ...
-            <Breadcrumb location={location} crumbLabel="About Us" />
-            ...
-            ...
-            ...
-        </div>
-    )
+  ...
+  return(
+    <div>
+      ...
+      <Breadcrumb location={location} crumbLabel="About Us" />
+      ...
+    </div>
+  )
 }
 ```
 
@@ -78,20 +70,20 @@ you to customize those breadcrumbs if you wish.
 
 ### Props
 
-| prop              | type   | description                                     | examples                        | required |
-| ----------------- | ------ | ----------------------------------------------- | ------------------------------- | -------- |
-| location          | object | Reach Router location prop                      | See Reach Router location prop  | required |
-| crumbLabel        | string | Name for the breadcrumb                         | `"About Us"`                    | required |
-| title             | string | Title proceeding the breadcrumbs                | `"Breadcrumbs: "`, `">>>"`      | optional |
-| crumbSeparator    | string | Separator between each breadcrumb               | `" / "`                         | optional |
-| crumbWrapperStyle | object | CSS object applied to breadcrumb wrapper        | `{ border: '1px solid white' }` | optional |
-| crumbStyle        | object | CSS object applied to the current crumb         | `{ color: 'orange' }`           | optional |
-| crumbActiveStyle  | object | CSS object applied to current crumb when active | `{ color: 'cornflowerblue'}`    | optional |
+| prop              | type   | description                                     | examples                                                        | required |
+| ----------------- | ------ | ----------------------------------------------- | --------------------------------------------------------------- | -------- |
+| location          | object | Reach Router location prop                      | See Reach Router location prop, passed by Gatsby to every page. | required |
+| crumbLabel        | string | Name for the breadcrumb                         | `"About Us"`                                                    | required |
+| title             | string | Title proceeding the breadcrumbs                | `"Breadcrumbs: "`, `">>>"`                                      | optional |
+| crumbSeparator    | string | Separator between each breadcrumb               | `" / "`                                                         | optional |
+| crumbWrapperStyle | object | CSS object applied to breadcrumb wrapper        | `{ border: '1px solid white' }`                                 | optional |
+| crumbStyle        | object | CSS object applied to the current crumb         | `{ color: 'orange' }`                                           | optional |
+| crumbActiveStyle  | object | CSS object applied to current crumb when active | `{ color: 'cornflowerblue'}`                                    | optional |
 
 ## Other options
 
-Instead of adding the `<Breadcrumb>` component to every page would be to add it
-to a layout component.
+Instead of adding the `<Breadcrumb>` component to every page, another option
+would be to add it to a layout component.
 
 ### Layout Component Example
 
@@ -103,12 +95,12 @@ import Layout from './layout'
 ...
 
 export const AboutUs = ({location}) => {
-	return (
-    	<Layout location={location} crumbLabel="About Us" >
-        ...
-        ...
-        ...
-      </Layout>
+  return (
+    <Layout location={location} crumbLabel="About Us" >
+      ...
+      ...
+      ...
+    </Layout>
   }
 }
 ```
@@ -121,11 +113,11 @@ import Layout from './layout'
 ...
 
 export const Contact = ({location}) => {
-	return (
+  return (
     <Layout location={location} crumbLabel="Contact" >
-        ...
-        ...
-        ...
+      ...
+      ...
+      ...
     </Layout>
   }
 }
@@ -139,18 +131,18 @@ import Breadcrumb from 'gatsby-plugin-breadcrumb'
 ...
 
 export const Layout = ({location, crumbLabel}) => {
-	return (
+  return (
     <div>
-        <Header>
-            <main>
-                <Breadcrumb location={location} crumbLabel={crumbLabel} />
-                ...
-                ...
-                ...
-            </main>
-        </Header>
+      <Header>
+        <main>
+          <Breadcrumb location={location} crumbLabel={crumbLabel} />
+          ...
+          ...
+          ...
+        </main>
+      </Header>
     </div>
-    }
+  }
 }
 ```
 
@@ -180,48 +172,41 @@ import MyCustomBreadcrumb from './my-custom-breadcrumb'
 import useBreadcrumb from 'gatsby-plugin-breadcrumb'
 
 export const AboutUs = ({ location, data: { allPageJson } }) => {
-    ...
-    ...
-    ...
-    const { crumbs, updateCrumbs } = useBreadcrumb({
-        location,
-        crumbLabel: 'Home',
-        title: '>>>',
-        crumbSeparator: ' / ',
-    });
-    ...
-    ...
-    ...
-    return(
-    	<div>
-        ...
-        <MyCustomBreadcrumb crumbs={crumbs} />
-        ...
-        ...
-        ...
-        ...
+...
+const { crumbs, updateCrumbs } = useBreadcrumb({
+    location,
+    crumbLabel: 'Home',
+    title: '>>>',
+    crumbSeparator: ' / ',
+  });
+  ...
+  return(
+    <div>
+      ...
+      <MyCustomBreadcrumb crumbs={crumbs} />
+      ...
     </div>
-    )
+  )
 }
 ```
 
 The `useBreadcrumb` hook takes an object with the following props:
 
-| prop             | type   | description                                     | examples                       | required |
-| ---------------- | ------ | ----------------------------------------------- | ------------------------------ | -------- |
-| location         | object | Reach Router location prop                      | See Reach Router location prop | required |
-| crumbLabel       | string | Name for the breadcrumb                         | `"About Us"`                   | required |
-| crumbSeparator   | string | Separator between each breadcrumb               | `" / "`                        | optional |
-| crumbStyle       | object | CSS object applied to the current crumb         | `{ color: 'orange' }`          | optional |
-| crumbActiveStyle | object | CSS object applied to current crumb when active | `{ color: 'cornflowerblue'}`   | optional |
+| prop             | type   | description                                     | examples                                                        | required |
+| ---------------- | ------ | ----------------------------------------------- | --------------------------------------------------------------- | -------- |
+| location         | object | Reach Router location prop                      | See Reach Router location prop, passed by Gatsby to every page. | required |
+| crumbLabel       | string | Name for the breadcrumb                         | `"About Us"`                                                    | required |
+| crumbSeparator   | string | Separator between each breadcrumb               | `" / "`                                                         | optional |
+| crumbStyle       | object | CSS object applied to the current crumb         | `{ color: 'orange' }`                                           | optional |
+| crumbActiveStyle | object | CSS object applied to current crumb when active | `{ color: 'cornflowerblue'}`                                    | optional |
 
 and returns the following:
 
-| value        | type     | description                                                                                                                |
-| ------------ | -------- | -------------------------------------------------------------------------------------------------------------------------- |
-| crumbs       | array    | Array of the current breadcrumbs                                                                                           |
-| updateCrumbs | function | function to enable you to manually update crumbs (The hook should handle this, only use if you know what you are doing...) |
+| value        | type     | description                                                                                                             |
+| ------------ | -------- | ----------------------------------------------------------------------------------------------------------------------- |
+| crumbs       | array    | Array of the current breadcrumbs                                                                                        |
+| updateCrumbs | function | function to enable you to manually update crumbs (The hook should handle this, only use if you know what you are doing) |
 
-The `useBreadcrumb` hook will determine if it needs to add a breadcrumb, remove
-a breadcrumb(s), or do nothing, you only need to pass it the required props
-(`location`, `crumbLabel`).
+The `useBreadcrumb` hook will determine if it needs to add, remove, or do
+nothing with the breadcrumbs based on the location you pass. You only need to
+pass it the required props (`location`, `crumbLabel`).
