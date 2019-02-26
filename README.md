@@ -49,7 +49,7 @@ Gatsby site:
 
 ```javascript
 import React from 'react'
-import Breadcrumb from 'gatsby-plugin-breadcrumb'
+import { Breadcrumb } from 'gatsby-plugin-breadcrumb'
 
 export const AboutUs = ({ location, data: { allPageJson } }) => {
   ...
@@ -127,7 +127,7 @@ export const Contact = ({location}) => {
 
 ```javascript
 import React from 'react'
-import Breadcrumb from 'gatsby-plugin-breadcrumb'
+import { Breadcrumb } from 'gatsby-plugin-breadcrumb'
 ...
 
 export const Layout = ({location, crumbLabel}) => {
@@ -169,7 +169,7 @@ export const Layout = ({location, crumbLabel}) => {
 ```javascript
 import React from 'react'
 import MyCustomBreadcrumb from './my-custom-breadcrumb'
-import useBreadcrumb from 'gatsby-plugin-breadcrumb'
+import { useBreadcrumb } from 'gatsby-plugin-breadcrumb'
 
 export const AboutUs = ({ location, data: { allPageJson } }) => {
 ...

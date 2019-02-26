@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import useBreadcrumb from './useBreadcrumb';
+import { useBreadcrumb } from './useBreadcrumb';
 
 const Breadcrumb = ({
   title = '',
