@@ -14,6 +14,11 @@ or
 npm install gatsby-plugin-breadcrumb
 ```
 
+### Coming soon.
+
+- Enable using with `gatsby-plugin-sitemap` sitemap with `<Breadcrumb>`
+  component!
+
 ## Demo
 
 CodeSandbox.io [Demo](https://codesandbox.io/s/vn8nprpo23)
