@@ -47,7 +47,7 @@ Gatsby site:
 }
 ```
 
-`/pages/index.js`
+`/pages/aboutus.js`
 
 ```javascript
 import React from 'react'
