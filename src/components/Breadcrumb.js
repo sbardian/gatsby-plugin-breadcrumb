@@ -12,7 +12,7 @@ const Breadcrumb = ({
   crumbStyle,
   ...rest
 }) => {
-  const { crumbs } = useBreadcrumb({
+  const { crumbs = [] } = useBreadcrumb({
     location,
     crumbLabel,
     crumbSeparator,
