@@ -217,10 +217,10 @@ The `useBreadcrumb` hook takes an object with the following props:
 
 and returns the following:
 
-| value        | type     | description                                                          |
-| ------------ | -------- | -------------------------------------------------------------------- |
-| crumbs       | array    | Array of the current breadcrumbs                                     |
-| updateCrumbs | function | function to enable you to manually update crumbs (WIP: wouldn't use) |
+| value        | type     | description                                                                                                                |
+| ------------ | -------- | -------------------------------------------------------------------------------------------------------------------------- |
+| crumbs       | array    | Array of the current breadcrumbs                                                                                           |
+| updateCrumbs | function | function to enable you to manually update crumbs (The hook should handle this, only use if you know what you are doing...) |
 
 The `useBreadcrumb` hook will determine if it needs to add a breadcrumb, remove
 a breadcrumb(s), or do nothing, you only need to pass it the required props
