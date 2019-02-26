@@ -19,7 +19,7 @@ const useBreadcrumb = ({
       crumbStyle,
       crumbActiveStyle,
     });
-  }, [location, crumbLabel, crumbSeparator, crumbStyle, crumbActiveStyle]);
+  }, [location]);
 
   return {
     crumbs,
