@@ -78,7 +78,7 @@ you to customize those breadcrumbs if you wish.
 
 ### Props
 
-| Prop              | type   | description                                     | examples                        | required |
+| prop              | type   | description                                     | examples                        | required |
 | ----------------- | ------ | ----------------------------------------------- | ------------------------------- | -------- |
 | location          | object | Reach Router location prop                      | See Reach Router location prop  | required |
 | crumbLabel        | string | Name for the breadcrumb                         | `"About Us"`                    | required |
@@ -205,8 +205,17 @@ export const AboutUs = ({ location, data: { allPageJson } }) => {
 }
 ```
 
-The `useBreadcrumb` hook takes an object with all the same props as the
-`<Breadcrumb>` component, and returns the following:
+The `useBreadcrumb` hook takes an object with the following props:
+
+| prop             | type   | description                                     | examples                       | required |
+| ---------------- | ------ | ----------------------------------------------- | ------------------------------ | -------- |
+| location         | object | Reach Router location prop                      | See Reach Router location prop | required |
+| crumbLabel       | string | Name for the breadcrumb                         | `"About Us"`                   | required |
+| crumbSeparator   | string | Separator between each breadcrumb               | `" / "`                        | optional |
+| crumbStyle       | object | CSS object applied to the current crumb         | `{ color: 'orange' }`          | optional |
+| crumbActiveStyle | object | CSS object applied to current crumb when active | `{ color: 'cornflowerblue'}`   | optional |
+
+and returns the following:
 
 | value        | type     | description                                                          |
 | ------------ | -------- | -------------------------------------------------------------------- |
