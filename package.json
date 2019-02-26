@@ -4,6 +4,8 @@
   "description": "Gatsby plugin to add breadcrumbs to your site",
   "main": "index.js",
   "repository": "https://github.com/sbardian/gatsby-plugin-breadcrumb",
+  "homepage": "https://github.com/sbardian/gatsby-plugin-breadcrumb",
+  "bugs": "https://github.com/sbardian/gatsby-plugin-breadcrumb/issues",
   "author": "Brian Andrews <sbardian@gmail.com>",
   "license": "MIT",
   "contributors": [
