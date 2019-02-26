@@ -24,7 +24,6 @@ const Breadcrumb = ({
     <div>
       <span>{title}</span>
       {crumbs.map((c, i) => {
-        console.log('c >>> ', c);
         return (
           <div style={{ display: 'inline' }} key={i} {...crumbWrapperStyle}>
             <Link
