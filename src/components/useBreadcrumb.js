@@ -4,6 +4,7 @@ import { BreadcrumbContext } from './BreadcrumbContext';
 const useBreadcrumb = ({
   location,
   crumbLabel,
+  title,
   crumbSeparator,
   crumbStyle = {},
   crumbActiveStyle = {},
@@ -15,6 +16,7 @@ const useBreadcrumb = ({
     updateCrumbs({
       location,
       crumbLabel,
+      title,
       crumbSeparator,
       crumbStyle,
       crumbActiveStyle,

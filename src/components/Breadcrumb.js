@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 import useBreadcrumb from './useBreadcrumb';
 
 const Breadcrumb = ({
-  crumbTitle = '',
+  title = '',
   location,
   crumbLabel,
   crumbSeparator,
@@ -22,7 +22,7 @@ const Breadcrumb = ({
 
   return (
     <div>
-      <span>{crumbTitle}</span>
+      <span>{title}</span>
       {crumbs.map((c, i) => {
         console.log('c >>> ', c);
         return (
