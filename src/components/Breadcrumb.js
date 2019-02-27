@@ -5,15 +5,42 @@ import useBreadcrumb from './useBreadcrumb';
 const Breadcrumb = ({
   title = '',
   location,
-  crumbLabel,
-  crumbSeparator,
+  crumbLabel = 'defaultLabel',
+  crumbSeparator = ' / ',
   crumbWrapperStyle,
   crumbActiveStyle,
   crumbStyle,
+  useSitemap = false, // update to true so this is default
+  useAdvancedSiteMap = false, // add note to docs about not using this until implemented
+  sitemapPath,
   ...rest
 }) => {
+  // TODO: if 'setHome' === true, set default Home crumb using first set of params
+
+  let finalLocation = {};
+
+  if (!useSitemap || !useAdvancedSiteMap) {
+    // Nothing special, using my odd crumbs
+    finalLocation = location;
+  }
+
+  if (useAdvancedSiteMap) {
+    // TODO: Implement Breadcrumbs for gatsby-plugin-advanced-sitemap
+  }
+
+  if (useSitemap) {
+    /**
+     * Query the source nodes (allBreadcrumbs)
+     * Return array of pathname
+     * Update useBreadcrumb to call updateCrumbs over each "pathname" index
+     *   - useBreadcrumb will need some type of check
+     *   - typeof pathname === 'string' || typeof pathname === 'object'
+     *   - then call updateCrumbs once or many times. . .
+     */
+  }
+
   const { crumbs = [] } = useBreadcrumb({
-    location,
+    location: finalLocation,
     crumbLabel,
     crumbSeparator,
     crumbStyle,
@@ -24,6 +51,7 @@ const Breadcrumb = ({
     <div>
       <span>{title}</span>
       {crumbs.map((c, i) => {
+        console.log('c >>> ', c);
         return (
           <div style={{ display: 'inline' }} key={i} {...crumbWrapperStyle}>
             <Link
@@ -44,7 +72,9 @@ const Breadcrumb = ({
             >
               {c.crumbLabel}
             </Link>
-            {c.crumbSeparator || ' / '}
+            <span style={{ fontSize: '16pt', ...c.crumbStyle }}>
+              {c.crumbSeparator}
+            </span>
           </div>
         );
       })}
