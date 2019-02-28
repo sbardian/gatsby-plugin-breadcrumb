@@ -1,7 +1,6 @@
 import fs from 'fs-extra';
 import path from 'path';
 import xmlParser from 'xml2js';
-import includes from 'lodash';
 
 exports.sourceNodes = (
   { actions, createNodeId, createContentDigest },
