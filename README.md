@@ -2,7 +2,7 @@
 
 ### Breadcrumbs for Gatsby
 
-## Instalation
+## Installation
 
 ```
 yarn add gatsby-plugin-breadcrumb
