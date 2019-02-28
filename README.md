@@ -4,13 +4,13 @@
 
 ## Installation
 
-```
+```bash
 yarn add gatsby-plugin-breadcrumb
 ```
 
 or
 
-```
+```bash
 npm install gatsby-plugin-breadcrumb
 ```
 
@@ -28,13 +28,15 @@ CodeSandbox.io [Demo](https://codesandbox.io/s/vn8nprpo23)
 There are two ways to use `gatsby-plugin-breadcrumb` to add breadcrumbs to your
 Gatsby site:
 
-- Basic use of the `gatsby-plugin-breadcrumb` plugin consists of: - Adding the
-  plugin to your `gatsby-config.js`. - Importing and using the `<Breadcrumb>`
-  component on pages you wish to have breadcrumbs.
+- Basic use of the `gatsby-plugin-breadcrumb` plugin consists of:
 
-- Custom breadcrumb using `useBreadcrumb` hook: - Adding the plugin to your
-  `gatsby-config.js`. - Importing and using the `useBreadcrumb` hook to get and
-  update breadcrumbs
+  - Adding the plugin to your `gatsby-config.js`.
+  - Importing and using the `<Breadcrumb>` component on pages you wish to have
+    breadcrumbs.
+
+- Custom breadcrumb using `useBreadcrumb` hook:
+  - Adding the plugin to your `gatsby-config.js`.
+  - Importing and using the `useBreadcrumb` hook to get and update breadcrumbs
 
 ### Built-in Breadcrumb component example:
 
