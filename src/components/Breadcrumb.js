@@ -13,11 +13,13 @@ const Breadcrumb = ({
   useSitemap = false, // update to true so this is default
   useAdvancedSiteMap = false, // add note to docs about not using this until implemented
   sitemapPath,
+  allBreadcrumbPath,
   ...rest
 }) => {
   // TODO: if 'setHome' === true, set default Home crumb using first set of params
 
   let finalLocation = {};
+  let sitemapCrumbs = null;
 
   if (!useSitemap || !useAdvancedSiteMap) {
     // Nothing special, using my odd crumbs
@@ -37,21 +39,65 @@ const Breadcrumb = ({
      *   - typeof pathname === 'string' || typeof pathname === 'object'
      *   - then call updateCrumbs once or many times. . .
      */
+
+    // const { allBreadcrumbPath } = useStaticQuery(graphql`
+    //   query {
+    //     allBreadcrumbPath {
+    //       edges {
+    //         node {
+    //           location
+    //           crumbs {
+    //             crumb
+    //           }
+    //           key
+    //         }
+    //       }
+    //     }
+    //   }
+    // `);
+    const { edges } = allBreadcrumbPath;
+    let mergedCrumb = [];
+    edges.forEach(edge => {
+      if (edge.node.location === location.pathname) {
+        edge.node.crumbs.forEach(crumb => {
+          const [label] = crumb.pathname.substring(1).split(`/.+/`);
+          console.log('label: ', label);
+          mergedCrumb = [
+            ...mergedCrumb,
+            {
+              pathname: crumb.pathname,
+              crumbLabel:
+                label === ''
+                  ? 'Home'
+                  : label.charAt(0).toUpperCase() + label.slice(1),
+              crumbSeparator,
+              crumbStyle,
+              crumbActiveStyle,
+            },
+          ];
+        });
+        console.log('mergedCrumb: ', mergedCrumb);
+        sitemapCrumbs = {
+          crumbs: mergedCrumb,
+        };
+      }
+    });
   }
 
-  const { crumbs = [] } = useBreadcrumb({
-    location: finalLocation,
-    crumbLabel,
-    crumbSeparator,
-    crumbStyle,
-    crumbActiveStyle,
-  });
+  const { crumbs = [] } = useSitemap
+    ? sitemapCrumbs
+    : useBreadcrumb({
+        location: finalLocation,
+        crumbLabel,
+        crumbSeparator,
+        crumbStyle,
+        crumbActiveStyle,
+      });
 
   return (
     <div>
       <span>{title}</span>
       {crumbs.map((c, i) => {
-        console.log('c >>> ', c);
         return (
           <div style={{ display: 'inline' }} key={i} {...crumbWrapperStyle}>
             <Link
