@@ -50,10 +50,7 @@ exports.sourceNodes = (
               }
             });
 
-            paths = [
-              ...paths,
-              { location: url, key: `${url}-${pathIndex}`, crumbs },
-            ];
+            paths = [...paths, { location: url, crumbs }];
           });
 
           paths.forEach(path => {
