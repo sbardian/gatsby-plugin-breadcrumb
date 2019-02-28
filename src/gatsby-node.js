@@ -10,7 +10,7 @@ exports.sourceNodes = (
   const publicPath = `./public`;
 
   if (!pluginOptions || !pluginOptions.sitemapPath) {
-    throw new Error('You must devfine a `sitemapPath` option');
+    throw new Error('You must define a `sitemapPath` option');
   }
 
   /**
