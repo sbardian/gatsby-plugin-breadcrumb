@@ -39,8 +39,6 @@
     "cypress-testing-library": "^2.3.6"
   },
   "peerDependencies": {
-    "gatsby": "^2.0.0",
-    "react": "^16.8.3",
-    "react-dom": "^16.8.3"
+    "gatsby": "^2.1.19"
   }
 }
