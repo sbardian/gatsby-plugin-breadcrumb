@@ -1,6 +1,7 @@
 import fs from 'fs-extra';
 import path from 'path';
 import xmlParser from 'xml2js';
+import includes from 'lodash';
 
 exports.sourceNodes = (
   { actions, createNodeId, createContentDigest },
@@ -25,10 +26,37 @@ exports.sourceNodes = (
       const json = xmlParser.parseString(fileData, (err, data) => {
         if (!err) {
           const locs = data.urlset.url.map(page => page.loc[0]);
-          const paths = locs.map((path, index) => {
-            const pathname = new URL(path).pathname;
-            return { pathname: [...pathname.split('/')], key: index };
+          const locUrls = locs.map(path => {
+            return new URL(path).pathname;
           });
+          let paths = [];
+          locUrls.forEach((url, pathIndex) => {
+            let acc = '';
+            let crumbs = [];
+
+            const splitUrl = url.split('/');
+            splitUrl.forEach((split, index) => {
+              if (index === 0 && split === '') {
+                crumbs = [...crumbs, { crumb: '/' }];
+              } else if (index !== 0 && split !== '') {
+                acc += '/' + split;
+                const regEx = `${acc}$`;
+                locUrls.forEach(path => {
+                  if (path.match(regEx)) {
+                    crumbs = [...crumbs, { crumb: acc }];
+                  }
+                });
+              } else {
+                crumbs = [...crumbs];
+              }
+            });
+
+            paths = [
+              ...paths,
+              { location: url, key: `${url}-${pathIndex}`, crumbs },
+            ];
+          });
+
           paths.forEach(path => {
             const nodeContent = JSON.stringify(path);
             const nodeMeta = {
