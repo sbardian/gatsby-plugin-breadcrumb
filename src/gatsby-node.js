@@ -2,6 +2,7 @@ import fs from 'fs-extra';
 import path from 'path';
 import xmlParser from 'xml2js';
 
+let paths = [];
 exports.sourceNodes = (
   { actions, createNodeId, createContentDigest },
   pluginOptions,
@@ -28,7 +29,6 @@ exports.sourceNodes = (
           const locUrls = locs.map(path => {
             return new URL(path).pathname;
           });
-          let paths = [];
           locUrls.forEach((url, pathIndex) => {
             let acc = '';
             let crumbs = [];
@@ -52,24 +52,30 @@ exports.sourceNodes = (
 
             paths = [...paths, { location: url, crumbs }];
           });
-
-          paths.forEach(path => {
-            const nodeContent = JSON.stringify(path);
-            const nodeMeta = {
-              id: createNodeId(`gatsby-plugin-breadcrumb-path-${path.key}`),
-              parent: null,
-              children: [],
-              internal: {
-                type: `BreadcrumbPath`,
-                mediaType: `text/html`,
-                content: nodeContent,
-                contentDigest: createContentDigest(path),
-              },
-            };
-            const node = Object.assign({}, path, nodeMeta);
-            createNode(node);
-          });
         }
+      });
+    }
+  });
+};
+
+exports.onCreatePage = ({ page, actions }, pluginOptions) => {
+  const { createPage, deletePage } = actions;
+
+  if (!pluginOptions || !pluginOptions.sitemapPath) {
+    throw new Error('You must define a `sitemapPath` option');
+  }
+
+  paths.forEach(path => {
+    const { context: oldPageContext } = page;
+    const newPathLoc = path.location.replace(/%20/g, ' ');
+    if (page.path === newPathLoc) {
+      deletePage(page);
+      createPage({
+        ...page,
+        context: {
+          ...oldPageContext,
+          breadcrumb: path,
+        },
       });
     }
   });
