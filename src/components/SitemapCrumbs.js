@@ -28,6 +28,7 @@ const SitemapCrumb = ({
                 color: 'white',
                 ...crumbActiveStyle,
               }}
+              {...rest}
             >
               {c.crumbLabel}
             </Link>

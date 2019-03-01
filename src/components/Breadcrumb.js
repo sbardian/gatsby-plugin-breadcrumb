@@ -91,6 +91,7 @@ const Breadcrumb = ({
               state={{
                 crumbClicked: true,
               }}
+              {...rest}
             >
               {c.crumbLabel}
             </Link>
