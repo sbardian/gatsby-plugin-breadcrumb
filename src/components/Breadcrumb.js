@@ -1,10 +1,9 @@
 import React from 'react';
-import { Link } from 'gatsby';
+import { Link, StaticQuery, graphql } from 'gatsby';
 import useBreadcrumb from './useBreadcrumb';
 
 const Breadcrumb = ({
   title = '',
-  location,
   crumbLabel = 'defaultLabel',
   crumbSeparator = ' / ',
   crumbWrapperStyle,
@@ -12,8 +11,7 @@ const Breadcrumb = ({
   crumbStyle,
   useSitemap = false, // update to true so this is default
   useAdvancedSiteMap = false, // add note to docs about not using this until implemented
-  sitemapPath,
-  allBreadcrumbPath,
+  crumbs: siteCrumbs,
   ...rest
 }) => {
   // TODO: if 'setHome' === true, set default Home crumb using first set of params
@@ -40,48 +38,33 @@ const Breadcrumb = ({
      *   - then call updateCrumbs once or many times. . .
      */
 
-    // const { allBreadcrumbPath } = useStaticQuery(graphql`
-    //   query {
-    //     allBreadcrumbPath {
-    //       edges {
-    //         node {
-    //           location
-    //           crumbs {
-    //             crumb
-    //           }
-    //           key
-    //         }
-    //       }
-    //     }
-    //   }
-    // `);
-    const { edges } = allBreadcrumbPath;
+    // TODO update url
+    if (!siteCrumbs) {
+      throw new Error(
+        'You must provide crumbs when using Sitemap.  http://xxx.xxx',
+      );
+    }
+
     let mergedCrumb = [];
-    edges.forEach(edge => {
-      if (edge.node.location === location.pathname) {
-        edge.node.crumbs.forEach(crumb => {
-          const [label] = crumb.pathname.substring(1).split(`/.+/`);
-          console.log('label: ', label);
-          mergedCrumb = [
-            ...mergedCrumb,
-            {
-              pathname: crumb.pathname,
-              crumbLabel:
-                label === ''
-                  ? 'Home'
-                  : label.charAt(0).toUpperCase() + label.slice(1),
-              crumbSeparator,
-              crumbStyle,
-              crumbActiveStyle,
-            },
-          ];
-        });
-        console.log('mergedCrumb: ', mergedCrumb);
-        sitemapCrumbs = {
-          crumbs: mergedCrumb,
-        };
-      }
+    siteCrumbs.forEach(crumb => {
+      const [label] = crumb.pathname.substring(1).split(`/.+/`);
+      mergedCrumb = [
+        ...mergedCrumb,
+        {
+          pathname: crumb.pathname,
+          crumbLabel:
+            label === ''
+              ? 'Home'
+              : label.charAt(0).toUpperCase() + label.slice(1),
+          crumbSeparator,
+          crumbStyle,
+          crumbActiveStyle,
+        },
+      ];
     });
+    sitemapCrumbs = {
+      crumbs: mergedCrumb,
+    };
   }
 
   const { crumbs = [] } = useSitemap
