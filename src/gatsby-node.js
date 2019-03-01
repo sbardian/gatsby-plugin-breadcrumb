@@ -36,13 +36,17 @@ exports.sourceNodes = (
             const splitUrl = url.split('/');
             splitUrl.forEach((split, index) => {
               if (index === 0 && split === '') {
-                crumbs = [...crumbs, { pathname: '/' }];
+                crumbs = [...crumbs, { pathname: '/', crumbLabel: 'Home' }];
               } else if (index !== 0 && split !== '') {
                 acc += '/' + split;
                 const regEx = `${acc}$`;
                 locUrls.forEach(path => {
                   if (path.match(regEx)) {
-                    crumbs = [...crumbs, { pathname: acc }];
+                    const n = acc.lastIndexOf('/');
+                    crumbs = [
+                      ...crumbs,
+                      { pathname: acc, crumbLabel: acc.slice(n + 1) },
+                    ];
                   }
                 });
               } else {

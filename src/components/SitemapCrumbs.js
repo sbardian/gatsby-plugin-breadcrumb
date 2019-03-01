@@ -7,13 +7,13 @@ const SitemapCrumb = ({
   crumbWrapperStyle,
   crumbActiveStyle,
   crumbStyle,
-  crumbs,
+  crumbs: siteCrumbs,
   ...rest
 }) => {
   return (
     <div>
       <span>{title}</span>
-      {crumbs.map((c, i) => {
+      {siteCrumbs.map((c, i) => {
         return (
           <div style={{ display: 'inline' }} key={i} {...crumbWrapperStyle}>
             <Link
@@ -29,7 +29,7 @@ const SitemapCrumb = ({
                 ...crumbActiveStyle,
               }}
             >
-              {c.pathname}
+              {c.crumbLabel}
             </Link>
             <span style={{ fontSize: '16pt', ...crumbStyle }}>
               {crumbSeparator}
