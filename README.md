@@ -68,7 +68,7 @@ Gatsby site:
   - Add the plugin `gatsby-plugin-breadcrumb` -Import and use the
     `useBreadcrumb` hook, passing the required props object
 
-### Click Tracking example:
+## Click Tracking example:
 
 `gatsby-config.js`
 
@@ -97,7 +97,7 @@ export const AboutUs = ({ location, data: { allPageJson } }) => {
 }
 ```
 
-## Breadcrumb component with `Click Tracking`
+### Breadcrumb component with `Click Tracking`
 
 The `<Breadcrumb>` component provides default breadcrumbs, while also allowing
 you to customize those breadcrumbs if you wish.
@@ -114,12 +114,12 @@ you to customize those breadcrumbs if you wish.
 | crumbStyle        | object | CSS object applied to the current crumb         | `{ color: 'orange' }`                                           | optional |
 | crumbActiveStyle  | object | CSS object applied to current crumb when active | `{ color: 'cornflowerblue'}`                                    | optional |
 
-## Other `Click Tracking` options
+### Other `Click Tracking` options
 
 Instead of adding the `<Breadcrumb>` component to every page, another option
 would be to add it to a layout component.
 
-### `Click Tracking` Layout Component Example
+## `Click Tracking` Layout Component Example
 
 `aboutus.js`
 
@@ -172,7 +172,7 @@ export const Layout = ({location, crumbLabel}) => {
 }
 ```
 
-### `Sitemap with Props` example
+## `Sitemap with Props` example
 
 Add the following plugins to your gatsby-config
 
@@ -258,7 +258,7 @@ instead of to individual crumbs as with `Click Tracking`.
 | crumbActiveStyle  | object | CSS object applied to crumb when active  | `{ color: 'cornflowerblue'}`    | optional |
 | ...rest           | object | Any other props you may pass             | n/a: spread accross crumb Link  | optional |
 
-### `Sitemap` example
+## `Sitemap` example
 
 Add the following plugins to your gatsby-config
 
@@ -344,7 +344,7 @@ instead of to individual crumbs as with `Click Tracking`.
 | crumbActiveStyle  | object | CSS object applied to crumb when active  | `{ color: 'cornflowerblue'}`    | optional |
 | ...rest           | object | Any other props you may pass             | n/a: spread accross crumb Link  | optional |
 
-### useBreadcrumb example:
+## useBreadcrumb example:
 
 `gatsby-config.js`
 
