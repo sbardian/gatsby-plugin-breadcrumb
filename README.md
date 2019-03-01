@@ -344,7 +344,7 @@ instead of to individual crumbs as with `Click Tracking`.
 | crumbActiveStyle  | object | CSS object applied to crumb when active  | `{ color: 'cornflowerblue'}`    | optional |
 | ...rest           | object | Any other props you may pass             | n/a: spread accross crumb Link  | optional |
 
-### Custom breadcrumb use example:
+### useBreadcrumb example:
 
 `gatsby-config.js`
 
