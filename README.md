@@ -245,7 +245,7 @@ export const Layout = ({pageContext, location, crumbLabel}) => {
 
 ### Breadcrumb Props for `Sitemap with Props`
 
-Note: The crumbStyle prop will apply to all the crumbs in the breadcrumb,
+`Note`: The crumbStyle prop will apply to all the crumbs in the breadcrumb,
 instead of to individual crumbs as with `Click Tracking`.
 
 | prop              | type   | description                              | examples                        | required |
@@ -330,6 +330,9 @@ export const Layout = ({pageContext, location, crumbLabel}) => {
 ```
 
 ### SitemapCrumbs Props for `Sitemap`
+
+`Note`: The crumbStyle prop will apply to all the crumbs in the breadcrumb,
+instead of to individual crumbs as with `Click Tracking`.
 
 | prop              | type   | description                              | examples                        | required |
 | ----------------- | ------ | ---------------------------------------- | ------------------------------- | -------- |
