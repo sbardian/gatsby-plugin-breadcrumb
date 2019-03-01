@@ -25,33 +25,57 @@ CodeSandbox.io [Demo](https://codesandbox.io/s/vn8nprpo23)
 
 ## Usage
 
-There are two ways to use `gatsby-plugin-breadcrumb` to add breadcrumbs to your
+There are four ways to use `gatsby-plugin-breadcrumb` to add breadcrumbs to your
 Gatsby site:
 
-- Basic use of the `gatsby-plugin-breadcrumb` plugin consists of:
+- `Click Tracking`: Click tracking creates a breadcrumb of out of the path taken
+  (clicked) by the user.
 
-  - Adding the plugin to your `gatsby-config.js`.
-  - Importing and using the `<Breadcrumb>` component on pages you wish to have
-    breadcrumbs.
+  - Add the plugin to your `gatsby-config.js`
+  - Import and use the `<Breadcrumb>` component, passing the required props, on
+    pages you wish to see the breadcrumb.
 
-- Custom breadcrumb using `useBreadcrumb` hook:
-  - Adding the plugin to your `gatsby-config.js`.
-  - Importing and using the `useBreadcrumb` hook to get and update breadcrumbs
+- `Sitemap with Props`: Sitemap with props will use a sitemap xml file
+  (generated using `gatsby-plugin-sitemap`) to create the breadcrumb. It also
+  allows you to pass extra props to config each of the 'crumbs' that make up the
+  breadcrumb.
 
-### Built-in Breadcrumb component example:
+  - Add the plugin `gatsby-plugin-remove-trailing-slashes`
+  - Add the plugin `gatsby-plugin-sitemap` and define the `output` plugin option
+  - Run `gatsby build && gatsby serve` to generate the sitemap xml file
+  - Add the plugin `gatsby-plugin-breadcrumb` and define the `sitemapPath`
+    plugin option
+  - Get `crumbs` array from `pageContext`
+  - Import and use the `<Breadcrumb>` component, passing the required props, on
+    pages you wish to see the breadcrumb
+
+- `Sitemap`: Sitemap will use a sitemap xml file (gererated using
+  `gatsby-plugin-sitemap`) to create the breadcrumb.
+
+  - Add the plugin `gatsby-plugin-remove-trailing-slashes`
+  - Add the plugin `gatsby-plugin-sitemap` and define the `output` plugin option
+  - Run `gatsby build && gatsby serve` to generate the sitemap xml file
+  - Add the plugin `gatsby-plugin-breadcrumb` and define the `sitemapPath`
+    plugin option
+  - Get `crumbs` array from `pageContext`
+  - Import and use the `<SitemapCrumbs>` component, passing the required props,
+    on pages you wish to see the breadcrumb
+
+- `useBreadcrumb`: The useBreadcrumb hook enables you to control your own
+  breadcrumbs, by calling `useBreadcrumb` and passing the required object
+  properties
+
+  - Add the plugin `gatsby-plugin-breadcrumb` -Import and use the
+    `useBreadcrumb` hook, passing the required props object
+
+### Click Tracking example:
 
 `gatsby-config.js`
 
-```
+```javascript
 {
   plugins: [
-    ...
-    ...
-    ...
     `gatsby-plugin-breadcrumb`,
-    ...
-    ...
-    ...
   ],
 }
 ```
@@ -66,7 +90,6 @@ export const AboutUs = ({ location, data: { allPageJson } }) => {
   ...
   return(
     <div>
-      ...
       <Breadcrumb location={location} crumbLabel="About Us" />
       ...
     </div>
@@ -74,12 +97,12 @@ export const AboutUs = ({ location, data: { allPageJson } }) => {
 }
 ```
 
-## Breadcrumb component
+## Breadcrumb component with `Click Tracking`
 
 The `<Breadcrumb>` component provides default breadcrumbs, while also allowing
 you to customize those breadcrumbs if you wish.
 
-### Props
+### Breadcrumb Props for `Click Tracking`
 
 | prop              | type   | description                                     | examples                                                        | required |
 | ----------------- | ------ | ----------------------------------------------- | --------------------------------------------------------------- | -------- |
@@ -91,16 +114,16 @@ you to customize those breadcrumbs if you wish.
 | crumbStyle        | object | CSS object applied to the current crumb         | `{ color: 'orange' }`                                           | optional |
 | crumbActiveStyle  | object | CSS object applied to current crumb when active | `{ color: 'cornflowerblue'}`                                    | optional |
 
-## Other options
+## Other `Click Tracking` options
 
 Instead of adding the `<Breadcrumb>` component to every page, another option
 would be to add it to a layout component.
 
-### Layout Component Example
+### `Click Tracking` Layout Component Example
 
 `aboutus.js`
 
-```javascript
+```jsx
 import React from 'react'
 import Layout from './layout'
 ...
@@ -109,8 +132,6 @@ export const AboutUs = ({location}) => {
   return (
     <Layout location={location} crumbLabel="About Us" >
       ...
-      ...
-      ...
     </Layout>
   }
 }
@@ -118,17 +139,14 @@ export const AboutUs = ({location}) => {
 
 `contact.js`
 
-```javascript
+```jsx
 import React from 'react'
 import Layout from './layout'
-...
 
 export const Contact = ({location}) => {
   return (
     <Layout location={location} crumbLabel="Contact" >
-      ...
-      ...
-      ...
+    ...
     </Layout>
   }
 }
@@ -136,10 +154,9 @@ export const Contact = ({location}) => {
 
 `layout.js`
 
-```javascript
+```jsx
 import React from 'react'
 import { Breadcrumb } from 'gatsby-plugin-breadcrumb'
-...
 
 export const Layout = ({location, crumbLabel}) => {
   return (
@@ -148,7 +165,76 @@ export const Layout = ({location, crumbLabel}) => {
         <main>
           <Breadcrumb location={location} crumbLabel={crumbLabel} />
           ...
-          ...
+        </main>
+      </Header>
+    </div>
+  }
+}
+```
+
+### `Sitemap with Props` example
+
+Add the following plugins to your gatsby-config
+
+`gatsby-config.js`
+
+```javascript
+{
+  plugins: [
+    `gatsby-plugin-remove-trailing-slashes`,
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        output: `/my-site-map.xml`,
+      },
+    },
+  ];
+}
+```
+
+Run `gatsby build && gatsby serve` to build out the xml sitemap file in the site
+`public/` folder. Then add the `gatsby-plugin-breadcrumb` plugin to your
+gatsby-config.
+
+`gatsby-config.js`
+
+```javascript
+{
+  plugins: [
+    `gatsby-plugin-remove-trailing-slashes`,
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        output: `/my-site-map.xml`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-breadcrumb`,
+      options: {
+        sitemapPath: `/my-site-map.xml`,
+      },
+    },
+  ];
+}
+```
+
+`aboutus.js`
+
+```jsx
+import React from 'react'
+import { Breadcrumb } from 'gatsby-plugin-breadcrumb'
+
+export const Layout = ({pageContext, location, crumbLabel}) => {
+
+  const {
+    breadcrumb: { crumbs },
+  } = pageContext;
+
+  return (
+    <div>
+      <Header>
+        <main>
+          <Breadcrumb useSitemap={true} crumbs={crumbs} crumbSeparator="~~" />
           ...
         </main>
       </Header>
@@ -157,48 +243,137 @@ export const Layout = ({location, crumbLabel}) => {
 }
 ```
 
+### Breadcrumb Props for `Sitemap with Props`
+
+Note: The crumbStyle prop will apply to all the crumbs in the breadcrumb,
+instead of to individual crumbs as with `Click Tracking`.
+
+| prop              | type   | description                              | examples                        | required |
+| ----------------- | ------ | ---------------------------------------- | ------------------------------- | -------- |
+| crumbs            | array  | Array of crumbs return from pageContext  | n/a                             | required |
+| title             | string | Title proceeding the breadcrumbs         | `"Breadcrumbs: "`, `">>>"`      | optional |
+| crumbSeparator    | string | Separator between each breadcrumb        | `" / "`                         | optional |
+| crumbWrapperStyle | object | CSS object applied to breadcrumb wrapper | `{ border: '1px solid white' }` | optional |
+| crumbStyle        | object | CSS object applied to all the crumbs     | `{ color: 'orange' }`           | optional |
+| crumbActiveStyle  | object | CSS object applied to crumb when active  | `{ color: 'cornflowerblue'}`    | optional |
+| ...rest           | object | Any other props you may pass             | n/a: spread accross crumb Link  | optional |
+
+### `Sitemap` example
+
+Add the following plugins to your gatsby-config
+
+`gatsby-config.js`
+
+```javascript
+{
+  plugins: [
+    `gatsby-plugin-remove-trailing-slashes`,
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        output: `/my-site-map.xml`,
+      },
+    },
+  ];
+}
+```
+
+Run `gatsby build && gatsby serve` to build out the xml sitemap file in the site
+`public/` folder. Then add the `gatsby-plugin-breadcrumb` plugin to your
+gatsby-config.
+
+`gatsby-config.js`
+
+```javascript
+{
+  plugins: [
+    `gatsby-plugin-remove-trailing-slashes`,
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        output: `/my-site-map.xml`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-breadcrumb`,
+      options: {
+        sitemapPath: `/my-site-map.xml`,
+      },
+    },
+  ];
+}
+```
+
+`aboutus.js`
+
+```jsx
+import React from 'react'
+import { SitemapCrumbs } from 'gatsby-plugin-breadcrumb'
+
+export const Layout = ({pageContext, location, crumbLabel}) => {
+
+  const {
+    breadcrumb: { crumbs },
+  } = pageContext;
+
+  return (
+    <div>
+      <Header>
+        <main>
+          <SitemapCrumbs crumbs={crumbs} crumbSeparator=" - " />
+          ...
+        </main>
+      </Header>
+    </div>
+  }
+}
+```
+
+### SitemapCrumbs Props for `Sitemap`
+
+| prop              | type   | description                              | examples                        | required |
+| ----------------- | ------ | ---------------------------------------- | ------------------------------- | -------- |
+| crumbs            | array  | Array of crumbs return from pageContext  | n/a                             | required |
+| title             | string | Title proceeding the breadcrumbs         | `"Breadcrumbs: "`, `">>>"`      | optional |
+| crumbSeparator    | string | Separator between each breadcrumb        | `" / "`                         | optional |
+| crumbWrapperStyle | object | CSS object applied to breadcrumb wrapper | `{ border: '1px solid white' }` | optional |
+| crumbStyle        | object | CSS object applied to all the crumbs     | `{ color: 'orange' }`           | optional |
+| crumbActiveStyle  | object | CSS object applied to crumb when active  | `{ color: 'cornflowerblue'}`    | optional |
+| ...rest           | object | Any other props you may pass             | n/a: spread accross crumb Link  | optional |
+
 ### Custom breadcrumb use example:
 
 `gatsby-config.js`
 
-```
+```javascript
 {
   plugins: [
-    ...
-    ...
-    ...
     `gatsby-plugin-breadcrumb`,
-    ...
-    ...
-    ...
   ],
 }
 ```
 
 `/pages/home.js`
 
-```javascript
-import React from 'react'
-import MyCustomBreadcrumb from './my-custom-breadcrumb'
-import { useBreadcrumb } from 'gatsby-plugin-breadcrumb'
+```jsx
+import React from 'react';
+import MyCustomBreadcrumb from './my-custom-breadcrumb';
+import { useBreadcrumb } from 'gatsby-plugin-breadcrumb';
 
-export const AboutUs = ({ location, data: { allPageJson } }) => {
-...
-const { crumbs, updateCrumbs } = useBreadcrumb({
+export const AboutUs = ({ location }) => {
+  const { crumbs, updateCrumbs } = useBreadcrumb({
     location,
     crumbLabel: 'Home',
     title: '>>>',
     crumbSeparator: ' / ',
   });
-  ...
-  return(
+  return (
     <div>
-      ...
       <MyCustomBreadcrumb crumbs={crumbs} />
       ...
     </div>
-  )
-}
+  );
+};
 ```
 
 The `useBreadcrumb` hook takes an object with the following props:
