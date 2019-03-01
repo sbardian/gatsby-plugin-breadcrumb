@@ -11,6 +11,13 @@ const useBreadcrumb = ({
 }) => {
   const { crumbs, updateCrumbs } = React.useContext(BreadcrumbContext);
 
+  if (!location || !crumbLabel) {
+    return {
+      crumbs,
+      updateCrumbs,
+    };
+  }
+
   React.useEffect(() => {
     updateCrumbs({
       location,
