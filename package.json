@@ -1,6 +1,6 @@
 {
   "name": "gatsby-plugin-breadcrumb",
-  "version": "1.3.5",
+  "version": "2.0.0-alpha.0",
   "description": "Gatsby plugin to add breadcrumbs to your site",
   "main": "index.js",
   "repository": "https://github.com/sbardian/gatsby-plugin-breadcrumb",
