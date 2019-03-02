@@ -1,4 +1,5 @@
 import Breadcrumb from './Breadcrumb';
+import SitemapCrumbs from './SitemapCrumbs';
 import {
   BreadcrumbContext,
   BreadcrumbConsumer,
@@ -12,4 +13,5 @@ export {
   BreadcrumbConsumer,
   BreadcrumbProvider,
   useBreadcrumb,
+  SitemapCrumbs,
 };

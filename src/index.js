@@ -4,6 +4,7 @@ import {
   BreadcrumbConsumer,
   BreadcrumbProvider,
   useBreadcrumb,
+  SitemapCrumbs,
 } from './components';
 
 export {
@@ -12,4 +13,5 @@ export {
   BreadcrumbConsumer,
   BreadcrumbProvider,
   useBreadcrumb,
+  SitemapCrumbs,
 };
