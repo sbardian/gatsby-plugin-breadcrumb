@@ -70,8 +70,9 @@ exports.onCreatePage = ({ page, actions }) => {
 
     paths.forEach(path => {
       const { context: oldPageContext } = page;
-      const newPathLoc = path.location.replace(/%20/g, ' ');
-      if (page.path === newPathLoc) {
+      const newPathLoc = path.location.replace(/%20/g, ' ').replace('/', '');
+      const newPagePath = page.path.replace('/', '');
+      if (newPagePath === newPathLoc) {
         deletePage(page);
         createPage({
           ...page,
