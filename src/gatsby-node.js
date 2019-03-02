@@ -44,7 +44,10 @@ exports.sourceNodes = (_, pluginOptions) => {
                       const n = acc.lastIndexOf('/');
                       crumbs = [
                         ...crumbs,
-                        { pathname: acc, crumbLabel: acc.slice(n + 1) },
+                        {
+                          pathname: acc,
+                          crumbLabel: acc.slice(n + 1).replace(/%20/g, ' '),
+                        },
                       ];
                     }
                   });
