@@ -35,6 +35,8 @@ Gatsby site:
   - Import and use the `<Breadcrumb>` component, passing the required props, on
     pages you wish to see the breadcrumb.
 
+    [Click Tracking example](https://github.com/sbardian/gatsby-plugin-breadcrumb#click-tracking-example)
+
 - `Sitemap with Props`: Sitemap with props will use a sitemap xml file
   (generated using `gatsby-plugin-sitemap`) to create the breadcrumb. It also
   allows you to pass extra props to config each of the 'crumbs' that make up the
@@ -49,6 +51,8 @@ Gatsby site:
   - Import and use the `<Breadcrumb>` component, passing the required props, on
     pages you wish to see the breadcrumb
 
+    [Sitemap with Props example](https://github.com/sbardian/gatsby-plugin-breadcrumb#sitemap-with-props-example)
+
 - `Sitemap`: Sitemap will use a sitemap xml file (gererated using
   `gatsby-plugin-sitemap`) to create the breadcrumb.
 
@@ -61,12 +65,16 @@ Gatsby site:
   - Import and use the `<SitemapCrumbs>` component, passing the required props,
     on pages you wish to see the breadcrumb
 
-- `useBreadcrumb`: The useBreadcrumb hook enables you to control your own
+    [Sitemap example](https://github.com/sbardian/gatsby-plugin-breadcrumb#sitemap-example)
+
+- `useBreadcrumb`: The `useBreadcrumb` hook enables you to control your own
   breadcrumbs, by calling `useBreadcrumb` and passing the required object
   properties
 
-  - Add the plugin `gatsby-plugin-breadcrumb` -Import and use the
-    `useBreadcrumb` hook, passing the required props object
+  - Add the plugin `gatsby-plugin-breadcrumb`
+  - Import and use the `useBreadcrumb` hook, passing the required props object
+
+    [useBreadcrumb example](https://github.com/sbardian/gatsby-plugin-breadcrumb#usebreadcrumb-example)
 
 ## Click Tracking example:
 
@@ -245,8 +253,8 @@ export const Layout = ({pageContext, location, crumbLabel}) => {
 
 ### Breadcrumb Props for `Sitemap with Props`
 
-`Note`: The crumbStyle prop will apply to all the crumbs in the breadcrumb,
-instead of to individual crumbs as with `Click Tracking`.
+`Note`: The crumbStyle prop will apply to all the crumbs in the breadcrumb
+instead of to individual crumbs, as with `Click Tracking`.
 
 | prop              | type   | description                              | examples                        | required |
 | ----------------- | ------ | ---------------------------------------- | ------------------------------- | -------- |
@@ -331,8 +339,8 @@ export const Layout = ({pageContext, location, crumbLabel}) => {
 
 ### SitemapCrumbs Props for `Sitemap`
 
-`Note`: The crumbStyle prop will apply to all the crumbs in the breadcrumb,
-instead of to individual crumbs as with `Click Tracking`.
+`Note`: The crumbStyle prop will apply to all the crumbs in the breadcrumb
+instead of to individual crumbs, as with `Click Tracking`.
 
 | prop              | type   | description                              | examples                        | required |
 | ----------------- | ------ | ---------------------------------------- | ------------------------------- | -------- |
@@ -389,7 +397,7 @@ The `useBreadcrumb` hook takes an object with the following props:
 | crumbStyle       | object | CSS object applied to the current crumb         | `{ color: 'orange' }`                                           | optional |
 | crumbActiveStyle | object | CSS object applied to current crumb when active | `{ color: 'cornflowerblue'}`                                    | optional |
 
-and returns the following:
+`useBreadcrumb` returns the following:
 
 | value        | type     | description                                                                                                             |
 | ------------ | -------- | ----------------------------------------------------------------------------------------------------------------------- |
