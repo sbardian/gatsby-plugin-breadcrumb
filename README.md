@@ -32,7 +32,7 @@ your Gatsby site:
   (clicked) by the user.
 
   - Add the plugin to your `gatsby-config.js`
-  - Import and use the `<Breadcrumb>` component, passing the required props, on
+  - Import and use the `<Breadcrumb>` component, passing the required props on
     pages you wish to see the breadcrumb.
 
     [Click Tracking example](https://github.com/sbardian/gatsby-plugin-breadcrumb#click-tracking-example)
@@ -45,8 +45,8 @@ your Gatsby site:
   - Run `gatsby build && gatsby serve` to generate the sitemap xml file
   - Add the plugin `gatsby-plugin-breadcrumb` and define the `sitemapPath`
     plugin option
-  - Get `crumbs` array from `pageContext`
-  - Import and use the `<SitemapCrumbs>` component, passing the required props,
+  - Get `crumbs` array from `breadcrumb` object in `pageContext`
+  - Import and use the `<SitemapCrumbs>` component, passing the required props
     on pages you wish to see the breadcrumb
 
     [Sitemap example](https://github.com/sbardian/gatsby-plugin-breadcrumb#sitemap-example)
