@@ -112,15 +112,16 @@ you to customize those breadcrumbs if you wish.
 
 ### Breadcrumb Props for `Click Tracking`
 
-| prop              | type   | description                                     | examples                                                        | required |
-| ----------------- | ------ | ----------------------------------------------- | --------------------------------------------------------------- | -------- |
-| location          | object | Reach Router location prop                      | See Reach Router location prop, passed by Gatsby to every page. | required |
-| crumbLabel        | string | Name for the breadcrumb                         | `"About Us"`                                                    | required |
-| title             | string | Title proceeding the breadcrumbs                | `"Breadcrumbs: "`, `">>>"`                                      | optional |
-| crumbSeparator    | string | Separator between each breadcrumb               | `" / "`                                                         | optional |
-| crumbWrapperStyle | object | CSS object applied to breadcrumb wrapper        | `{ border: '1px solid white' }`                                 | optional |
-| crumbStyle        | object | CSS object applied to the current crumb         | `{ color: 'orange' }`                                           | optional |
-| crumbActiveStyle  | object | CSS object applied to current crumb when active | `{ color: 'cornflowerblue'}`                                    | optional |
+| prop              | type    | description                                     | examples                                                        | required |
+| ----------------- | ------- | ----------------------------------------------- | --------------------------------------------------------------- | -------- |
+| useSitemap        | boolean | Are you using sitemap                           | false (default: true)                                           | required |
+| location          | object  | Reach Router location prop                      | See Reach Router location prop, passed by Gatsby to every page. | required |
+| crumbLabel        | string  | Name for the breadcrumb                         | `"About Us"`                                                    | required |
+| title             | string  | Title proceeding the breadcrumbs                | `"Breadcrumbs: "`, `">>>"`                                      | optional |
+| crumbSeparator    | string  | Separator between each breadcrumb               | `" / "`                                                         | optional |
+| crumbWrapperStyle | object  | CSS object applied to breadcrumb wrapper        | `{ border: '1px solid white' }`                                 | optional |
+| crumbStyle        | object  | CSS object applied to the current crumb         | `{ color: 'orange' }`                                           | optional |
+| crumbActiveStyle  | object  | CSS object applied to current crumb when active | `{ color: 'cornflowerblue'}`                                    | optional |
 
 ### Other `Click Tracking` options
 
@@ -256,15 +257,16 @@ export const Layout = ({pageContext, location, crumbLabel}) => {
 `Note`: The crumbStyle prop will apply to all the crumbs in the breadcrumb
 instead of to individual crumbs, as with `Click Tracking`.
 
-| prop              | type   | description                              | examples                        | required |
-| ----------------- | ------ | ---------------------------------------- | ------------------------------- | -------- |
-| crumbs            | array  | Array of crumbs return from pageContext  | n/a                             | required |
-| title             | string | Title proceeding the breadcrumbs         | `"Breadcrumbs: "`, `">>>"`      | optional |
-| crumbSeparator    | string | Separator between each breadcrumb        | `" / "`                         | optional |
-| crumbWrapperStyle | object | CSS object applied to breadcrumb wrapper | `{ border: '1px solid white' }` | optional |
-| crumbStyle        | object | CSS object applied to all the crumbs     | `{ color: 'orange' }`           | optional |
-| crumbActiveStyle  | object | CSS object applied to crumb when active  | `{ color: 'cornflowerblue'}`    | optional |
-| ...rest           | object | Any other props you may pass             | n/a: spread accross crumb Link  | optional |
+| prop              | type    | description                              | examples                        | required |
+| ----------------- | ------- | ---------------------------------------- | ------------------------------- | -------- |
+| useSitemap        | boolean | Are you using sitemap                    | false (default: true)           | optional |
+| crumbs            | array   | Array of crumbs return from pageContext  | n/a                             | required |
+| title             | string  | Title proceeding the breadcrumbs         | `"Breadcrumbs: "`, `">>>"`      | optional |
+| crumbSeparator    | string  | Separator between each breadcrumb        | `" / "`                         | optional |
+| crumbWrapperStyle | object  | CSS object applied to breadcrumb wrapper | `{ border: '1px solid white' }` | optional |
+| crumbStyle        | object  | CSS object applied to all the crumbs     | `{ color: 'orange' }`           | optional |
+| crumbActiveStyle  | object  | CSS object applied to crumb when active  | `{ color: 'cornflowerblue'}`    | optional |
+| ...rest           | object  | Any other props you may pass             | n/a: spread accross crumb Link  | optional |
 
 ## `Sitemap` example
 
@@ -389,13 +391,14 @@ export const AboutUs = ({ location }) => {
 
 The `useBreadcrumb` hook takes an object with the following props:
 
-| prop             | type   | description                                     | examples                                                        | required |
-| ---------------- | ------ | ----------------------------------------------- | --------------------------------------------------------------- | -------- |
-| location         | object | Reach Router location prop                      | See Reach Router location prop, passed by Gatsby to every page. | required |
-| crumbLabel       | string | Name for the breadcrumb                         | `"About Us"`                                                    | required |
-| crumbSeparator   | string | Separator between each breadcrumb               | `" / "`                                                         | optional |
-| crumbStyle       | object | CSS object applied to the current crumb         | `{ color: 'orange' }`                                           | optional |
-| crumbActiveStyle | object | CSS object applied to current crumb when active | `{ color: 'cornflowerblue'}`                                    | optional |
+| prop             | type    | description                                     | examples                                                        | required |
+| ---------------- | ------- | ----------------------------------------------- | --------------------------------------------------------------- | -------- |
+| useSitemap       | boolean | Are you using sitemap                           | false (default: true)                                           | required |
+| location         | object  | Reach Router location prop                      | See Reach Router location prop, passed by Gatsby to every page. | required |
+| crumbLabel       | string  | Name for the breadcrumb                         | `"About Us"`                                                    | required |
+| crumbSeparator   | string  | Separator between each breadcrumb               | `" / "`                                                         | optional |
+| crumbStyle       | object  | CSS object applied to the current crumb         | `{ color: 'orange' }`                                           | optional |
+| crumbActiveStyle | object  | CSS object applied to current crumb when active | `{ color: 'cornflowerblue'}`                                    | optional |
 
 `useBreadcrumb` returns the following:
 
