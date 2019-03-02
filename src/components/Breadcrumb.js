@@ -4,6 +4,7 @@ import useBreadcrumb from './useBreadcrumb';
 
 const Breadcrumb = ({
   title = '',
+  location,
   crumbLabel = 'defaultLabel',
   crumbSeparator = ' / ',
   crumbWrapperStyle,
