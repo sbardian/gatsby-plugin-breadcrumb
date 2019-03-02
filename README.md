@@ -60,7 +60,7 @@ your Gatsby site:
 
     [useBreadcrumb example](https://github.com/sbardian/gatsby-plugin-breadcrumb#usebreadcrumb-example)
 
-## Click Tracking example:
+## `Click Tracking` example:
 
 `gatsby-config.js`
 
@@ -250,7 +250,7 @@ instead of to individual crumbs, as with `Click Tracking`.
 | crumbActiveStyle  | object | CSS object applied to crumb when active  | `{ color: 'cornflowerblue'}`    | optional |
 | ...rest           | object | Any other props you may pass             | n/a: spread accross crumb Link  | optional |
 
-## useBreadcrumb example:
+## `useBreadcrumb` example:
 
 `gatsby-config.js`
 
