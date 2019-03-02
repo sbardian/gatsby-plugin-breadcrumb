@@ -9,7 +9,7 @@ const Breadcrumb = ({
   crumbWrapperStyle,
   crumbActiveStyle,
   crumbStyle,
-  useSitemap = false, // update to true so this is default
+  useSitemap = true, // update to true so this is default
   useAdvancedSiteMap = false, // add note to docs about not using this until implemented
   crumbs: siteCrumbs,
   setHome = {},
