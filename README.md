@@ -48,6 +48,9 @@ your Gatsby site:
   - Get `crumbs` array from `breadcrumb` object in `pageContext`
   - Import and use the `<SitemapCrumbs>` component, passing the required props
     on pages you wish to see the breadcrumb
+  - In your `gatsby-config.js` confirm you do not have a trailing `/` in your
+    `siteMetaData` `siteUrl`. `gatsby-plugin-sitemap` uses this for generating
+    the sitemap
 
     [Sitemap example](https://github.com/sbardian/gatsby-plugin-breadcrumb#sitemap-example)
 
