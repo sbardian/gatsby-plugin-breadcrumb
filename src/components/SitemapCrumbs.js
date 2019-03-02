@@ -1,9 +1,10 @@
 import React from 'react';
+import Proptypes from 'prop-types';
 import { Link } from 'gatsby';
 
 const SitemapCrumb = ({
   title = '',
-  crumbSeparator = ' / ',
+  crumbSeparator,
   crumbWrapperStyle,
   crumbActiveStyle,
   crumbStyle,
@@ -40,6 +41,26 @@ const SitemapCrumb = ({
       })}
     </div>
   );
+};
+
+SitemapCrumb.defaultProps = {
+  title: '',
+  crumbSeparator: ' / ',
+  crumbWrapperStyle: {},
+  crumbStyle: {},
+};
+
+SitemapCrumb.propTypes = {
+  title: Proptypes.string,
+  crumbSeparator: Proptypes.string,
+  crumbWrapperStyle: Proptypes.shape(),
+  crumbStyle: Proptypes.shape(),
+  crumbs: Proptypes.shape([
+    {
+      location: Proptypes.shape(),
+      pathname: Proptypes.string.isRequired,
+    },
+  ]).isRequired,
 };
 
 export default SitemapCrumb;

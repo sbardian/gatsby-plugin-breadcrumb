@@ -1,16 +1,16 @@
 import React from 'react';
+import Proptypes from 'prop-types';
 import { Link } from 'gatsby';
 import useBreadcrumb from './useBreadcrumb';
 
 const Breadcrumb = ({
-  title = '',
+  title,
   location,
-  crumbLabel = 'defaultLabel',
-  crumbSeparator = ' / ',
+  crumbLabel,
+  crumbSeparator,
   crumbWrapperStyle,
   crumbActiveStyle,
   crumbStyle,
-  crumbs: siteCrumbs,
   // setHome = {},
   ...rest
 }) => {
@@ -57,6 +57,22 @@ const Breadcrumb = ({
       })}
     </div>
   );
+};
+
+Breadcrumb.defaultProps = {
+  title: '',
+  crumbSeparator: ' / ',
+  crumbWrapperStyle: {},
+  crumbStyle: {},
+};
+
+Breadcrumb.propTypes = {
+  location: Proptypes.shape().isRequired,
+  crumbLabel: Proptypes.string.isRequired,
+  title: Proptypes.string,
+  crumbSeparator: Proptypes.string,
+  crumbWrapperStyle: Proptypes.shape(),
+  crumbStyle: Proptypes.shape(),
 };
 
 export default Breadcrumb;
