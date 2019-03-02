@@ -55,12 +55,12 @@ SitemapCrumb.propTypes = {
   crumbSeparator: Proptypes.string,
   crumbWrapperStyle: Proptypes.shape(),
   crumbStyle: Proptypes.shape(),
-  crumbs: Proptypes.shape([
-    {
+  crumbs: Proptypes.arrayOf(
+    Proptypes.shape({
       location: Proptypes.shape(),
       pathname: Proptypes.string.isRequired,
-    },
-  ]).isRequired,
+    }),
+  ).isRequired,
 };
 
 export default SitemapCrumb;
