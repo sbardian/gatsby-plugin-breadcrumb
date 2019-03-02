@@ -5,15 +5,13 @@ import xmlParser from 'xml2js';
 let paths = [];
 let useSitemap = true;
 
-exports.sourceNodes = (
-  { actions, createNodeId, createContentDigest },
-  pluginOptions,
-) => {
-  const { createNode } = actions;
+exports.sourceNodes = (_, pluginOptions) => {
   const publicPath = `./public`;
 
   if (pluginOptions && !pluginOptions.sitemapPath) {
-    throw new Error('You must define a `sitemapPath` option');
+    throw new Error(
+      'You must define a `sitemapPath` option to `gatsby-plugin-breadcrumb` when using sitemap',
+    );
   }
 
   if (!pluginOptions) {
@@ -21,12 +19,6 @@ exports.sourceNodes = (
   }
 
   if (pluginOptions && pluginOptions.sitemapPath) {
-    /**
-     * TODO !!!!! while documenting mention they must run
-     * gatsby build && gatsby serve
-     * before using this as it must generate the sitemap file so we can read it!
-     */
-
     const xmlPath = path.join(publicPath, pluginOptions.sitemapPath);
     fs.readFile(xmlPath, (err, fileData) => {
       if (!err) {
@@ -36,7 +28,7 @@ exports.sourceNodes = (
             const locUrls = locs.map(path => {
               return new URL(path).pathname;
             });
-            locUrls.forEach((url, pathIndex) => {
+            locUrls.forEach(url => {
               let acc = '';
               let crumbs = [];
 
@@ -60,7 +52,6 @@ exports.sourceNodes = (
                   crumbs = [...crumbs];
                 }
               });
-
               paths = [...paths, { location: url, crumbs }];
             });
           }
@@ -70,7 +61,7 @@ exports.sourceNodes = (
   }
 };
 
-exports.onCreatePage = ({ page, actions }, pluginOptions) => {
+exports.onCreatePage = ({ page, actions }) => {
   if (useSitemap) {
     const { createPage, deletePage } = actions;
 

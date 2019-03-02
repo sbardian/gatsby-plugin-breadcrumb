@@ -9,66 +9,19 @@ const Breadcrumb = ({
   crumbWrapperStyle,
   crumbActiveStyle,
   crumbStyle,
-  useSitemap = true, // update to true so this is default
-  useAdvancedSiteMap = false, // add note to docs about not using this until implemented
   crumbs: siteCrumbs,
-  setHome = {},
+  // setHome = {},
   ...rest
 }) => {
   // TODO: if 'setHome' === true, set default Home crumb using first set of params
 
-  let finalLocation = {};
-  let sitemapCrumbs = null;
-
-  if (!useSitemap || !useAdvancedSiteMap) {
-    finalLocation = location;
-  }
-
-  if (useAdvancedSiteMap) {
-    // TODO: Implement Breadcrumbs for gatsby-plugin-advanced-sitemap
-  }
-
-  if (useSitemap) {
-    // TODO update url
-    if (!siteCrumbs) {
-      throw new Error(
-        'You must provide crumbs when using Sitemap.  http://xxx.xxx',
-      );
-    }
-
-    let mergedCrumb = [];
-    siteCrumbs.forEach(crumb => {
-      const [label] = crumb.pathname.substring(1).split(`/.+/`);
-      mergedCrumb = [
-        ...mergedCrumb,
-        {
-          pathname: crumb.pathname,
-          crumbLabel:
-            label === ''
-              ? 'Home'
-              : label.charAt(0).toUpperCase() + label.slice(1),
-          crumbSeparator,
-          crumbStyle,
-          crumbActiveStyle,
-        },
-      ];
-    });
-    sitemapCrumbs = {
-      crumbs: mergedCrumb,
-    };
-  }
-
-  // const { crumbs: blah } = useBreadcrumb(setHome);
-
-  const { crumbs = [] } = useSitemap
-    ? sitemapCrumbs
-    : useBreadcrumb({
-        location: finalLocation,
-        crumbLabel,
-        crumbSeparator,
-        crumbStyle,
-        crumbActiveStyle,
-      });
+  const { crumbs = [] } = useBreadcrumb({
+    location,
+    crumbLabel,
+    crumbSeparator,
+    crumbStyle,
+    crumbActiveStyle,
+  });
 
   return (
     <div>

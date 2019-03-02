@@ -25,8 +25,8 @@ CodeSandbox.io [Demo](https://codesandbox.io/s/50o4zwm91l)
 
 ## Usage
 
-There are four ways to use `gatsby-plugin-breadcrumb` to add breadcrumbs to your
-Gatsby site:
+There are three ways to use `gatsby-plugin-breadcrumb` to add breadcrumbs to
+your Gatsby site:
 
 - `Click Tracking`: Click tracking creates a breadcrumb of out of the path taken
   (clicked) by the user.
@@ -36,22 +36,6 @@ Gatsby site:
     pages you wish to see the breadcrumb.
 
     [Click Tracking example](https://github.com/sbardian/gatsby-plugin-breadcrumb#click-tracking-example)
-
-- `Sitemap with Props`: Sitemap with props will use a sitemap xml file
-  (generated using `gatsby-plugin-sitemap`) to create the breadcrumb. It also
-  allows you to pass extra props to config each of the 'crumbs' that make up the
-  breadcrumb.
-
-  - Add the plugin `gatsby-plugin-remove-trailing-slashes`
-  - Add the plugin `gatsby-plugin-sitemap` and define the `output` plugin option
-  - Run `gatsby build && gatsby serve` to generate the sitemap xml file
-  - Add the plugin `gatsby-plugin-breadcrumb` and define the `sitemapPath`
-    plugin option
-  - Get `crumbs` array from `pageContext`
-  - Import and use the `<Breadcrumb>` component, passing the required props, on
-    pages you wish to see the breadcrumb
-
-    [Sitemap with Props example](https://github.com/sbardian/gatsby-plugin-breadcrumb#sitemap-with-props-example)
 
 - `Sitemap`: Sitemap will use a sitemap xml file (gererated using
   `gatsby-plugin-sitemap`) to create the breadcrumb.
@@ -112,16 +96,15 @@ you to customize those breadcrumbs if you wish.
 
 ### Breadcrumb Props for `Click Tracking`
 
-| prop              | type    | description                                     | examples                                                        | required |
-| ----------------- | ------- | ----------------------------------------------- | --------------------------------------------------------------- | -------- |
-| useSitemap        | boolean | Are you using sitemap                           | false (default: true)                                           | required |
-| location          | object  | Reach Router location prop                      | See Reach Router location prop, passed by Gatsby to every page. | required |
-| crumbLabel        | string  | Name for the breadcrumb                         | `"About Us"`                                                    | required |
-| title             | string  | Title proceeding the breadcrumbs                | `"Breadcrumbs: "`, `">>>"`                                      | optional |
-| crumbSeparator    | string  | Separator between each breadcrumb               | `" / "`                                                         | optional |
-| crumbWrapperStyle | object  | CSS object applied to breadcrumb wrapper        | `{ border: '1px solid white' }`                                 | optional |
-| crumbStyle        | object  | CSS object applied to the current crumb         | `{ color: 'orange' }`                                           | optional |
-| crumbActiveStyle  | object  | CSS object applied to current crumb when active | `{ color: 'cornflowerblue'}`                                    | optional |
+| prop              | type   | description                                     | examples                                                        | required |
+| ----------------- | ------ | ----------------------------------------------- | --------------------------------------------------------------- | -------- |
+| location          | object | Reach Router location prop                      | See Reach Router location prop, passed by Gatsby to every page. | required |
+| crumbLabel        | string | Name for the breadcrumb                         | `"About Us"`                                                    | required |
+| title             | string | Title proceeding the breadcrumbs                | `"Breadcrumbs: "`, `">>>"`                                      | optional |
+| crumbSeparator    | string | Separator between each breadcrumb               | `" / "`                                                         | optional |
+| crumbWrapperStyle | object | CSS object applied to breadcrumb wrapper        | `{ border: '1px solid white' }`                                 | optional |
+| crumbStyle        | object | CSS object applied to the current crumb         | `{ color: 'orange' }`                                           | optional |
+| crumbActiveStyle  | object | CSS object applied to current crumb when active | `{ color: 'cornflowerblue'}`                                    | optional |
 
 ### Other `Click Tracking` options
 
@@ -180,93 +163,6 @@ export const Layout = ({location, crumbLabel}) => {
   }
 }
 ```
-
-## `Sitemap with Props` example
-
-Add the following plugins to your gatsby-config
-
-`gatsby-config.js`
-
-```javascript
-{
-  plugins: [
-    `gatsby-plugin-remove-trailing-slashes`,
-    {
-      resolve: `gatsby-plugin-sitemap`,
-      options: {
-        output: `/my-site-map.xml`,
-      },
-    },
-  ];
-}
-```
-
-Run `gatsby build && gatsby serve` to build out the xml sitemap file in the site
-`public/` folder. Then add the `gatsby-plugin-breadcrumb` plugin to your
-gatsby-config.
-
-`gatsby-config.js`
-
-```javascript
-{
-  plugins: [
-    `gatsby-plugin-remove-trailing-slashes`,
-    {
-      resolve: `gatsby-plugin-sitemap`,
-      options: {
-        output: `/my-site-map.xml`,
-      },
-    },
-    {
-      resolve: `gatsby-plugin-breadcrumb`,
-      options: {
-        sitemapPath: `/my-site-map.xml`,
-      },
-    },
-  ];
-}
-```
-
-`aboutus.js`
-
-```jsx
-import React from 'react'
-import { Breadcrumb } from 'gatsby-plugin-breadcrumb'
-
-export const Layout = ({pageContext, location, crumbLabel}) => {
-
-  const {
-    breadcrumb: { crumbs },
-  } = pageContext;
-
-  return (
-    <div>
-      <Header>
-        <main>
-          <Breadcrumb useSitemap={true} crumbs={crumbs} crumbSeparator="~~" />
-          ...
-        </main>
-      </Header>
-    </div>
-  }
-}
-```
-
-### Breadcrumb Props for `Sitemap with Props`
-
-`Note`: The crumbStyle prop will apply to all the crumbs in the breadcrumb
-instead of to individual crumbs, as with `Click Tracking`.
-
-| prop              | type    | description                              | examples                        | required |
-| ----------------- | ------- | ---------------------------------------- | ------------------------------- | -------- |
-| useSitemap        | boolean | Are you using sitemap                    | false (default: true)           | optional |
-| crumbs            | array   | Array of crumbs return from pageContext  | n/a                             | required |
-| title             | string  | Title proceeding the breadcrumbs         | `"Breadcrumbs: "`, `">>>"`      | optional |
-| crumbSeparator    | string  | Separator between each breadcrumb        | `" / "`                         | optional |
-| crumbWrapperStyle | object  | CSS object applied to breadcrumb wrapper | `{ border: '1px solid white' }` | optional |
-| crumbStyle        | object  | CSS object applied to all the crumbs     | `{ color: 'orange' }`           | optional |
-| crumbActiveStyle  | object  | CSS object applied to crumb when active  | `{ color: 'cornflowerblue'}`    | optional |
-| ...rest           | object  | Any other props you may pass             | n/a: spread accross crumb Link  | optional |
 
 ## `Sitemap` example
 
@@ -391,14 +287,13 @@ export const AboutUs = ({ location }) => {
 
 The `useBreadcrumb` hook takes an object with the following props:
 
-| prop             | type    | description                                     | examples                                                        | required |
-| ---------------- | ------- | ----------------------------------------------- | --------------------------------------------------------------- | -------- |
-| useSitemap       | boolean | Are you using sitemap                           | false (default: true)                                           | required |
-| location         | object  | Reach Router location prop                      | See Reach Router location prop, passed by Gatsby to every page. | required |
-| crumbLabel       | string  | Name for the breadcrumb                         | `"About Us"`                                                    | required |
-| crumbSeparator   | string  | Separator between each breadcrumb               | `" / "`                                                         | optional |
-| crumbStyle       | object  | CSS object applied to the current crumb         | `{ color: 'orange' }`                                           | optional |
-| crumbActiveStyle | object  | CSS object applied to current crumb when active | `{ color: 'cornflowerblue'}`                                    | optional |
+| prop             | type   | description                                     | examples                                                        | required |
+| ---------------- | ------ | ----------------------------------------------- | --------------------------------------------------------------- | -------- |
+| location         | object | Reach Router location prop                      | See Reach Router location prop, passed by Gatsby to every page. | required |
+| crumbLabel       | string | Name for the breadcrumb                         | `"About Us"`                                                    | required |
+| crumbSeparator   | string | Separator between each breadcrumb               | `" / "`                                                         | optional |
+| crumbStyle       | object | CSS object applied to the current crumb         | `{ color: 'orange' }`                                           | optional |
+| crumbActiveStyle | object | CSS object applied to current crumb when active | `{ color: 'cornflowerblue'}`                                    | optional |
 
 `useBreadcrumb` returns the following:
 
