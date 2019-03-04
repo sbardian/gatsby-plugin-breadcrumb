@@ -39,8 +39,8 @@
     "cross-env": "5.2.0",
     "cypress": "3.1.5",
     "cypress-testing-library": "2.3.6",
-    "jest": "^24.1.0",
-    "jest-dom": "^3.1.2"
+    "jest": "24.1.0",
+    "jest-dom": "3.1.2"
   },
   "peerDependencies": {
     "gatsby": "^2.1.19"
