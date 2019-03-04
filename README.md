@@ -79,7 +79,7 @@ your Gatsby site:
 
 `/pages/aboutus.js`
 
-```javascript
+```jsx
 import React from 'react'
 import { Breadcrumb } from 'gatsby-plugin-breadcrumb'
 
