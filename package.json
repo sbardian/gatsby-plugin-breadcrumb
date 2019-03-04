@@ -1,6 +1,6 @@
 {
   "name": "gatsby-plugin-breadcrumb",
-  "version": "2.0.0",
+  "version": "0.0.0-semantically-released",
   "description": "Gatsby plugin to add breadcrumbs to your site",
   "main": "index.js",
   "repository": "https://github.com/sbardian/gatsby-plugin-breadcrumb",
@@ -18,6 +18,7 @@
     "gatsby-plugin-breadcrumb"
   ],
   "scripts": {
+    "cm": "git-cz",
     "build": "babel src --out-dir . --ignore **/__tests__",
     "watch": "babel -w src --out-dir . --ignore **/__tests__",
     "test": "jest",
@@ -25,6 +26,14 @@
     "test:open": "cypress open",
     "prepare": "cross-env NODE_ENV=production npm run build",
     "prepublishOnly": "yarn build"
+  },
+  "release": {
+    "branch": "master"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   },
   "dependencies": {
     "@babel/runtime": "^7.3.4",
@@ -36,11 +45,14 @@
     "@babel/cli": "7.2.3",
     "@babel/core": "7.3.3",
     "babel-preset-gatsby-package": "0.1.3",
+    "commitizen": "^3.0.7",
     "cross-env": "5.2.0",
     "cypress": "3.1.5",
     "cypress-testing-library": "2.3.6",
+    "cz-conventional-changelog": "2.1.0",
     "jest": "24.1.0",
-    "jest-dom": "3.1.2"
+    "jest-dom": "3.1.2",
+    "semantic-release": "15.13.3"
   },
   "peerDependencies": {
     "gatsby": "^2.1.19"
