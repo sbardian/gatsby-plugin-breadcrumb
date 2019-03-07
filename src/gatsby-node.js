@@ -8,7 +8,7 @@ let useSitemap = true;
 exports.sourceNodes = (_, pluginOptions) => {
   const publicPath = `./public`;
 
-  if (pluginOptions && !pluginOptions.sitemapPath) {
+  if (Object.keys(pluginOptions).length <= 0 && !pluginOptions.sitemapPath) {
     throw new Error(
       'You must define a `sitemapPath` option to `gatsby-plugin-breadcrumb` when using sitemap',
     );
