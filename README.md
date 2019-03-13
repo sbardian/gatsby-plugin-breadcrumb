@@ -46,6 +46,8 @@ your Gatsby site:
 
     - [Click Tracking example](https://github.com/sbardian/gatsby-plugin-breadcrumb#click-tracking-example)
     - [Breadcrumb props](https://github.com/sbardian/gatsby-plugin-breadcrumb#breadcrumb-props-for-click-tracking)
+    - [Breadcrumb with Layout component](https://github.com/sbardian/gatsby-plugin-breadcrumb#click-tracking-layout-component-example)
+    - [Breadcrumb with default crumb](https://github.com/sbardian/gatsby-plugin-breadcrumb#click-tracking-default-crumb-example)
 
 - `Sitemap`: Sitemap will use a sitemap xml file (gererated using
   `gatsby-plugin-sitemap`) to create the breadcrumb.
@@ -118,12 +120,12 @@ you to customize those breadcrumbs if you wish.
 | crumbStyle        | object | CSS object applied to the current crumb         | `{ color: 'orange' }`                                           | optional |
 | crumbActiveStyle  | object | CSS object applied to current crumb when active | `{ color: 'cornflowerblue'}`                                    | optional |
 
-### Other `Click Tracking` options
+## Other `Click Tracking` options
 
 Instead of adding the `<Breadcrumb>` component to every page, another option
 would be to add it to a layout component.
 
-## `Click Tracking` Layout Component Example
+### `Click Tracking` Layout component example
 
 `aboutus.js`
 
@@ -174,6 +176,33 @@ export const Layout = ({location, crumbLabel}) => {
     </div>
   }
 }
+```
+
+### `Click Tracking` default crumb example
+
+While using the `Click Tracking` option with the `<Breadcrumb>` component, if a
+user goes directly to a page, your breadcrumb will start with that page. You may
+want to always provide a default or `Home` breadcrumb. You can do this by adding
+options to the plugin. We must structure the `default` breadcrumb we provide in
+the plugin options in a way our context is expecting, see below for an example
+using all available options.
+
+```javascript
+  {
+    resolve: `gatsby-plugin-breadcrumb`,
+    options: {
+      defaultCrumb: {
+        location: {
+          state: { crumbClicked: false },
+          pathname: "/",
+        },
+        crumbLabel: "Home",
+        crumbSeparator: " / ",
+        crumbStyle: { color: "#666" },
+        crumbActiveStyle: { color: "orange" },
+      },
+    },
+  },
 ```
 
 ## `Sitemap` example

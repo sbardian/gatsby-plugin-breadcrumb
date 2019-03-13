@@ -2,8 +2,19 @@ import React from 'react';
 
 export const BreadcrumbContext = React.createContext('Breadcrumb');
 
-export const BreadcrumbProvider = ({ children }) => {
-  const [crumbs, setCrumbs] = React.useState([]);
+export const BreadcrumbProvider = ({ children, setHome = {} }) => {
+  let defaultCrumb = {};
+  if (setHome) {
+    defaultCrumb = {
+      ...setHome.location,
+      crumbLabel: setHome.crumbLabel,
+      crumbStyle: setHome.crumbStyle,
+      crumbActiveStyle: setHome.crumbActiveStyle,
+      crumbSeparator: setHome.crumbSeparator,
+    };
+  }
+  const [crumbs, setCrumbs] = React.useState([{ ...defaultCrumb }]);
+
   const updateCrumbs = ({
     location,
     crumbLabel,
