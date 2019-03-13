@@ -44,10 +44,10 @@ your Gatsby site:
   - Import and use the `<Breadcrumb>` component, passing the required props on
     pages you wish to see the breadcrumb.
 
-    - [Click Tracking example](https://github.com/sbardian/gatsby-plugin-breadcrumb#click-tracking-example)
-    - [Breadcrumb props](https://github.com/sbardian/gatsby-plugin-breadcrumb#breadcrumb-props-for-click-tracking)
-    - [Breadcrumb with Layout component](https://github.com/sbardian/gatsby-plugin-breadcrumb#click-tracking-layout-component-example)
-    - [Breadcrumb with default crumb](https://github.com/sbardian/gatsby-plugin-breadcrumb#click-tracking-default-crumb-example)
+    - [Click Tracking example](#click-tracking-example)
+    - [Breadcrumb props](#breadcrumb-props)
+    - [Breadcrumb with Layout component](#click-tracking-layout-component-example)
+    - [Breadcrumb with default crumb](#click-tracking-default-crumb-example)
 
 - `Sitemap`: Sitemap will use a sitemap xml file (gererated using
   `gatsby-plugin-sitemap`) to create the breadcrumb.
@@ -61,8 +61,8 @@ your Gatsby site:
   - Import and use the `<SitemapCrumbs>` component, passing the required props
     on pages you wish to see the breadcrumb
 
-    - [Sitemap example](https://github.com/sbardian/gatsby-plugin-breadcrumb#sitemap-example)
-    - [SitemapCrumbs component props](https://github.com/sbardian/gatsby-plugin-breadcrumb#sitemapcrumbs-props-for-sitemap)
+    - [Sitemap example](#sitemap-example)
+    - [SitemapCrumbs component props](#sitemapcrumbs-props-for-sitemap)
 
 - `useBreadcrumb`: The `useBreadcrumb` hook enables you to control your own
   breadcrumbs, by calling `useBreadcrumb` and passing the required object
@@ -71,8 +71,8 @@ your Gatsby site:
   - Add the plugin `gatsby-plugin-breadcrumb`
   - Import and use the `useBreadcrumb` hook, passing the required props object
 
-    - [useBreadcrumb example](https://github.com/sbardian/gatsby-plugin-breadcrumb#usebreadcrumb-example)
-    - [useBreadcrumb props/returns](https://github.com/sbardian/gatsby-plugin-breadcrumb#useBreadcrumb-props-and-returns)
+    - [useBreadcrumb example](#usebreadcrumb-example)
+    - [useBreadcrumb props/returns](#useBreadcrumb-props-and-returns)
 
 ## `Click Tracking` example:
 
