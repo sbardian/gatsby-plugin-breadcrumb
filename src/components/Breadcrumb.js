@@ -31,7 +31,7 @@ const Breadcrumb = ({
         return (
           <div style={{ display: 'inline' }} key={i} {...crumbWrapperStyle}>
             <Link
-              to={c.pathname}
+              to={c.pathname || ''}
               style={{
                 textDecoration: 'none',
                 fontSize: '16pt',
