@@ -45,7 +45,7 @@
     "@babel/cli": "7.4.3",
     "@babel/core": "7.4.3",
     "babel-preset-gatsby-package": "0.1.4",
-    "commitizen": "3.0.7",
+    "commitizen": "3.1.0",
     "cross-env": "5.2.0",
     "cypress": "3.2.0",
     "cypress-testing-library": "2.4.0",
