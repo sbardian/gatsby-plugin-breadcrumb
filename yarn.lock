@@ -781,7 +781,7 @@
     "@babel/plugin-transform-react-jsx-self" "^7.0.0"
     "@babel/plugin-transform-react-jsx-source" "^7.0.0"
 
-"@babel/runtime@^7.1.5", "@babel/runtime@^7.3.4":
+"@babel/runtime@^7.3.4":
   version "7.3.4"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.3.4.tgz#73d12ba819e365fcf7fd152aed56d6df97d21c83"
   integrity sha512-IvfvnMdSaLBateu0jfsYIpZTxAc2cKEXEMiezGGN75QcBcecDUKd3PgLAncT0oOgxKy8dd8hrJKj9MfzgfZd6g==
@@ -2422,13 +2422,13 @@ cyclist@~0.2.2:
   resolved "https://registry.yarnpkg.com/cyclist/-/cyclist-0.2.2.tgz#1b33792e11e914a2fd6d6ed6447464444e5fa640"
   integrity sha1-GzN5LhHpFKL9bW7WRHRkRE5fpkA=
 
-cypress-testing-library@2.4.0:
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/cypress-testing-library/-/cypress-testing-library-2.4.0.tgz#30e3351dde4d7aebb8ba524141203a2d44f70d3c"
-  integrity sha512-RHTuMZIjTShjTD3UB0vbnRhM5SNwh0yzbH1X/BwH9JtnrsswH+dtroIm2G0NHPTYBS6pkpbTlgM6XDt/caGXiA==
+cypress-testing-library@2.5.0:
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/cypress-testing-library/-/cypress-testing-library-2.5.0.tgz#de058ed2d90a7fff4495358250420012e5113648"
+  integrity sha512-5jwe7fT7SOzUp8IJh6t843m+vsKP2Ip9sAFOzafxi8xigra8lEOiBia4GSHOIkkUeV9YEn7HM8vcZnwxpWzD/A==
   dependencies:
     "@babel/runtime" "^7.4.3"
-    dom-testing-library "^3.12.4"
+    dom-testing-library "^4.0.0"
 
 cypress@3.2.0:
   version "3.2.0"
@@ -2672,15 +2672,15 @@ dir-glob@^2.0.0, dir-glob@^2.2.1:
   dependencies:
     path-type "^3.0.0"
 
-dom-testing-library@^3.12.4:
-  version "3.16.8"
-  resolved "https://registry.yarnpkg.com/dom-testing-library/-/dom-testing-library-3.16.8.tgz#26549b249f131a25e4339ebec9fcaa2e7642527f"
-  integrity sha512-VGn2piehGoN9lmZDYd+xoTZwwcS+FoXebvZMw631UhS5LshiLTFNJs9bxRa9W7fVb1cAn9AYKAKZXh67rCDaqw==
+dom-testing-library@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/dom-testing-library/-/dom-testing-library-4.0.0.tgz#14471ff484cda6041c016c0a2a42d53bf1f4ad03"
+  integrity sha512-ycBnCZrhijGQMIg6HnMKy+K3KqWtieYVMoHVaK1kcei5WmoO2Cj3imUtQRs/N0ZvZVETuVqo1UqEAJ6v14zd+w==
   dependencies:
-    "@babel/runtime" "^7.1.5"
+    "@babel/runtime" "^7.4.3"
     "@sheerun/mutationobserver-shim" "^0.3.2"
-    pretty-format "^24.0.0"
-    wait-for-expect "^1.1.0"
+    pretty-format "^24.7.0"
+    wait-for-expect "^1.1.1"
 
 domexception@^1.0.1:
   version "1.0.1"
@@ -7882,10 +7882,10 @@ w3c-hr-time@^1.0.1:
   dependencies:
     browser-process-hrtime "^0.1.2"
 
-wait-for-expect@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/wait-for-expect/-/wait-for-expect-1.1.0.tgz#6607375c3f79d32add35cd2c87ce13f351a3d453"
-  integrity sha512-vQDokqxyMyknfX3luCDn16bSaRcOyH6gGuUXMIbxBLeTo6nWuEWYqMTT9a+44FmW8c2m6TRWBdNvBBjA1hwEKg==
+wait-for-expect@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/wait-for-expect/-/wait-for-expect-1.1.1.tgz#9cd10e07d52810af9e0aaf509872e38f3c3d81ae"
+  integrity sha512-vd9JOqqEcBbCDhARWhW85ecjaEcfBLuXgVBqatfS3iw6oU4kzAcs+sCNjF+TC9YHPImCW7ypsuQc+htscIAQCw==
 
 walker@^1.0.7, walker@~1.0.5:
   version "1.0.7"

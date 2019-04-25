@@ -48,7 +48,7 @@
     "commitizen": "3.1.1",
     "cross-env": "5.2.0",
     "cypress": "3.2.0",
-    "cypress-testing-library": "2.4.0",
+    "cypress-testing-library": "2.5.0",
     "cz-conventional-changelog": "2.1.0",
     "jest": "24.7.1",
     "jest-dom": "3.1.3",
