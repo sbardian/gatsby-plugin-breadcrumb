@@ -51,7 +51,7 @@
     "cypress-testing-library": "2.6.0",
     "cz-conventional-changelog": "2.1.0",
     "jest": "24.8.0",
-    "jest-dom": "3.1.4",
+    "jest-dom": "3.2.0",
     "semantic-release": "15.13.3"
   },
   "peerDependencies": {
