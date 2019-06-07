@@ -1197,7 +1197,7 @@
   resolved "https://registry.yarnpkg.com/@sheerun/mutationobserver-shim/-/mutationobserver-shim-0.3.2.tgz#8013f2af54a2b7d735f71560ff360d3a8176a87b"
   integrity sha512-vTCdPp/T/Q3oSqwHmZ5Kpa9oI7iLtGl3RQaA/NyLHikvcrPxACkkKVr/XzkSPJWXHRhKGzVvb0urJsbMlRxi1Q==
 
-"@testing-library/cypress@^4.0.3":
+"@testing-library/cypress@4.0.3":
   version "4.0.3"
   resolved "https://registry.yarnpkg.com/@testing-library/cypress/-/cypress-4.0.3.tgz#3828836afeed183b1edb91af78931a7f783e23a2"
   integrity sha512-a6uwXfML7fKv/6SLMSLofzkYrBhZfUVg090dmg0je+F8uj/H01pB/BDalvIjwDKqXjs5Yasxseuzi8SUIGJ6jQ==
