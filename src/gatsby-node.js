@@ -1,6 +1,7 @@
 import fs from 'fs-extra';
 import path from 'path';
 import xmlParser from 'xml2js';
+import { URL } from 'url';
 
 let paths = [];
 let useSitemap = true;
