@@ -52,7 +52,7 @@
     "cz-conventional-changelog": "2.1.0",
     "jest": "24.8.0",
     "jest-dom": "3.5.0",
-    "semantic-release": "15.13.17"
+    "semantic-release": "15.13.18"
   },
   "peerDependencies": {
     "gatsby": "^2.1.19"
