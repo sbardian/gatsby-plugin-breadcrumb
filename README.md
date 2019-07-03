@@ -257,7 +257,7 @@ gatsby-config.
 import React from 'react'
 import { SitemapCrumbs } from 'gatsby-plugin-breadcrumb'
 
-export const Layout = ({pageContext, location, crumbLabel}) => {
+export const AboutUs = ({pageContext, location, crumbLabel}) => {
 
   const {
     breadcrumb: { crumbs },
