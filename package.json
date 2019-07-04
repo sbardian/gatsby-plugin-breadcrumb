@@ -42,8 +42,8 @@
     "xml2js": "^0.4.19"
   },
   "devDependencies": {
-    "@babel/cli": "7.4.4",
-    "@babel/core": "7.4.5",
+    "@babel/cli": "7.5.0",
+    "@babel/core": "7.5.0",
     "@testing-library/cypress": "4.0.4",
     "babel-preset-gatsby-package": "0.2.0",
     "commitizen": "3.1.1",
