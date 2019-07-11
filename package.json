@@ -37,6 +37,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.3.4",
+    "@testing-library/jest-dom": "^4.0.0",
     "fs-extra": "^8.0.0",
     "prop-types": "^15.7.2",
     "xml2js": "^0.4.19"
@@ -51,7 +52,6 @@
     "cypress": "3.4.0",
     "cz-conventional-changelog": "2.1.0",
     "jest": "24.8.0",
-    "jest-dom": "3.5.0",
     "semantic-release": "15.13.18"
   },
   "peerDependencies": {
