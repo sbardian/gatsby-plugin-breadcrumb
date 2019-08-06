@@ -50,7 +50,7 @@
     "commitizen": "3.1.2",
     "cross-env": "5.2.0",
     "cypress": "3.4.1",
-    "cz-conventional-changelog": "2.1.0",
+    "cz-conventional-changelog": "3.0.2",
     "jest": "24.8.0",
     "semantic-release": "15.13.19"
   },
