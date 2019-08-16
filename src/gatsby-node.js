@@ -36,7 +36,13 @@ exports.sourceNodes = (_, pluginOptions) => {
               const splitUrl = url.split('/');
               splitUrl.forEach((split, index) => {
                 if (index === 0 && split === '') {
-                  crumbs = [...crumbs, { pathname: '/', crumbLabel: 'Home' }];
+                  crumbs = [
+                    ...crumbs,
+                    {
+                      pathname: '/',
+                      crumbLabel: pluginOptions.sitemapHomeLabel || 'Home',
+                    },
+                  ];
                 } else if (index !== 0 && split !== '') {
                   acc += '/' + split;
                   const regEx = `${acc}$`;
