@@ -244,7 +244,8 @@ gatsby-config.
     {
       resolve: `gatsby-plugin-breadcrumb`,
       options: {
-        sitemapPath: `/my-site-map.xml`,
+        sitemapPath: `/my-site-map.xml`, // required
+        sitemapHomeLabel: `Root`, // optional 'Home' is default
       },
     },
   ];
@@ -254,11 +255,10 @@ gatsby-config.
 `aboutus.js`
 
 ```jsx
-import React from 'react'
-import { SitemapCrumbs } from 'gatsby-plugin-breadcrumb'
+import React from 'react';
+import { SitemapCrumbs } from 'gatsby-plugin-breadcrumb';
 
-export const AboutUs = ({pageContext, location, crumbLabel}) => {
-
+export const AboutUs = ({ pageContext, location, crumbLabel }) => {
   const {
     breadcrumb: { crumbs },
   } = pageContext;
@@ -272,8 +272,8 @@ export const AboutUs = ({pageContext, location, crumbLabel}) => {
         </main>
       </Header>
     </div>
-  }
-}
+  );
+};
 ```
 
 ### SitemapCrumbs Props
