@@ -9,6 +9,7 @@ const SitemapCrumb = ({
   crumbActiveStyle,
   crumbStyle,
   crumbs: siteCrumbs,
+  crumbLabel: crumbLabelOverride = null,
   ...rest
 }) => {
   return (
@@ -31,7 +32,9 @@ const SitemapCrumb = ({
               }}
               {...rest}
             >
-              {c.crumbLabel}
+              {crumbLabelOverride && i === siteCrumbs.length - 1
+                ? crumbLabelOverride
+                : c.crumbLabel}
             </Link>
             <span style={{ fontSize: '16pt', ...crumbStyle }}>
               {crumbSeparator}
