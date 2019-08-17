@@ -263,11 +263,17 @@ export const AboutUs = ({ pageContext, location, crumbLabel }) => {
     breadcrumb: { crumbs },
   } = pageContext;
 
+  const customCrumbLabel = location.pathname.toLowerCase();
+
   return (
     <div>
       <Header>
         <main>
-          <SitemapCrumbs crumbs={crumbs} crumbSeparator=" - " />
+          <SitemapCrumbs
+            crumbs={crumbs}
+            crumbSeparator=" - "
+            crumbLabel={customCrumbLabel}
+          />
           ...
         </main>
       </Header>
@@ -286,6 +292,7 @@ instead of to individual crumbs, as with `Click Tracking`.
 | crumbs            | array  | Array of crumbs return from pageContext  | n/a                             | required |
 | title             | string | Title proceeding the breadcrumbs         | `"Breadcrumbs: "`, `">>>"`      | optional |
 | crumbSeparator    | string | Separator between each breadcrumb        | `" / "`                         | optional |
+| crumbLabel        | string | Override crumb label from xml path       | `"About Us"`                    | optional |
 | crumbWrapperStyle | object | CSS object applied to breadcrumb wrapper | `{ border: '1px solid white' }` | optional |
 | crumbStyle        | object | CSS object applied to all the crumbs     | `{ color: 'orange' }`           | optional |
 | crumbActiveStyle  | object | CSS object applied to crumb when active  | `{ color: 'cornflowerblue'}`    | optional |
