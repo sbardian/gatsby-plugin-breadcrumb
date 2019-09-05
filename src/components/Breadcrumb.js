@@ -1,4 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable react/no-array-index-key */
 import React from 'react';
 import Proptypes from 'prop-types';
 import { Link } from 'gatsby';
@@ -65,6 +66,7 @@ Breadcrumb.defaultProps = {
   crumbSeparator: ' / ',
   crumbWrapperStyle: {},
   crumbStyle: {},
+  crumbActiveStyle: {},
 };
 
 Breadcrumb.propTypes = {
@@ -73,6 +75,7 @@ Breadcrumb.propTypes = {
   title: Proptypes.string,
   crumbSeparator: Proptypes.string,
   crumbWrapperStyle: Proptypes.shape(),
+  crumbActiveStyle: Proptypes.shape(),
   crumbStyle: Proptypes.shape(),
 };
 
