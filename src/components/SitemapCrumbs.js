@@ -1,4 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable react/no-array-index-key */
 import React from 'react';
 import Proptypes from 'prop-types';
 import { Link } from 'gatsby';
@@ -52,12 +53,15 @@ SitemapCrumb.defaultProps = {
   crumbSeparator: ' / ',
   crumbWrapperStyle: {},
   crumbStyle: {},
+  crumbActiveStyle: {},
+  crumbLabel: null,
 };
 
 SitemapCrumb.propTypes = {
   title: Proptypes.string,
   crumbSeparator: Proptypes.string,
   crumbWrapperStyle: Proptypes.shape(),
+  crumbActiveStyle: Proptypes.shape(),
   crumbStyle: Proptypes.shape(),
   crumbs: Proptypes.arrayOf(
     Proptypes.shape({
@@ -65,6 +69,7 @@ SitemapCrumb.propTypes = {
       pathname: Proptypes.string.isRequired,
     }),
   ).isRequired,
+  crumbLabel: Proptypes.string,
 };
 
 export default SitemapCrumb;
