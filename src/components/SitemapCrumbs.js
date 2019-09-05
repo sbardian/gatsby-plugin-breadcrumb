@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import Proptypes from 'prop-types';
 import { Link } from 'gatsby';

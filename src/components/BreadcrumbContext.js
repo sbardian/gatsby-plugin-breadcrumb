@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 
 export const BreadcrumbContext = React.createContext('Breadcrumb');
