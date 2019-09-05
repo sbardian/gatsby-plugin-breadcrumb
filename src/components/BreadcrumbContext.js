@@ -1,5 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export const BreadcrumbContext = React.createContext('Breadcrumb');
 
@@ -61,3 +62,23 @@ export const BreadcrumbProvider = ({ children, setHome = {} }) => {
 };
 
 export const BreadcrumbConsumer = BreadcrumbContext.Consumer;
+
+BreadcrumbProvider.defaultProps = {
+  setHome: {},
+};
+
+BreadcrumbProvider.propTypes = {
+  children: PropTypes.node.isRequired,
+  setHome: PropTypes.shape({
+    location: PropTypes.shape({
+      state: PropTypes.shape({
+        crumbClicked: PropTypes.bool,
+      }),
+      pathname: PropTypes.string,
+    }),
+    crumbLabel: PropTypes.string,
+    crumbSeparator: PropTypes.string,
+    crumbStyle: PropTypes.shape(),
+    crumbActiveStyle: PropTypes.shape(),
+  }),
+};
