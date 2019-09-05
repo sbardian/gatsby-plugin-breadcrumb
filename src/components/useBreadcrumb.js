@@ -8,7 +8,6 @@ const useBreadcrumb = ({
   crumbSeparator,
   crumbStyle = {},
   crumbActiveStyle = {},
-  ...rest
 }) => {
   const { crumbs, updateCrumbs } = React.useContext(BreadcrumbContext);
 
