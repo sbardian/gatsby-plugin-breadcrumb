@@ -1,3 +1,4 @@
+/* eslint-disable no-shadow */
 import fs from 'fs-extra';
 import path from 'path';
 import xmlParser from 'xml2js';
@@ -23,11 +24,11 @@ exports.sourceNodes = (_, pluginOptions) => {
     const xmlPath = path.join(publicPath, pluginOptions.sitemapPath);
     fs.readFile(xmlPath, (err, fileData) => {
       if (!err) {
-        const json = xmlParser.parseString(fileData, (err, data) => {
+        xmlParser.parseString(fileData, (err, data) => {
           if (!err) {
             const locs = data.urlset.url.map(page => page.loc[0]);
-            const locUrls = locs.map(path => {
-              return new URL(path).pathname;
+            const locUrls = locs.map(loc => {
+              return new URL(loc).pathname;
             });
             locUrls.forEach(url => {
               let acc = '';
@@ -44,10 +45,10 @@ exports.sourceNodes = (_, pluginOptions) => {
                     },
                   ];
                 } else if (index !== 0 && split !== '') {
-                  acc += '/' + split;
+                  acc += `/${split}`;
                   const regEx = `${acc}$`;
-                  locUrls.forEach(path => {
-                    if (path.match(regEx)) {
+                  locUrls.forEach(locUrl => {
+                    if (locUrl.match(regEx)) {
                       const n = acc.lastIndexOf('/');
                       crumbs = [
                         ...crumbs,
@@ -75,6 +76,7 @@ exports.onCreatePage = ({ page, actions }) => {
   if (useSitemap) {
     const { createPage, deletePage } = actions;
 
+    // eslint-disable-next-line
     paths.forEach(path => {
       const { context: oldPageContext } = page;
       const newPathLoc = path.location.replace(/%20/g, ' ').replace('/', '');
