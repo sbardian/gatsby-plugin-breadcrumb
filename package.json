@@ -61,7 +61,7 @@
     "eslint-plugin-jsx-a11y": "6.2.3",
     "eslint-plugin-prettier": "3.1.0",
     "eslint-plugin-react": "7.14.3",
-    "gatsby": "2.15.9",
+    "gatsby": "2.15.11",
     "jest": "24.9.0",
     "react": "16.9.0",
     "semantic-release": "15.13.24"
