@@ -221,7 +221,7 @@ Add the following plugins to your gatsby-config
         output: `/my-site-map.xml`,
       },
     },
-  ];
+  ]
 }
 ```
 
@@ -248,22 +248,22 @@ gatsby-config.
         sitemapHomeLabel: `Root`, // optional 'Home' is default
       },
     },
-  ];
+  ]
 }
 ```
 
 `aboutus.js`
 
 ```jsx
-import React from 'react';
-import { SitemapCrumbs } from 'gatsby-plugin-breadcrumb';
+import React from 'react'
+import { SitemapCrumbs } from 'gatsby-plugin-breadcrumb'
 
 export const AboutUs = ({ pageContext, location, crumbLabel }) => {
   const {
     breadcrumb: { crumbs },
-  } = pageContext;
+  } = pageContext
 
-  const customCrumbLabel = location.pathname.toLowerCase();
+  const customCrumbLabel = location.pathname.toLowerCase()
 
   return (
     <div>
@@ -278,8 +278,8 @@ export const AboutUs = ({ pageContext, location, crumbLabel }) => {
         </main>
       </Header>
     </div>
-  );
-};
+  )
+}
 ```
 
 ### SitemapCrumbs Props
@@ -313,24 +313,23 @@ instead of to individual crumbs, as with `Click Tracking`.
 `/pages/home.js`
 
 ```jsx
-import React from 'react';
-import MyCustomBreadcrumb from './my-custom-breadcrumb';
-import { useBreadcrumb } from 'gatsby-plugin-breadcrumb';
+import React from 'react'
+import MyCustomBreadcrumb from './my-custom-breadcrumb'
+import { useBreadcrumb } from 'gatsby-plugin-breadcrumb'
 
 export const AboutUs = ({ location }) => {
   const { crumbs, updateCrumbs } = useBreadcrumb({
     location,
-    crumbLabel: 'Home',
-    title: '>>>',
+    crumbLabel: 'About Us',
     crumbSeparator: ' / ',
-  });
+  })
   return (
     <div>
       <MyCustomBreadcrumb crumbs={crumbs} />
       ...
     </div>
-  );
-};
+  )
+}
 ```
 
 ### `useBreadcrumb` props and returns
