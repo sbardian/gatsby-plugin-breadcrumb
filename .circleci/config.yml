@@ -14,8 +14,7 @@ workflows:
       - cypress/run:
           name: Cypress Tests
           yarn: true
-          start: yarn develop
-          wait-on: '--timeout 20000 http://localhost:8000'
+          start: yarn build
       - release:
           requires:
             - Cypress Tests
