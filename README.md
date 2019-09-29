@@ -304,7 +304,7 @@ export const AboutUs = ({ pageContext, location, crumbLabel }) => {
 
 When using `Sitemap` we also add a `pathname` prop to the pages `pageContext`.
 
-### `Sitmap Nodes`
+### `Sitemap Nodes`
 
 When using `Sitemap` we also create nodes out of all the breadcrumbs. You will
 find these under the following queries:
