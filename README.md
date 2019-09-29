@@ -207,52 +207,69 @@ using all available options.
 
 ## `Sitemap` example
 
-Add the following plugins to your gatsby-config
+`Sitemap` used to rely on `gatsby-plugin-sitemap`, which creates a sitmap XML
+file in the `/public` folder of your site at the end of the site build. This
+caused problems when deploying to services like Netlify, as the XML file was not
+created when we needed to try to read from it, causing the build to fail. Now
+`Sitemap` uses the same process as `gatsby-plugin-sitemap` to generate the same
+XML and build breadcrumbs from it, instead of relying on the sitemap file. You
+can still use `gatsby-plugin-sitemap` to generate a sitemap,
+`gatsby-plugin-breadcrumb` just no longer requires it.
 
-`gatsby-config.js`
+Install `gatsby-plugin-remove-trailing-slashes`
 
-```javascript
-{
-  plugins: [
-    `gatsby-plugin-remove-trailing-slashes`,
-    {
-      resolve: `gatsby-plugin-sitemap`,
-      options: {
-        output: `/my-site-map.xml`,
-      },
-    },
-  ]
-}
+npm
+
+```bash
+npm install gatsby-plugin-remove-trailing-slashes
 ```
 
-Run `gatsby build && gatsby serve` to build out the xml sitemap file in the site
-`public/` folder. Then add the `gatsby-plugin-breadcrumb` plugin to your
-gatsby-config.
+yarn
+
+```bash
+yarn add gatsby-plugin-remove-trailing-slashes
+```
+
+Add the following to your gatsby-config
 
 `gatsby-config.js`
 
 ```javascript
 {
+  siteMetadata: {
+    // siteUrl: required (Gotcha: do not include a trailing slash at the end)
+    siteUrl: "http://localhost:8000",
+  },
   plugins: [
     `gatsby-plugin-remove-trailing-slashes`,
-    {
-      resolve: `gatsby-plugin-sitemap`,
-      options: {
-        output: `/my-site-map.xml`,
-      },
-    },
     {
       resolve: `gatsby-plugin-breadcrumb`,
       options: {
-        sitemapPath: `/my-site-map.xml`, // required
-        sitemapHomeLabel: `Root`, // optional 'Home' is default
-      },
-    },
+        // useSitemap: required 'true' to use sitemap
+        useSitemap: true,
+        // sitemapHomeLabel: optional 'Home' is default
+        sitemapHomeLabel: `Root`,
+        // exlude: optional, include to overwrite defaults
+        exclude: [
+          `/dev-404-page`,
+          `/404`,
+          `/404.html`,
+          `/offline-plugin-app-shell-fallback`,
+        ],
+        // serialize: optional, include to overwrite default
+        serialize: (node, site) => ({
+          url: site.siteMetadata.siteUrl + node.path,
+          changefreq: `daily`,
+          priority: 0.7,
+        }),
+     },
   ]
 }
 ```
 
-`aboutus.js`
+SitemapCrumbs component example
+
+`/pages/about-us.js`
 
 ```jsx
 import React from 'react'
@@ -263,7 +280,8 @@ export const AboutUs = ({ pageContext, location, crumbLabel }) => {
     breadcrumb: { crumbs },
   } = pageContext
 
-  const customCrumbLabel = location.pathname.toLowerCase()
+  // Example of dynamically using location prop as a crumbLabel
+  const customCrumbLabel = location.pathname.toLowerCase().replace('-', ' ')
 
   return (
     <div>
@@ -280,6 +298,70 @@ export const AboutUs = ({ pageContext, location, crumbLabel }) => {
     </div>
   )
 }
+```
+
+### `Sitemap Page context`
+
+When using `Sitemap` we also add a `pathname` prop to the pages `pageContext`.
+
+### `Sitmap Nodes`
+
+When using `Sitemap` we also create nodes out of all the breadcrumbs. You will
+find these under the following queries:
+
+- breadcrumbs: query a single breadcrumb
+- allBreadCrumbs: query all breadcrumbs
+
+Using the new `pageContext` value `pathname` and a page graphql query, you can
+pull the breadcrumbs for a given page and use them with the `SitemapCrumbs`
+component.
+
+`pageContext and graphql query` example
+
+`/pages/secondpage.js`
+
+```jsx
+import React from 'react'
+import { Link } from 'gatsby'
+import { SitemapCrumbs } from 'gatsby-plugin-breadcrumb'
+import Layout from '../components/layout'
+import SEO from '../components/seo'
+
+const SecondPage = ({ data, pageContext, location, crumbLabel }) => {
+  const {
+    breadcrumbs: { crumbs },
+  } = data
+
+  return (
+    <Layout>
+      <SEO title="Page two" />
+      <SitemapCrumbs
+        crumbs={crumbs}
+        pathname={location.pathname}
+        crumbSeparator=" - "
+        crumbStyle={{ color: '#666' }}
+        crumbActiveStyle={{ color: '#666' }}
+        crumbLabel="Page 2"
+      />
+      <h1>Hi from the second page</h1>
+      <p>Welcome to page 2</p>
+      <Link to="/">Go back to the homepage</Link>
+    </Layout>
+  )
+}
+
+export default SecondPage
+
+export const page2Query = graphql`
+  query siteMapQuery($pathname: String!) {
+    breadcrumbs(location: { regex: $pathname }) {
+      crumbs {
+        crumbLabel
+        pathname
+      }
+    }
+  }
+`
 ```
 
 ### SitemapCrumbs Props
