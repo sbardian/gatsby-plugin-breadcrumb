@@ -38,9 +38,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.3.4",
-    "prop-types": "^15.7.2",
-    "sitemap": "^4.1.1",
-    "xml2js": "^0.4.19"
+    "prop-types": "^15.7.2"
   },
   "devDependencies": {
     "@babel/cli": "7.6.2",
