@@ -26,4 +26,4 @@ workflows:
             - Cypress Tests
       - release:
           requires:
-            - Cypress Tests
+            - lint
