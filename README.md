@@ -211,10 +211,7 @@ using all available options.
 file in the `/public` folder of your site at the end of the site build. This
 caused problems when deploying to services like Netlify, as the XML file was not
 created when we needed to try to read from it, causing the build to fail. Now
-`Sitemap` uses the same process as `gatsby-plugin-sitemap` to generate the same
-XML and build breadcrumbs from it, instead of relying on the sitemap file. You
-can still use `gatsby-plugin-sitemap` to generate a sitemap,
-`gatsby-plugin-breadcrumb` just no longer requires it.
+`Sitemap` generates the breadcrumbs as pages are created.
 
 Install `gatsby-plugin-remove-trailing-slashes`
 
@@ -249,19 +246,13 @@ Add the following to your gatsby-config
         useSitemap: true,
         // sitemapHomeLabel: optional 'Home' is default
         sitemapHomeLabel: `Root`,
-        // exlude: optional, include to overwrite defaults
+        // exlude: optional, include to overwrite default excluded pages
         exclude: [
           `/dev-404-page`,
           `/404`,
           `/404.html`,
           `/offline-plugin-app-shell-fallback`,
         ],
-        // serialize: optional, include to overwrite default
-        serialize: (node, site) => ({
-          url: site.siteMetadata.siteUrl + node.path,
-          changefreq: `daily`,
-          priority: 0.7,
-        }),
      },
   ]
 }
@@ -298,70 +289,6 @@ export const AboutUs = ({ pageContext, location, crumbLabel }) => {
     </div>
   )
 }
-```
-
-### `Sitemap Page context`
-
-When using `Sitemap` we also add a `pathname` prop to the pages `pageContext`.
-
-### `Sitemap Nodes`
-
-When using `Sitemap` we also create nodes out of all the breadcrumbs. You will
-find these under the following queries:
-
-- breadcrumbs: query a single breadcrumb
-- allBreadCrumbs: query all breadcrumbs
-
-Using the new `pageContext` value `pathname` and a page graphql query, you can
-pull the breadcrumbs for a given page and use them with the `SitemapCrumbs`
-component.
-
-`pageContext and graphql query` example
-
-`/pages/secondpage.js`
-
-```jsx
-import React from 'react'
-import { Link } from 'gatsby'
-import { SitemapCrumbs } from 'gatsby-plugin-breadcrumb'
-import Layout from '../components/layout'
-import SEO from '../components/seo'
-
-const SecondPage = ({ data, pageContext, location, crumbLabel }) => {
-  const {
-    breadcrumbs: { crumbs },
-  } = data
-
-  return (
-    <Layout>
-      <SEO title="Page two" />
-      <SitemapCrumbs
-        crumbs={crumbs}
-        pathname={location.pathname}
-        crumbSeparator=" - "
-        crumbStyle={{ color: '#666' }}
-        crumbActiveStyle={{ color: '#666' }}
-        crumbLabel="Page 2"
-      />
-      <h1>Hi from the second page</h1>
-      <p>Welcome to page 2</p>
-      <Link to="/">Go back to the homepage</Link>
-    </Layout>
-  )
-}
-
-export default SecondPage
-
-export const page2Query = graphql`
-  query siteMapQuery($pathname: String!) {
-    breadcrumbs(location: { regex: $pathname }) {
-      crumbs {
-        crumbLabel
-        pathname
-      }
-    }
-  }
-`
 ```
 
 ### SitemapCrumbs Props
