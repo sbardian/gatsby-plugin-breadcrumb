@@ -2,6 +2,12 @@ version: 2.1
 orbs:
   cypress: cypress-io/cypress@1.10.0
 jobs:
+  lint:
+    executor: cypress/base-10
+    steps:
+      - attach_workspace:
+          at: ~/
+      - run: yarn lint
   release:
     executor: cypress/base-10
     steps:
@@ -15,6 +21,9 @@ workflows:
           name: Cypress Tests
           yarn: true
           start: yarn build
+      - lint:
+          requires:
+            - Cypress Tests
       - release:
           requires:
             - Cypress Tests
