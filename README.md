@@ -53,10 +53,8 @@ your Gatsby site:
   `gatsby-plugin-sitemap`) to create the breadcrumb.
 
   - Add the plugin `gatsby-plugin-remove-trailing-slashes`
-  - Add the plugin `gatsby-plugin-sitemap` and define the `output` plugin option
-  - Run `gatsby build && gatsby serve` to generate the sitemap xml file
-  - Add the plugin `gatsby-plugin-breadcrumb` and define the `sitemapPath`
-    plugin option
+  - Add the plugin `gatsby-plugin-breadcrumb` and define the `useSitemap` plugin
+    option to `true`
   - Get `crumbs` array from `breadcrumb` object in `pageContext`
   - Import and use the `<SitemapCrumbs>` component, passing the required props
     on pages you wish to see the breadcrumb
