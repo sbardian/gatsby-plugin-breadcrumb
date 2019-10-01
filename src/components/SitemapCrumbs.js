@@ -1,8 +1,8 @@
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable react/no-array-index-key */
-import React from 'react';
-import Proptypes from 'prop-types';
-import { Link } from 'gatsby';
+import React from 'react'
+import Proptypes from 'prop-types'
+import { Link } from 'gatsby'
 
 const SitemapCrumb = ({
   title = '',
@@ -39,14 +39,14 @@ const SitemapCrumb = ({
                 : c.crumbLabel}
             </Link>
             <span style={{ fontSize: '16pt', ...crumbStyle }}>
-              {crumbSeparator}
+              {i === siteCrumbs.length - 1 ? null : crumbSeparator}
             </span>
           </div>
-        );
+        )
       })}
     </div>
-  );
-};
+  )
+}
 
 SitemapCrumb.defaultProps = {
   title: '',
@@ -55,7 +55,7 @@ SitemapCrumb.defaultProps = {
   crumbStyle: {},
   crumbActiveStyle: {},
   crumbLabel: null,
-};
+}
 
 SitemapCrumb.propTypes = {
   title: Proptypes.string,
@@ -70,6 +70,6 @@ SitemapCrumb.propTypes = {
     }),
   ).isRequired,
   crumbLabel: Proptypes.string,
-};
+}
 
-export default SitemapCrumb;
+export default SitemapCrumb

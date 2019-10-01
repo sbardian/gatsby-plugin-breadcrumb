@@ -1,9 +1,9 @@
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable react/no-array-index-key */
-import React from 'react';
-import Proptypes from 'prop-types';
-import { Link } from 'gatsby';
-import useBreadcrumb from './useBreadcrumb';
+import React from 'react'
+import Proptypes from 'prop-types'
+import { Link } from 'gatsby'
+import useBreadcrumb from './useBreadcrumb'
 
 const Breadcrumb = ({
   title,
@@ -24,7 +24,7 @@ const Breadcrumb = ({
     crumbSeparator,
     crumbStyle,
     crumbActiveStyle,
-  });
+  })
 
   return (
     <div>
@@ -52,14 +52,14 @@ const Breadcrumb = ({
               {c.crumbLabel}
             </Link>
             <span style={{ fontSize: '16pt', ...c.crumbStyle }}>
-              {c.crumbSeparator}
+              {i === crumbs.length - 1 ? null : c.crumbSeparator}
             </span>
           </div>
-        );
+        )
       })}
     </div>
-  );
-};
+  )
+}
 
 Breadcrumb.defaultProps = {
   title: '',
@@ -67,7 +67,7 @@ Breadcrumb.defaultProps = {
   crumbWrapperStyle: {},
   crumbStyle: {},
   crumbActiveStyle: {},
-};
+}
 
 Breadcrumb.propTypes = {
   location: Proptypes.shape().isRequired,
@@ -77,6 +77,6 @@ Breadcrumb.propTypes = {
   crumbWrapperStyle: Proptypes.shape(),
   crumbActiveStyle: Proptypes.shape(),
   crumbStyle: Proptypes.shape(),
-};
+}
 
-export default Breadcrumb;
+export default Breadcrumb
