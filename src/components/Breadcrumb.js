@@ -31,7 +31,7 @@ const Breadcrumb = ({
       <span>{title}</span>
       {crumbs.map((c, i) => {
         return (
-          <div style={{ display: 'inline' }} key={i} {...crumbWrapperStyle}>
+          <div style={{ display: 'inline', ...crumbWrapperStyle }} key={i}>
             <Link
               to={c.pathname || ''}
               style={{

@@ -19,7 +19,7 @@ const SitemapCrumb = ({
       <span>{title}</span>
       {siteCrumbs.map((c, i) => {
         return (
-          <div style={{ display: 'inline' }} key={i} {...crumbWrapperStyle}>
+          <div style={{ display: 'inline', ...crumbWrapperStyle }} key={i}>
             <Link
               to={c.pathname}
               style={{
