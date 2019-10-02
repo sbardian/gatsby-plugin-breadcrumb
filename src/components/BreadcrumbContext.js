@@ -1,11 +1,15 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
-export const BreadcrumbContext = React.createContext('Breadcrumb');
+export const BreadcrumbContext = React.createContext('Breadcrumb')
 
-export const BreadcrumbProvider = ({ children, setHome = {} }) => {
-  let defaultCrumb = {};
+export const BreadcrumbProvider = ({
+  children,
+  setHome = {},
+  useClassNames = false,
+}) => {
+  let defaultCrumb = {}
   if (setHome) {
     defaultCrumb = {
       ...setHome.location,
@@ -13,9 +17,9 @@ export const BreadcrumbProvider = ({ children, setHome = {} }) => {
       crumbStyle: setHome.crumbStyle,
       crumbActiveStyle: setHome.crumbActiveStyle,
       crumbSeparator: setHome.crumbSeparator,
-    };
+    }
   }
-  const [crumbs, setCrumbs] = React.useState([{ ...defaultCrumb }]);
+  const [crumbs, setCrumbs] = React.useState([{ ...defaultCrumb }])
 
   const updateCrumbs = ({
     location,
@@ -32,9 +36,9 @@ export const BreadcrumbProvider = ({ children, setHome = {} }) => {
     ) {
       const removeAfter = crumbs.findIndex(
         crumb => crumb.pathname === location.pathname,
-      );
-      crumbs.splice(removeAfter + 1);
-      setCrumbs([...crumbs]);
+      )
+      crumbs.splice(removeAfter + 1)
+      setCrumbs([...crumbs])
     } else {
       setCrumbs([
         ...crumbs,
@@ -45,27 +49,29 @@ export const BreadcrumbProvider = ({ children, setHome = {} }) => {
           crumbStyle,
           crumbActiveStyle,
         },
-      ]);
+      ])
     }
-  };
+  }
 
   const crumb = {
     crumbs,
     updateCrumbs,
-  };
+    useClassNames,
+  }
 
   return (
     <BreadcrumbContext.Provider value={crumb}>
       {children}
     </BreadcrumbContext.Provider>
-  );
-};
+  )
+}
 
-export const BreadcrumbConsumer = BreadcrumbContext.Consumer;
+export const BreadcrumbConsumer = BreadcrumbContext.Consumer
 
 BreadcrumbProvider.defaultProps = {
   setHome: {},
-};
+  useClassNames: false,
+}
 
 BreadcrumbProvider.propTypes = {
   children: PropTypes.node.isRequired,
@@ -81,4 +87,5 @@ BreadcrumbProvider.propTypes = {
     crumbStyle: PropTypes.shape(),
     crumbActiveStyle: PropTypes.shape(),
   }),
-};
+  useClassNames: PropTypes.bool,
+}

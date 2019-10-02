@@ -13,12 +13,9 @@ const Breadcrumb = ({
   crumbWrapperStyle,
   crumbActiveStyle,
   crumbStyle,
-  // setHome = {},
   ...rest
 }) => {
-  // TODO: if 'setHome' === true, set default Home crumb using first set of params
-
-  const { crumbs = [] } = useBreadcrumb({
+  const { crumbs = [], useClassNames } = useBreadcrumb({
     location,
     crumbLabel,
     crumbSeparator,
@@ -28,30 +25,53 @@ const Breadcrumb = ({
 
   return (
     <div>
-      <span>{title}</span>
+      <span className="breadcrumb__title">{title}</span>
       {crumbs.map((c, i) => {
         return (
-          <div style={{ display: 'inline', ...crumbWrapperStyle }} key={i}>
+          <div
+            className="breadcrumb"
+            style={
+              useClassNames ? null : { display: 'inline', ...crumbWrapperStyle }
+            }
+            key={i}
+          >
             <Link
               to={c.pathname || ''}
-              style={{
-                textDecoration: 'none',
-                fontSize: '16pt',
-                color: '#e1e1e1',
-                ...c.crumbStyle,
-              }}
-              activeStyle={{
-                color: 'white',
-                ...crumbActiveStyle,
-              }}
+              style={
+                useClassNames
+                  ? null
+                  : {
+                      textDecoration: 'none',
+                      fontSize: '16pt',
+                      color: '#e1e1e1',
+                      ...c.crumbStyle,
+                    }
+              }
+              activeStyle={
+                useClassNames
+                  ? null
+                  : {
+                      color: 'white',
+                      ...crumbActiveStyle,
+                    }
+              }
               state={{
                 crumbClicked: true,
               }}
+              className="breadcrumb__link"
+              activeClassName={
+                useClassNames ? 'breadcrumb__link__active' : null
+              }
               {...rest}
             >
               {c.crumbLabel}
             </Link>
-            <span style={{ fontSize: '16pt', ...c.crumbStyle }}>
+            <span
+              className="breadcrumb__separator"
+              style={
+                useClassNames ? null : { fontSize: '16pt', ...c.crumbStyle }
+              }
+            >
               {i === crumbs.length - 1 ? null : c.crumbSeparator}
             </span>
           </div>

@@ -1,6 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import React from 'react';
-import { BreadcrumbContext } from './BreadcrumbContext';
+import React from 'react'
+import { BreadcrumbContext } from './BreadcrumbContext'
 
 const useBreadcrumb = ({
   location,
@@ -9,13 +9,16 @@ const useBreadcrumb = ({
   crumbStyle = {},
   crumbActiveStyle = {},
 }) => {
-  const { crumbs, updateCrumbs } = React.useContext(BreadcrumbContext);
+  const { crumbs, updateCrumbs, useClassNames } = React.useContext(
+    BreadcrumbContext,
+  )
 
   if (!location || !crumbLabel) {
     return {
       crumbs,
       updateCrumbs,
-    };
+      useClassNames,
+    }
   }
 
   React.useEffect(() => {
@@ -25,13 +28,14 @@ const useBreadcrumb = ({
       crumbSeparator,
       crumbStyle,
       crumbActiveStyle,
-    });
-  }, [location]);
+    })
+  }, [location])
 
   return {
     crumbs,
     updateCrumbs,
-  };
-};
+    useClassNames,
+  }
+}
 
-export default useBreadcrumb;
+export default useBreadcrumb

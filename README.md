@@ -79,7 +79,26 @@ your Gatsby site:
 ```javascript
 {
   plugins: [
-    `gatsby-plugin-breadcrumb`,
+    {
+      resolves: `gatsby-plugin-breadcrumb`,
+      options: {
+        // optional: To create a defaul crumb
+        // see Click Tracking default crumb example below
+        defaultCrumb: {
+          location: {
+            state: { crumbClicked: false },
+            pathname: "/",
+          },
+          crumbLabel: "HomeCustom",
+          crumbSeparator: " / ",
+          crumbStyle: { color: "#666" },
+          crumbActiveStyle: { color: "orange" },
+        },
+        // optional: switch to className styling
+        // see Click Tracking useClassNames example below
+        useClassNames: true,
+      }
+    }
   ],
 }
 ```
@@ -108,15 +127,15 @@ you to customize those breadcrumbs if you wish.
 
 ### Breadcrumb Props
 
-| prop              | type   | description                                     | examples                                                        | required |
-| ----------------- | ------ | ----------------------------------------------- | --------------------------------------------------------------- | -------- |
-| location          | object | Reach Router location prop                      | See Reach Router location prop, passed by Gatsby to every page. | required |
-| crumbLabel        | string | Name for the breadcrumb                         | `"About Us"`                                                    | required |
-| title             | string | Title proceeding the breadcrumbs                | `"Breadcrumbs: "`, `">>>"`                                      | optional |
-| crumbSeparator    | string | Separator between each breadcrumb               | `" / "`                                                         | optional |
-| crumbWrapperStyle | object | CSS object applied to breadcrumb wrapper        | `{ border: '1px solid white' }`                                 | optional |
-| crumbStyle        | object | CSS object applied to the current crumb         | `{ color: 'orange' }`                                           | optional |
-| crumbActiveStyle  | object | CSS object applied to current crumb when active | `{ color: 'cornflowerblue'}`                                    | optional |
+| prop              | type   | description                                     | examples                                                        | required | useClassNames disables |
+| ----------------- | ------ | ----------------------------------------------- | --------------------------------------------------------------- | -------- | ---------------------- |
+| location          | object | Reach Router location prop                      | See Reach Router location prop, passed by Gatsby to every page. | required |                        |
+| crumbLabel        | string | Name for the breadcrumb                         | `"About Us"`                                                    | required |                        |
+| title             | string | Title proceeding the breadcrumbs                | `"Breadcrumbs: "`, `">>>"`                                      | optional |                        |
+| crumbSeparator    | string | Separator between each breadcrumb               | `" / "`                                                         | optional |                        |
+| crumbWrapperStyle | object | CSS object applied to breadcrumb wrapper        | `{ border: '1px solid white' }`                                 | optional | x                      |
+| crumbStyle        | object | CSS object applied to the current crumb         | `{ color: 'orange' }`                                           | optional | x                      |
+| crumbActiveStyle  | object | CSS object applied to current crumb when active | `{ color: 'cornflowerblue'}`                                    | optional | x                      |
 
 ## Other `Click Tracking` options
 
@@ -176,7 +195,7 @@ export const Layout = ({location, crumbLabel}) => {
 }
 ```
 
-### `Click Tracking` default crumb example
+### Click Tracking `defaultCrumb` example
 
 While using the `Click Tracking` option with the `<Breadcrumb>` component, if a
 user goes directly to a page, your breadcrumb will start with that page. You may
@@ -202,6 +221,22 @@ using all available options.
     },
   },
 ```
+
+### Click Tracking `useClassNames` example
+
+By default `gatsby-plugin-breadcrumb` uses CSS in JS. Allowing you to pass
+styles as props to the `Breadcrumb` component. You can disable this behavior
+(and default styles) by passing the `useClassNames: true` plugin option. This
+will disable any default styling of the component and allow you to use CSS to
+style your breadcrumbs. Here is a list of the classes used with the `Breadcrumb`
+component:
+
+| class                    | description                                    |
+| ------------------------ | ---------------------------------------------- |
+| breadcrumb\_\_title      | Applied to the breadcrumb title (if supplied)  |
+| breadcrumb               | Applied to the breadcrumb wrapping div         |
+| breadcrumb\_\_link       | Applied to the link of the breadcrumb          |
+| breadcrumb**link**active | Applied to the link when active (current link) |
 
 ## `Sitemap` example
 
@@ -251,6 +286,9 @@ Add the following to your gatsby-config
           `/404.html`,
           `/offline-plugin-app-shell-fallback`,
         ],
+        // optional: switch to className styling
+        // see SitemapCrumbs useClassNames example below
+        useClassNames: true,
      },
   ]
 }
@@ -294,16 +332,32 @@ export const AboutUs = ({ pageContext, location, crumbLabel }) => {
 `Note`: The crumbStyle prop will apply to all the crumbs in the breadcrumb
 instead of to individual crumbs, as with `Click Tracking`.
 
-| prop              | type   | description                              | examples                        | required |
-| ----------------- | ------ | ---------------------------------------- | ------------------------------- | -------- |
-| crumbs            | array  | Array of crumbs return from pageContext  | n/a                             | required |
-| title             | string | Title proceeding the breadcrumbs         | `"Breadcrumbs: "`, `">>>"`      | optional |
-| crumbSeparator    | string | Separator between each breadcrumb        | `" / "`                         | optional |
-| crumbLabel        | string | Override crumb label from xml path       | `"About Us"`                    | optional |
-| crumbWrapperStyle | object | CSS object applied to breadcrumb wrapper | `{ border: '1px solid white' }` | optional |
-| crumbStyle        | object | CSS object applied to all the crumbs     | `{ color: 'orange' }`           | optional |
-| crumbActiveStyle  | object | CSS object applied to crumb when active  | `{ color: 'cornflowerblue'}`    | optional |
-| ...rest           | object | Any other props you may pass             | n/a: spread accross crumb Link  | optional |
+| prop              | type   | description                              | examples                        | required | useClassNames disables |
+| ----------------- | ------ | ---------------------------------------- | ------------------------------- | -------- | ---------------------- |
+| crumbs            | array  | Array of crumbs return from pageContext  | n/a                             | required |                        |
+| title             | string | Title proceeding the breadcrumbs         | `"Breadcrumbs: "`, `">>>"`      | optional |                        |
+| crumbSeparator    | string | Separator between each breadcrumb        | `" / "`                         | optional |                        |
+| crumbLabel        | string | Override crumb label from xml path       | `"About Us"`                    | optional |                        |
+| crumbWrapperStyle | object | CSS object applied to breadcrumb wrapper | `{ border: '1px solid white' }` | optional | x                      |
+| crumbStyle        | object | CSS object applied to all the crumbs     | `{ color: 'orange' }`           | optional | x                      |
+| crumbActiveStyle  | object | CSS object applied to crumb when active  | `{ color: 'cornflowerblue'}`    | optional | x                      |
+| ...rest           | object | Any other props you may pass             | n/a: spread accross crumb Link  | optional |                        |
+
+### SitemapCrumbs `useClassNames` example
+
+By default `gatsby-plugin-breadcrumb` uses CSS in JS. Allowing you to pass
+styles as props to the `SitemapCrumbs` component. You can disable this behavior
+(and default styles) by passing the `useClassNames: true` plugin option. This
+will disable any default styling of the component and allow you to use CSS to
+style your breadcrumbs. Here is a list of the classes used with the
+`SitemapCrumbs` component:
+
+| class                    | description                                    |
+| ------------------------ | ---------------------------------------------- |
+| breadcrumb\_\_title      | Applied to the breadcrumb title (if supplied)  |
+| breadcrumb               | Applied to the breadcrumb wrapping div         |
+| breadcrumb\_\_link       | Applied to the link of the breadcrumb          |
+| breadcrumb**link**active | Applied to the link when active (current link) |
 
 ## `useBreadcrumb` example:
 

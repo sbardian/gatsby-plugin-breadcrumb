@@ -3,6 +3,7 @@
 import React from 'react'
 import Proptypes from 'prop-types'
 import { Link } from 'gatsby'
+import useBreadcrumb from './useBreadcrumb'
 
 const SitemapCrumb = ({
   title = '',
@@ -14,31 +15,53 @@ const SitemapCrumb = ({
   crumbLabel: crumbLabelOverride = null,
   ...rest
 }) => {
+  const { useClassNames } = useBreadcrumb({})
   return (
     <div>
       <span>{title}</span>
       {siteCrumbs.map((c, i) => {
         return (
-          <div style={{ display: 'inline', ...crumbWrapperStyle }} key={i}>
+          <div
+            className="breadcrumb"
+            style={
+              useClassNames ? null : { display: 'inline', ...crumbWrapperStyle }
+            }
+            key={i}
+          >
             <Link
               to={c.pathname}
-              style={{
-                textDecoration: 'none',
-                fontSize: '16pt',
-                color: '#e1e1e1',
-                ...crumbStyle,
-              }}
-              activeStyle={{
-                color: 'white',
-                ...crumbActiveStyle,
-              }}
+              style={
+                useClassNames
+                  ? null
+                  : {
+                      textDecoration: 'none',
+                      fontSize: '16pt',
+                      color: '#e1e1e1',
+                      ...crumbStyle,
+                    }
+              }
+              activeStyle={
+                useClassNames
+                  ? null
+                  : {
+                      color: 'white',
+                      ...crumbActiveStyle,
+                    }
+              }
+              className="breadcrumb__link"
+              activeClassName={
+                useClassNames ? 'breadcrumb__link__active' : null
+              }
               {...rest}
             >
               {crumbLabelOverride && i === siteCrumbs.length - 1
                 ? crumbLabelOverride
                 : c.crumbLabel}
             </Link>
-            <span style={{ fontSize: '16pt', ...crumbStyle }}>
+            <span
+              className="breadcrumb__separator"
+              style={useClassNames ? null : { fontSize: '16pt', ...crumbStyle }}
+            >
               {i === siteCrumbs.length - 1 ? null : crumbSeparator}
             </span>
           </div>
