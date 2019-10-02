@@ -231,12 +231,12 @@ will disable any default styling of the component and allow you to use CSS to
 style your breadcrumbs. Here is a list of the classes used with the `Breadcrumb`
 component:
 
-| class                    | description                                    |
-| ------------------------ | ---------------------------------------------- |
-| breadcrumb\_\_title      | Applied to the breadcrumb title (if supplied)  |
-| breadcrumb               | Applied to the breadcrumb wrapping div         |
-| breadcrumb\_\_link       | Applied to the link of the breadcrumb          |
-| breadcrumb**link**active | Applied to the link when active (current link) |
+| class                      | description                                    |
+| -------------------------- | ---------------------------------------------- |
+| `breadcrumb__title`        | Applied to the breadcrumb title (if supplied)  |
+| `breadcrumb`               | Applied to the breadcrumb wrapping div         |
+| `breadcrumb__link`         | Applied to the link of the breadcrumb          |
+| `breadcrumb__link__active` | Applied to the link when active (current link) |
 
 ## `Sitemap` example
 
@@ -352,12 +352,12 @@ will disable any default styling of the component and allow you to use CSS to
 style your breadcrumbs. Here is a list of the classes used with the
 `SitemapCrumbs` component:
 
-| class                    | description                                    |
-| ------------------------ | ---------------------------------------------- |
-| breadcrumb\_\_title      | Applied to the breadcrumb title (if supplied)  |
-| breadcrumb               | Applied to the breadcrumb wrapping div         |
-| breadcrumb\_\_link       | Applied to the link of the breadcrumb          |
-| breadcrumb**link**active | Applied to the link when active (current link) |
+| class                      | description                                    |
+| -------------------------- | ---------------------------------------------- |
+| `breadcrumb__title`        | Applied to the breadcrumb title (if supplied)  |
+| `breadcrumb`               | Applied to the breadcrumb wrapping div         |
+| `breadcrumb__link`         | Applied to the link of the breadcrumb          |
+| `breadcrumb__link__active` | Applied to the link when active (current link) |
 
 ## `useBreadcrumb` example:
 
