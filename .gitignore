@@ -28,7 +28,7 @@ node_modules
 
 decls
 dist
-components
+/components
 
 /gatsby-browser.js
 /gatsby-node.js
