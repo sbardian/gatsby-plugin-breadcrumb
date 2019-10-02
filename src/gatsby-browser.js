@@ -5,20 +5,15 @@ import React from 'react'
 import { BreadcrumbProvider } from './components/BreadcrumbContext'
 
 export const wrapRootElement = ({ element }, pluginOptions) => {
-  if (
-    (pluginOptions && pluginOptions.defaultCrumb) ||
-    (pluginOptions && pluginOptions.useClassNames)
-  ) {
-    const { defaultCrumb, useClassNames } = pluginOptions
+  const { defaultCrumb, useClassNames, useAutoGen } = pluginOptions
 
-    return (
-      <BreadcrumbProvider
-        setHome={defaultCrumb}
-        useClassNames={useClassNames || false}
-      >
-        {element}
-      </BreadcrumbProvider>
-    )
-  }
-  return <BreadcrumbProvider>{element}</BreadcrumbProvider>
+  return (
+    <BreadcrumbProvider
+      setHome={defaultCrumb || null}
+      useAutoGen={useAutoGen || false}
+      useClassNames={useClassNames || false}
+    >
+      {element}
+    </BreadcrumbProvider>
+  )
 }

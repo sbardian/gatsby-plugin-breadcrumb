@@ -5,21 +5,28 @@ import Proptypes from 'prop-types'
 import { Link } from 'gatsby'
 import useBreadcrumb from './useBreadcrumb'
 
-const SitemapCrumb = ({
-  title = '',
+const ClickTrackingCrumb = ({
+  title,
+  location,
+  crumbLabel,
   crumbSeparator,
   crumbWrapperStyle,
   crumbActiveStyle,
   crumbStyle,
-  crumbs: siteCrumbs,
-  crumbLabel: crumbLabelOverride = null,
   ...rest
 }) => {
-  const { useClassNames } = useBreadcrumb({})
+  const { crumbs = [], useClassNames } = useBreadcrumb({
+    location,
+    crumbLabel,
+    crumbSeparator,
+    crumbStyle,
+    crumbActiveStyle,
+  })
+
   return (
     <div>
-      <span>{title}</span>
-      {siteCrumbs.map((c, i) => {
+      <span className="breadcrumb__title">{title}</span>
+      {crumbs.map((c, i) => {
         return (
           <div
             className="breadcrumb"
@@ -29,7 +36,7 @@ const SitemapCrumb = ({
             key={i}
           >
             <Link
-              to={c.pathname}
+              to={c.pathname || ''}
               style={
                 useClassNames
                   ? null
@@ -37,7 +44,7 @@ const SitemapCrumb = ({
                       textDecoration: 'none',
                       fontSize: '16pt',
                       color: '#e1e1e1',
-                      ...crumbStyle,
+                      ...c.crumbStyle,
                     }
               }
               activeStyle={
@@ -48,21 +55,24 @@ const SitemapCrumb = ({
                       ...crumbActiveStyle,
                     }
               }
+              state={{
+                crumbClicked: true,
+              }}
               className="breadcrumb__link"
               activeClassName={
                 useClassNames ? 'breadcrumb__link__active' : null
               }
               {...rest}
             >
-              {crumbLabelOverride && i === siteCrumbs.length - 1
-                ? crumbLabelOverride
-                : c.crumbLabel}
+              {c.crumbLabel}
             </Link>
             <span
               className="breadcrumb__separator"
-              style={useClassNames ? null : { fontSize: '16pt', ...crumbStyle }}
+              style={
+                useClassNames ? null : { fontSize: '16pt', ...c.crumbStyle }
+              }
             >
-              {i === siteCrumbs.length - 1 ? null : crumbSeparator}
+              {i === crumbs.length - 1 ? null : c.crumbSeparator}
             </span>
           </div>
         )
@@ -71,28 +81,22 @@ const SitemapCrumb = ({
   )
 }
 
-SitemapCrumb.defaultProps = {
+ClickTrackingCrumb.defaultProps = {
   title: '',
   crumbSeparator: ' / ',
   crumbWrapperStyle: {},
   crumbStyle: {},
   crumbActiveStyle: {},
-  crumbLabel: null,
 }
 
-SitemapCrumb.propTypes = {
+ClickTrackingCrumb.propTypes = {
+  location: Proptypes.shape().isRequired,
+  crumbLabel: Proptypes.string.isRequired,
   title: Proptypes.string,
   crumbSeparator: Proptypes.string,
   crumbWrapperStyle: Proptypes.shape(),
   crumbActiveStyle: Proptypes.shape(),
   crumbStyle: Proptypes.shape(),
-  crumbs: Proptypes.arrayOf(
-    Proptypes.shape({
-      location: Proptypes.shape(),
-      pathname: Proptypes.string.isRequired,
-    }),
-  ).isRequired,
-  crumbLabel: Proptypes.string,
 }
 
-export default SitemapCrumb
+export default ClickTrackingCrumb
