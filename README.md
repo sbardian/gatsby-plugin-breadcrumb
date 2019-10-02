@@ -32,6 +32,15 @@ npm install gatsby-plugin-breadcrumb
 
 CodeSandbox.io [Demo](https://codesandbox.io/s/50o4zwm91l)
 
+# \* Warning: `<SitemapCrumbs />` component has been deprecated and replaced by the `<Breadcrumb />`
+
+The `<SitemapCrumbs />` component has been deprecated and will be removed in
+version 6. This will simplify the API so you always use the `<Breadcrumb />`
+component, reguardless of the way you are using `gatsby-plugin-breadcrumb`
+(Click Tracking or AutoGen (new Sitemap method)). Please update using the
+`<Breadcrumb />` component if you are currently using the `<SitemapCrumbs />`
+component or AutoGen method method of populating your breadcrumbs.
+
 ## Usage
 
 There are three ways to use `gatsby-plugin-breadcrumb` to add breadcrumbs to
@@ -49,18 +58,18 @@ your Gatsby site:
     - [Breadcrumb with Layout component](#click-tracking-layout-component-example)
     - [Breadcrumb with default crumb](#click-tracking-default-crumb-example)
 
-- `Sitemap`: Sitemap will use a sitemap xml file (gererated using
-  `gatsby-plugin-sitemap`) to create the breadcrumb.
+- `AutoGen` (Auto Generated): AutoGen will generate breadcrumbs for each page
+  and inject them into pages `pageContext` prop under the `breadcrumb` property.
 
   - Add the plugin `gatsby-plugin-remove-trailing-slashes`
-  - Add the plugin `gatsby-plugin-breadcrumb` and define the `useSitemap` plugin
+  - Add the plugin `gatsby-plugin-breadcrumb` and define the `useAutoGen` plugin
     option to `true`
   - Get `crumbs` array from `breadcrumb` object in `pageContext`
-  - Import and use the `<SitemapCrumbs>` component, passing the required props
-    on pages you wish to see the breadcrumb
+  - Import and use the `<AutoGenCrumb>` component, passing the required props on
+    pages you wish to see the breadcrumb
 
-    - [Sitemap example](#sitemap-example)
-    - [SitemapCrumbs component props](#sitemapcrumbs-props-for-sitemap)
+    - [AutoGen example](#autogen-example)
+    - [AutoGenCrumb component props](#autogencrumb-props-for-autogen)
 
 - `useBreadcrumb`: The `useBreadcrumb` hook enables you to control your own
   breadcrumbs, by calling `useBreadcrumb` and passing the required object
@@ -109,7 +118,7 @@ your Gatsby site:
 import React from 'react'
 import { Breadcrumb } from 'gatsby-plugin-breadcrumb'
 
-export const AboutUs = ({ location, data: { allPageJson } }) => {
+export const AboutUs = ({ location }) => {
   ...
   return(
     <div>
@@ -125,7 +134,7 @@ export const AboutUs = ({ location, data: { allPageJson } }) => {
 The `<Breadcrumb>` component provides default breadcrumbs, while also allowing
 you to customize those breadcrumbs if you wish.
 
-### Breadcrumb Props
+### Breadcrumb Props with `Click Tracking`
 
 | prop              | type   | description                                     | examples                                                        | required | useClassNames disables |
 | ----------------- | ------ | ----------------------------------------------- | --------------------------------------------------------------- | -------- | ---------------------- |
@@ -151,7 +160,7 @@ import React from 'react'
 import Layout from './layout'
 ...
 
-export const AboutUs = ({location}) => {
+export const AboutUs = ({ location }) => {
   return (
     <Layout location={location} crumbLabel="About Us" >
       ...
@@ -222,7 +231,7 @@ using all available options.
   },
 ```
 
-### Click Tracking `useClassNames` example
+### `useClassNames` example with `Click Tracking`
 
 By default `gatsby-plugin-breadcrumb` uses CSS in JS. Allowing you to pass
 styles as props to the `Breadcrumb` component. You can disable this behavior
@@ -265,13 +274,14 @@ component:
 }
 ```
 
-## `Sitemap` example
+## `AutoGen` example
 
-`Sitemap` used to rely on `gatsby-plugin-sitemap`, which creates a sitmap XML
-file in the `/public` folder of your site at the end of the site build. This
-caused problems when deploying to services like Netlify, as the XML file was not
-created when we needed to try to read from it, causing the build to fail. Now
-`Sitemap` generates the breadcrumbs as pages are created.
+`AutoGen` (Auto Generated, previously `Sitemap`) used to rely on
+`gatsby-plugin-sitemap`, which creates a sitmap XML file in the `/public` folder
+of your site at the end of the site build. This caused problems when deploying
+to services like Netlify, as the XML file was not created when we needed to try
+to read from it, causing the build to fail. Now `AutoGen` generates the
+breadcrumbs as pages are created.
 
 Install `gatsby-plugin-remove-trailing-slashes`
 
@@ -302,10 +312,10 @@ Add the following to your gatsby-config
     {
       resolve: `gatsby-plugin-breadcrumb`,
       options: {
-        // useSitemap: required 'true' to use sitemap
-        useSitemap: true,
-        // sitemapHomeLabel: optional 'Home' is default
-        sitemapHomeLabel: `Root`,
+        // useAutoGen: required 'true' to use autogen
+        useAutoGen: true,
+        // autoGenHomeLabel: optional 'Home' is default
+        autoGenHomeLabel: `Root`,
         // exlude: optional, include to overwrite default excluded pages
         exclude: [
           `/dev-404-page`,
@@ -314,22 +324,22 @@ Add the following to your gatsby-config
           `/offline-plugin-app-shell-fallback`,
         ],
         // optional: switch to className styling
-        // see SitemapCrumbs useClassNames example below
+        // see AutoGenCrumb useClassNames example below
         useClassNames: true,
      },
   ]
 }
 ```
 
-SitemapCrumbs component example
+### `Breadcrumb` component example with `AutoGen`
 
 `/pages/about-us.js`
 
 ```jsx
 import React from 'react'
-import { SitemapCrumbs } from 'gatsby-plugin-breadcrumb'
+import { Breadcrumb } from 'gatsby-plugin-breadcrumb'
 
-export const AboutUs = ({ pageContext, location, crumbLabel }) => {
+export const AboutUs = ({ pageContext, location }) => {
   const {
     breadcrumb: { crumbs },
   } = pageContext
@@ -341,7 +351,7 @@ export const AboutUs = ({ pageContext, location, crumbLabel }) => {
     <div>
       <Header>
         <main>
-          <SitemapCrumbs
+          <Breadcrumb
             crumbs={crumbs}
             crumbSeparator=" - "
             crumbLabel={customCrumbLabel}
@@ -354,7 +364,7 @@ export const AboutUs = ({ pageContext, location, crumbLabel }) => {
 }
 ```
 
-### SitemapCrumbs Props
+### `Breadcrumb` Props with `AutoGen`
 
 `Note`: The crumbStyle prop will apply to all the crumbs in the breadcrumb
 instead of to individual crumbs, as with `Click Tracking`.
@@ -370,14 +380,14 @@ instead of to individual crumbs, as with `Click Tracking`.
 | crumbActiveStyle  | object | CSS object applied to crumb when active  | `{ color: 'cornflowerblue'}`    | optional | x                      |
 | ...rest           | object | Any other props you may pass             | n/a: spread accross crumb Link  | optional |                        |
 
-### SitemapCrumbs `useClassNames` example
+### `useClassNames` example with `AutoGen`
 
 By default `gatsby-plugin-breadcrumb` uses CSS in JS. Allowing you to pass
-styles as props to the `SitemapCrumbs` component. You can disable this behavior
+styles as props to the `Breadcrumb` component. You can disable this behavior
 (and default styles) by passing the `useClassNames: true` plugin option. This
 will disable any default styling of the component and allow you to use CSS to
-style your breadcrumbs. Here is a list of the classes used with the
-`SitemapCrumbs` component:
+style your breadcrumbs. Here is a list of the classes used with the `Breadcrumb`
+component:
 
 | class                      | description                                    |
 | -------------------------- | ---------------------------------------------- |
@@ -399,7 +409,7 @@ style your breadcrumbs. Here is a list of the classes used with the
     {
       resolve: `gatsby-plugin-breadcrumb`,
       options: {
-        useSitemap: true,
+        useAutoGen: true,
         useClassNames: true,
      },
   ]
@@ -470,10 +480,6 @@ be mentioned here submit a PR, or just let us know!
 
 - In your `gatsby-config.js` option `siteMetaData.siteUrl` be sure to remove any
   trailing slashes
-- When using `Sitemap` breadcrumbs you must add a page then run
-  `gatsby build && gatsby serve` before trying to access the breadcrumb object
-  from pageContext. The breadcrumb object builds off the sitemap generated by
-  this command. If you try to access the object before running it, it will not
-  exist for the new page
+
 - The `<Link>'s` throughout your site need to have `to` properties that match
   your breadcrumb `to` properties for activeStyles to be applied.

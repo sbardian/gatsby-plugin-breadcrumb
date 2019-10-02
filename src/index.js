@@ -4,8 +4,10 @@ import {
   BreadcrumbConsumer,
   BreadcrumbProvider,
   useBreadcrumb,
+  // TODO: remove after next major release
   SitemapCrumbs,
-} from './components';
+  AutoGenCrumb,
+} from './components'
 
 export {
   Breadcrumb,
@@ -13,5 +15,7 @@ export {
   BreadcrumbConsumer,
   BreadcrumbProvider,
   useBreadcrumb,
+  // TODO: remove after next major release
   SitemapCrumbs,
-};
+  AutoGenCrumb,
+}

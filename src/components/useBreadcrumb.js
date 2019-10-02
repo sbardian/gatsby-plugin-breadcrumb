@@ -9,7 +9,7 @@ const useBreadcrumb = ({
   crumbStyle = {},
   crumbActiveStyle = {},
 }) => {
-  const { crumbs, updateCrumbs, useClassNames } = React.useContext(
+  const { crumbs, updateCrumbs, useClassNames, useAutoGen } = React.useContext(
     BreadcrumbContext,
   )
 
@@ -18,6 +18,7 @@ const useBreadcrumb = ({
       crumbs,
       updateCrumbs,
       useClassNames,
+      useAutoGen,
     }
   }
 
@@ -35,6 +36,7 @@ const useBreadcrumb = ({
     crumbs,
     updateCrumbs,
     useClassNames,
+    useAutoGen,
   }
 }
 

@@ -6,8 +6,9 @@ export const BreadcrumbContext = React.createContext('Breadcrumb')
 
 export const BreadcrumbProvider = ({
   children,
-  setHome = {},
+  setHome = null,
   useClassNames = false,
+  useAutoGen = false,
 }) => {
   let defaultCrumb = {}
   if (setHome) {
@@ -57,6 +58,7 @@ export const BreadcrumbProvider = ({
     crumbs,
     updateCrumbs,
     useClassNames,
+    useAutoGen,
   }
 
   return (
@@ -71,6 +73,7 @@ export const BreadcrumbConsumer = BreadcrumbContext.Consumer
 BreadcrumbProvider.defaultProps = {
   setHome: {},
   useClassNames: false,
+  useAutoGen: false,
 }
 
 BreadcrumbProvider.propTypes = {
@@ -88,4 +91,5 @@ BreadcrumbProvider.propTypes = {
     crumbActiveStyle: PropTypes.shape(),
   }),
   useClassNames: PropTypes.bool,
+  useAutoGen: PropTypes.bool,
 }
