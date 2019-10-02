@@ -238,6 +238,33 @@ component:
 | `breadcrumb__link`         | Applied to the link of the breadcrumb          |
 | `breadcrumb__link__active` | Applied to the link when active (current link) |
 
+`gatsby-config.js` example
+
+```javascript
+{
+  siteMetadata: {
+    // siteUrl: required (Gotcha: do not include a trailing slash at the end)
+    siteUrl: "http://localhost:8000",
+  },
+  plugins: [
+    `gatsby-plugin-remove-trailing-slashes`,
+    {
+      resolve: `gatsby-plugin-breadcrumb`,
+      options: {
+        defaultCrumb: {
+          location: {
+            state: { crumbClicked: false },
+            pathname: "/",
+          },
+          crumbLabel: "Home",
+          crumbSeparator: " - ",
+      },
+        useClassNames: true,
+     },
+  ]
+}
+```
+
 ## `Sitemap` example
 
 `Sitemap` used to rely on `gatsby-plugin-sitemap`, which creates a sitmap XML
@@ -358,6 +385,26 @@ style your breadcrumbs. Here is a list of the classes used with the
 | `breadcrumb`               | Applied to the breadcrumb wrapping div         |
 | `breadcrumb__link`         | Applied to the link of the breadcrumb          |
 | `breadcrumb__link__active` | Applied to the link when active (current link) |
+
+`gatsby-config.js` example
+
+```javascript
+{
+  siteMetadata: {
+    // siteUrl: required (Gotcha: do not include a trailing slash at the end)
+    siteUrl: "http://localhost:8000",
+  },
+  plugins: [
+    `gatsby-plugin-remove-trailing-slashes`,
+    {
+      resolve: `gatsby-plugin-breadcrumb`,
+      options: {
+        useSitemap: true,
+        useClassNames: true,
+     },
+  ]
+}
+```
 
 ## `useBreadcrumb` example:
 
