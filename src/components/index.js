@@ -1,6 +1,6 @@
 import Breadcrumb from './Breadcrumb'
 import AutoGenCrumb from './auto-gen-crumb'
-// TODO: remove after next major release
+// TODO: remove before v7 release
 import SitemapCrumbs from './sitemap-crumbs'
 import {
   BreadcrumbContext,
@@ -15,7 +15,7 @@ export {
   BreadcrumbConsumer,
   BreadcrumbProvider,
   useBreadcrumb,
-  // TODO: remove after next major release
+  // TODO: remove before v7 release
   SitemapCrumbs,
   AutoGenCrumb,
 }
