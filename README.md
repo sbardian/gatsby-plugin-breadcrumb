@@ -12,7 +12,6 @@
 Add Breadcrumbs to your Gatsby Site!
 
 - [Installation](https://github.com/sbardian/gatsby-plugin-breadcrumb#installation)
-- [Demo](https://github.com/sbardian/gatsby-plugin-breadcrumb#demo)
 - [Usage](https://github.com/sbardian/gatsby-plugin-breadcrumb#usage)
 - [Gotchas](https://github.com/sbardian/gatsby-plugin-breadcrumb#gotchas)
 
@@ -28,14 +27,10 @@ or
 npm install gatsby-plugin-breadcrumb
 ```
 
-## Demo
-
-CodeSandbox.io [Demo](https://codesandbox.io/s/50o4zwm91l)
-
-# \* Warning: `<SitemapCrumbs />` component has been deprecated and replaced by the `<Breadcrumb />`
+## \* Warning: `<SitemapCrumbs />` component has been deprecated and replaced by the `<Breadcrumb />` component
 
 The `<SitemapCrumbs />` component has been deprecated and will be removed in
-version 6. This will simplify the API so you always use the `<Breadcrumb />`
+version 7. This will simplify the API so you always use the `<Breadcrumb />`
 component, reguardless of the way you are using `gatsby-plugin-breadcrumb`
 (Click Tracking or AutoGen (new Sitemap method)). Please update using the
 `<Breadcrumb />` component if you are currently using the `<SitemapCrumbs />`
@@ -49,8 +44,8 @@ your Gatsby site:
 - `Click Tracking`: Click tracking creates a breadcrumb of out of the path taken
   (clicked) by the user.
 
-  - Add the plugin to your `gatsby-config.js`
-  - Import and use the `<Breadcrumb>` component, passing the required props on
+  - Add the plugin `gatsby-plugin-breadcrumb` to your `gatsby-config.js`
+  - Import and use the `<Breadcrumb />` component, passing the required props on
     pages you wish to see the breadcrumb.
 
     - [Click Tracking example](#click-tracking-example)
@@ -61,11 +56,10 @@ your Gatsby site:
 - `AutoGen` (Auto Generated): AutoGen will generate breadcrumbs for each page
   and inject them into pages `pageContext` prop under the `breadcrumb` property.
 
-  - Add the plugin `gatsby-plugin-remove-trailing-slashes`
-  - Add the plugin `gatsby-plugin-breadcrumb` and define the `useAutoGen` plugin
-    option to `true`
+  - Add the plugin `gatsby-plugin-breadcrumb` to your `gatsby-config.js` and
+    define the `useAutoGen` plugin option to `true`
   - Get `crumbs` array from `breadcrumb` object in `pageContext`
-  - Import and use the `<AutoGenCrumb>` component, passing the required props on
+  - Import and use the `<Breadcrumb />` component, passing the required props on
     pages you wish to see the breadcrumb
 
     - [AutoGen example](#autogen-example)
@@ -83,6 +77,8 @@ your Gatsby site:
 
 ## `Click Tracking` example:
 
+CodeSandbox.io [Demo](https://codesandbox.io/s/50o4zwm91l)
+
 `gatsby-config.js`
 
 ```javascript
@@ -91,7 +87,7 @@ your Gatsby site:
     {
       resolves: `gatsby-plugin-breadcrumb`,
       options: {
-        // optional: To create a defaul crumb
+        // optional: To create a default crumb
         // see Click Tracking default crumb example below
         defaultCrumb: {
           location: {
@@ -104,7 +100,7 @@ your Gatsby site:
           crumbActiveStyle: { color: "orange" },
         },
         // optional: switch to className styling
-        // see Click Tracking useClassNames example below
+        // see `useClassNames example with Click Tracking` below
         useClassNames: true,
       }
     }
@@ -131,7 +127,7 @@ export const AboutUs = ({ location }) => {
 
 ### Breadcrumb component with `Click Tracking`
 
-The `<Breadcrumb>` component provides default breadcrumbs, while also allowing
+The `<Breadcrumb />` component provides default breadcrumbs, while also allowing
 you to customize those breadcrumbs if you wish.
 
 ### Breadcrumb Props with `Click Tracking`
@@ -146,14 +142,16 @@ you to customize those breadcrumbs if you wish.
 | crumbStyle        | object | CSS object applied to the current crumb         | `{ color: 'orange' }`                                           | optional | x                      |
 | crumbActiveStyle  | object | CSS object applied to current crumb when active | `{ color: 'cornflowerblue'}`                                    | optional | x                      |
 
-## Other `Click Tracking` options
+### Other `Click Tracking` options
 
-Instead of adding the `<Breadcrumb>` component to every page, another option
+Instead of adding the `<Breadcrumb />` component to every page, another option
 would be to add it to a layout component.
 
 ### `Click Tracking` Layout component example
 
-`aboutus.js`
+CodeSandbox.io [Demo](https://codesandbox.io/s/breadcrumb-with-layout-ce0rp)
+
+`/pages/aboutus.js`
 
 ```jsx
 import React from 'react'
@@ -169,7 +167,7 @@ export const AboutUs = ({ location }) => {
 }
 ```
 
-`contact.js`
+`/pages/contact.js`
 
 ```jsx
 import React from 'react'
@@ -184,7 +182,7 @@ export const Contact = ({location}) => {
 }
 ```
 
-`layout.js`
+`/components/layout.js`
 
 ```jsx
 import React from 'react'
@@ -206,12 +204,12 @@ export const Layout = ({location, crumbLabel}) => {
 
 ### Click Tracking `defaultCrumb` example
 
-While using the `Click Tracking` option with the `<Breadcrumb>` component, if a
-user goes directly to a page, your breadcrumb will start with that page. You may
-want to always provide a default or `Home` breadcrumb. You can do this by adding
-options to the plugin. We must structure the `default` breadcrumb we provide in
-the plugin options in a way our context is expecting, see below for an example
-using all available options.
+While using the `Click Tracking` option with the `<Breadcrumb />` component, if
+a user goes directly to a page, your breadcrumb will start with that page. You
+may want to always provide a default or `Home` breadcrumb. You can do this by
+adding options to the plugin. We must structure the `default` breadcrumb we
+provide in the plugin options in a way our context is expecting, see below for
+an example using all available options.
 
 ```javascript
   {
@@ -256,7 +254,6 @@ component:
     siteUrl: "http://localhost:8000",
   },
   plugins: [
-    `gatsby-plugin-remove-trailing-slashes`,
     {
       resolve: `gatsby-plugin-breadcrumb`,
       options: {
@@ -276,26 +273,15 @@ component:
 
 ## `AutoGen` example
 
+Codesandbox.io [Demo](https://codesandbox.io/s/auto-generated-breadcrumbs-m5p5t)
+
 `AutoGen` (Auto Generated, previously `Sitemap`) used to rely on
 `gatsby-plugin-sitemap`, which creates a sitmap XML file in the `/public` folder
 of your site at the end of the site build. This caused problems when deploying
 to services like Netlify, as the XML file was not created when we needed to try
 to read from it, causing the build to fail. Now `AutoGen` generates the
-breadcrumbs as pages are created.
-
-Install `gatsby-plugin-remove-trailing-slashes`
-
-npm
-
-```bash
-npm install gatsby-plugin-remove-trailing-slashes
-```
-
-yarn
-
-```bash
-yarn add gatsby-plugin-remove-trailing-slashes
-```
+breadcrumbs as pages are created. We also no longer require the
+`gatsby-plugin-remove-trailing-slashes` plugin.
 
 Add the following to your gatsby-config
 
@@ -308,7 +294,6 @@ Add the following to your gatsby-config
     siteUrl: "http://localhost:8000",
   },
   plugins: [
-    `gatsby-plugin-remove-trailing-slashes`,
     {
       resolve: `gatsby-plugin-breadcrumb`,
       options: {
@@ -316,7 +301,7 @@ Add the following to your gatsby-config
         useAutoGen: true,
         // autoGenHomeLabel: optional 'Home' is default
         autoGenHomeLabel: `Root`,
-        // exlude: optional, include to overwrite default excluded pages
+        // exlude: optional, include to overwrite these default excluded pages
         exclude: [
           `/dev-404-page`,
           `/404`,
@@ -324,7 +309,7 @@ Add the following to your gatsby-config
           `/offline-plugin-app-shell-fallback`,
         ],
         // optional: switch to className styling
-        // see AutoGenCrumb useClassNames example below
+        // see `useClassNames example with `AutoGen` below
         useClassNames: true,
      },
   ]
@@ -405,7 +390,6 @@ component:
     siteUrl: "http://localhost:8000",
   },
   plugins: [
-    `gatsby-plugin-remove-trailing-slashes`,
     {
       resolve: `gatsby-plugin-breadcrumb`,
       options: {
@@ -428,7 +412,7 @@ component:
 }
 ```
 
-`/pages/home.js`
+`/pages/about-us.js`
 
 ```jsx
 import React from 'react'
@@ -450,9 +434,9 @@ export const AboutUs = ({ location }) => {
 }
 ```
 
-### `useBreadcrumb` props and returns
+### `useBreadcrumb` arguments and returns
 
-The `useBreadcrumb` hook takes an object with the following props:
+The `useBreadcrumb` hook takes an object with the following properties:
 
 | prop             | type   | description                                     | examples                                                        | required |
 | ---------------- | ------ | ----------------------------------------------- | --------------------------------------------------------------- | -------- |
@@ -464,10 +448,12 @@ The `useBreadcrumb` hook takes an object with the following props:
 
 `useBreadcrumb` returns the following:
 
-| value        | type     | description                                                                                                             |
-| ------------ | -------- | ----------------------------------------------------------------------------------------------------------------------- |
-| crumbs       | array    | Array of the current breadcrumbs                                                                                        |
-| updateCrumbs | function | function to enable you to manually update crumbs (The hook should handle this, only use if you know what you are doing) |
+| value         | type     | description                                                                                                             |
+| ------------- | -------- | ----------------------------------------------------------------------------------------------------------------------- |
+| crumbs        | array    | Array of the current breadcrumbs                                                                                        |
+| updateCrumbs  | function | Function to enable you to manually update crumbs (The hook should handle this, only use if you know what you are doing) |
+| useClassNames | bool     | Value of the useClassNames plugin option (default: false)                                                               |
+| useAutoGen    | bool     | Value of the useAutoGen plugin option (default: false)                                                                  |
 
 The `useBreadcrumb` hook will determine if it needs to add, remove, or do
 nothing with the breadcrumbs based on the location you pass. You only need to
@@ -475,8 +461,8 @@ pass it the required props (`location`, `crumbLabel`).
 
 ## Gotchas
 
-Here are a few gotchas we have noticed. If you notice any more you think should
-be mentioned here submit a PR, or just let us know!
+Here are a few gotchas. If you notice any more you think should be mentioned
+here submit a PR or create an issue.
 
 - In your `gatsby-config.js` option `siteMetaData.siteUrl` be sure to remove any
   trailing slashes
