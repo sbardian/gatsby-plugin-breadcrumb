@@ -4,12 +4,7 @@ import PropTypes from 'prop-types'
 
 export const BreadcrumbContext = React.createContext('Breadcrumb')
 
-export const BreadcrumbProvider = ({
-  children,
-  setHome = null,
-  useClassNames = false,
-  useAutoGen = false,
-}) => {
+export const BreadcrumbProvider = ({ children, setHome = null }) => {
   let defaultCrumb = {}
   if (setHome) {
     defaultCrumb = {
@@ -57,8 +52,6 @@ export const BreadcrumbProvider = ({
   const crumb = {
     crumbs,
     updateCrumbs,
-    useClassNames,
-    useAutoGen,
   }
 
   return (
@@ -72,8 +65,6 @@ export const BreadcrumbConsumer = BreadcrumbContext.Consumer
 
 BreadcrumbProvider.defaultProps = {
   setHome: {},
-  useClassNames: false,
-  useAutoGen: false,
 }
 
 BreadcrumbProvider.propTypes = {
@@ -90,6 +81,4 @@ BreadcrumbProvider.propTypes = {
     crumbStyle: PropTypes.shape(),
     crumbActiveStyle: PropTypes.shape(),
   }),
-  useClassNames: PropTypes.bool,
-  useAutoGen: PropTypes.bool,
 }

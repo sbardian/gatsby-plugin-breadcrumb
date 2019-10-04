@@ -3,6 +3,7 @@
 import React from 'react'
 import Proptypes from 'prop-types'
 import { Link } from 'gatsby'
+import { OptionsContext } from './options-context'
 import useBreadcrumb from './useBreadcrumb'
 
 // TODO: Delete before v7 release
@@ -17,13 +18,15 @@ const ClickTrackingCrumb = ({
   crumbStyle,
   ...rest
 }) => {
-  const { crumbs = [], useClassNames } = useBreadcrumb({
+  const { crumbs = [] } = useBreadcrumb({
     location,
     crumbLabel,
     crumbSeparator,
     crumbStyle,
     crumbActiveStyle,
   })
+
+  const { useClassNames } = React.useContext(OptionsContext)
 
   return (
     <div>

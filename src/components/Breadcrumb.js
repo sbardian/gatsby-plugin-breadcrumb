@@ -3,10 +3,10 @@
 import React from 'react'
 import AutoGenCrumb from './auto-gen-crumb'
 import ClickTrackingCrumb from './click-tracking-crumb'
-import useBreadcrumb from './useBreadcrumb'
+import { OptionsContext } from './options-context'
 
 const Breadcrumb = props => {
-  const { useAutoGen } = useBreadcrumb({})
+  const { useAutoGen } = React.useContext(OptionsContext)
 
   return (
     <>

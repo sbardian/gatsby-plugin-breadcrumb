@@ -3,7 +3,7 @@
 import React from 'react'
 import Proptypes from 'prop-types'
 import { Link } from 'gatsby'
-import useBreadcrumb from './useBreadcrumb'
+import { OptionsContext } from './options-context'
 
 const AutoGenCrumb = ({
   title = '',
@@ -15,7 +15,8 @@ const AutoGenCrumb = ({
   crumbLabel: crumbLabelOverride = null,
   ...rest
 }) => {
-  const { useClassNames } = useBreadcrumb({})
+  const { useClassNames } = React.useContext(OptionsContext)
+
   return (
     <div>
       <span>{title}</span>
@@ -78,7 +79,6 @@ AutoGenCrumb.defaultProps = {
   crumbStyle: {},
   crumbActiveStyle: {},
   crumbLabel: null,
-  useClassNames: false,
 }
 
 AutoGenCrumb.propTypes = {
@@ -94,7 +94,6 @@ AutoGenCrumb.propTypes = {
     }),
   ).isRequired,
   crumbLabel: Proptypes.string,
-  useClassNames: Proptypes.bool,
 }
 
 export default AutoGenCrumb
