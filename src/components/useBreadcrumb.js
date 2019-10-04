@@ -16,7 +16,6 @@ const useBreadcrumb = ({
   if (!location || !crumbLabel) {
     return {
       crumbs,
-      updateCrumbs,
       useClassNames,
       useAutoGen,
     }
@@ -34,7 +33,6 @@ const useBreadcrumb = ({
 
   return {
     crumbs,
-    updateCrumbs,
     useClassNames,
     useAutoGen,
   }
