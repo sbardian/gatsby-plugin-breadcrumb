@@ -420,7 +420,7 @@ import MyCustomBreadcrumb from './my-custom-breadcrumb'
 import { useBreadcrumb } from 'gatsby-plugin-breadcrumb'
 
 export const AboutUs = ({ location }) => {
-  const { crumbs, updateCrumbs } = useBreadcrumb({
+  const { crumbs } = useBreadcrumb({
     location,
     crumbLabel: 'About Us',
     crumbSeparator: ' / ',
@@ -448,12 +448,11 @@ The `useBreadcrumb` hook takes an object with the following properties:
 
 `useBreadcrumb` returns the following:
 
-| value         | type     | description                                                                                                             |
-| ------------- | -------- | ----------------------------------------------------------------------------------------------------------------------- |
-| crumbs        | array    | Array of the current breadcrumbs                                                                                        |
-| updateCrumbs  | function | Function to enable you to manually update crumbs (The hook should handle this, only use if you know what you are doing) |
-| useClassNames | bool     | Value of the useClassNames plugin option (default: false)                                                               |
-| useAutoGen    | bool     | Value of the useAutoGen plugin option (default: false)                                                                  |
+| value         | type  | description                                               |
+| ------------- | ----- | --------------------------------------------------------- |
+| crumbs        | array | Array of the current breadcrumbs                          |
+| useClassNames | bool  | Value of the useClassNames plugin option (default: false) |
+| useAutoGen    | bool  | Value of the useAutoGen plugin option (default: false)    |
 
 The `useBreadcrumb` hook will determine if it needs to add, remove, or do
 nothing with the breadcrumbs based on the location you pass. You only need to
