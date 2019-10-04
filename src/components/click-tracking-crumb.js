@@ -5,6 +5,8 @@ import Proptypes from 'prop-types'
 import { Link } from 'gatsby'
 import useBreadcrumb from './useBreadcrumb'
 
+// TODO: Delete before v7 release
+
 const ClickTrackingCrumb = ({
   title,
   location,

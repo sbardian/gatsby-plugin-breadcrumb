@@ -2,7 +2,7 @@
 import React from 'react'
 import AutoGenCrumb from './auto-gen-crumb'
 
-// TODO: delete component after next major release
+// TODO: Delete before v7 release
 const SitemapCrumbs = props => {
   // eslint-disable-next-line
   console.warn(
