@@ -3,17 +3,19 @@
 /* eslint-disable react/prop-types */
 import React from 'react'
 import { BreadcrumbProvider } from './components/BreadcrumbContext'
+import { OptionsProvider } from './components/options-context'
 
 export const wrapRootElement = ({ element }, pluginOptions) => {
   const { defaultCrumb, useClassNames, useAutoGen } = pluginOptions
 
   return (
-    <BreadcrumbProvider
-      setHome={defaultCrumb || null}
+    <OptionsProvider
       useAutoGen={useAutoGen || false}
       useClassNames={useClassNames || false}
     >
-      {element}
-    </BreadcrumbProvider>
+      <BreadcrumbProvider setHome={defaultCrumb || null}>
+        {element}
+      </BreadcrumbProvider>
+    </OptionsProvider>
   )
 }

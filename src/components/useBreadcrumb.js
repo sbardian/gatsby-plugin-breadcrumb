@@ -9,15 +9,11 @@ const useBreadcrumb = ({
   crumbStyle = {},
   crumbActiveStyle = {},
 }) => {
-  const { crumbs, updateCrumbs, useClassNames, useAutoGen } = React.useContext(
-    BreadcrumbContext,
-  )
+  const { crumbs, updateCrumbs } = React.useContext(BreadcrumbContext)
 
   if (!location || !crumbLabel) {
     return {
       crumbs,
-      useClassNames,
-      useAutoGen,
     }
   }
 
@@ -33,8 +29,6 @@ const useBreadcrumb = ({
 
   return {
     crumbs,
-    useClassNames,
-    useAutoGen,
   }
 }
 
