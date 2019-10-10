@@ -41,8 +41,8 @@
     "prop-types": "^15.7.2"
   },
   "devDependencies": {
-    "@babel/cli": "7.6.3",
-    "@babel/core": "7.6.3",
+    "@babel/cli": "7.6.4",
+    "@babel/core": "7.6.4",
     "@commitlint/cli": "8.2.0",
     "@commitlint/config-conventional": "8.2.0",
     "@testing-library/cypress": "4.2.0",
