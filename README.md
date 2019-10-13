@@ -418,16 +418,21 @@ export const AboutUs = ({ pageContext, location }) => {
 Note: The crumbStyle prop will apply to all the crumbs in the breadcrumb instead
 of to individual crumbs, as with Click Tracking.
 
-| prop              | type   | description                              | examples                        | required | useClassNames disables |
-| ----------------- | ------ | ---------------------------------------- | ------------------------------- | -------- | ---------------------- |
-| crumbs            | array  | Array of crumbs return from pageContext  | n/a                             | required |                        |
-| title             | string | Title proceeding the breadcrumbs         | `"Breadcrumbs: "`, `">>>"`      | optional |                        |
-| crumbSeparator    | string | Separator between each breadcrumb        | `" / "`                         | optional |                        |
-| crumbLabel        | string | Override crumb label from xml path       | `"About Us"`                    | optional |                        |
-| crumbWrapperStyle | object | CSS object applied to breadcrumb wrapper | `{ border: '1px solid white' }` | optional | x                      |
-| crumbStyle        | object | CSS object applied to all the crumbs     | `{ color: 'orange' }`           | optional | x                      |
-| crumbActiveStyle  | object | CSS object applied to crumb when active  | `{ color: 'cornflowerblue'}`    | optional | x                      |
-| ...rest           | object | Any other props you may pass             | n/a: spread accross crumb Link  | optional |                        |
+| prop              | type   | description                                   | examples                        | required | useClassNames disables |
+| ----------------- | ------ | --------------------------------------------- | ------------------------------- | -------- | ---------------------- |
+| crumbs            | array  | Array of crumbs return from pageContext       | n/a                             | required |                        |
+| title             | string | Title proceeding the breadcrumbs              | `"Breadcrumbs: "`, `">>>"`      | optional |                        |
+| crumbSeparator    | string | Separator between each breadcrumb             | `" / "`                         | optional |                        |
+| crumbLabel        | string | Override crumb label from xml path            | `"About Us"`                    | optional |                        |
+| crumbWrapperStyle | object | CSS object applied to breadcrumb wrapper      | `{ border: '1px solid white' }` | optional | x                      |
+| crumbStyle        | object | CSS object applied to all the crumbs          | `{ color: 'orange' }`           | optional | x                      |
+| crumbActiveStyle  | object | CSS object applied to crumb when active       | `{ color: 'cornflowerblue'}`    | optional | x                      |
+| hiddenCrumbs      | array  | pathnames of crumbs to hide                   | `['/books']`                    | optional |                        |
+| disableLinks      | array  | pathnames of crumbs to show, but not be links | `['/books']`                    | optional |                        |
+| ...rest           | object | Any other props you may pass                  | n/a: spread accross crumb Link  | optional |                        |
+
+> For an example on using `disableLinks/hiddenCrumbs` see
+> https://github.com/sbardian/books
 
 ### useClassNames example with AutoGen
 
@@ -438,12 +443,13 @@ will disable any default styling of the component and allow you to use CSS to
 style your breadcrumbs. Here is a list of the classes used with the
 `<Breadcrumb />` component:
 
-| class                      | description                                    |
-| -------------------------- | ---------------------------------------------- |
-| `breadcrumb__title`        | Applied to the breadcrumb title (if supplied)  |
-| `breadcrumb`               | Applied to the breadcrumb wrapping div         |
-| `breadcrumb__link`         | Applied to the link of the breadcrumb          |
-| `breadcrumb__link__active` | Applied to the link when active (current link) |
+| class                        | description                                    |
+| ---------------------------- | ---------------------------------------------- |
+| `breadcrumb__title`          | Applied to the breadcrumb title (if supplied)  |
+| `breadcrumb`                 | Applied to the breadcrumb wrapping div         |
+| `breadcrumb__link`           | Applied to the link of the breadcrumb          |
+| `breadcrumb__link__active`   | Applied to the link when active (current link) |
+| `breadcrumb__link__disabled` | Applied to crumbs that have links disabled     |
 
 gatsby-config.js
 
