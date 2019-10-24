@@ -89,7 +89,7 @@ gatsby-config.js
 {
   plugins: [
     {
-      resolves: `gatsby-plugin-breadcrumb`,
+      resolve: `gatsby-plugin-breadcrumb`,
       options: {
         // optional: To create a default crumb
         // see Click Tracking default crumb example below
