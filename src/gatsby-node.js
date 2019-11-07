@@ -1,4 +1,4 @@
-exports.onCreatePage = ({ page, actions }, pluginOptions) => {
+exports.onCreatePage = ({ page, pathPrefix, actions }, pluginOptions) => {
   // TODO: remove useSitemap before v7 release
   if (pluginOptions.useSitemap || pluginOptions.useAutoGen) {
     const { createPage, deletePage } = actions
@@ -18,7 +18,9 @@ exports.onCreatePage = ({ page, actions }, pluginOptions) => {
       let acc = ''
       let crumbs = []
 
-      const splitUrl = page.path.split('/')
+      const splitUrl = page.path
+        .replace(new RegExp(`^${pathPrefix}`), '')
+        .split('/')
       splitUrl.forEach((split, index) => {
         if (index === 0 && split === '') {
           crumbs = [

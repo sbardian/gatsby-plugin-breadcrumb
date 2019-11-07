@@ -8,10 +8,12 @@ export const OptionsProvider = ({
   children,
   useClassNames = false,
   useAutoGen = false,
+  usePathPrefix = null,
 }) => {
   const options = {
     useClassNames,
     useAutoGen,
+    usePathPrefix,
   }
 
   return (
@@ -26,10 +28,12 @@ export const OptionsConsumer = OptionsContext.Consumer
 OptionsProvider.defaultProps = {
   useClassNames: false,
   useAutoGen: false,
+  usePathPrefix: null,
 }
 
 OptionsProvider.propTypes = {
   children: PropTypes.node.isRequired,
   useClassNames: PropTypes.bool,
   useAutoGen: PropTypes.bool,
+  usePathPrefix: PropTypes.string,
 }

@@ -18,15 +18,20 @@ const ClickTrackingCrumb = ({
   crumbStyle,
   ...rest
 }) => {
+  const { useClassNames, usePathPrefix } = React.useContext(OptionsContext)
+
   const { crumbs = [] } = useBreadcrumb({
-    location,
+    location: {
+      ...location,
+      pathname: usePathPrefix
+        ? location.pathname.replace(new RegExp(`^${usePathPrefix}`), '')
+        : location.pathname,
+    },
     crumbLabel,
     crumbSeparator,
     crumbStyle,
     crumbActiveStyle,
   })
-
-  const { useClassNames } = React.useContext(OptionsContext)
 
   return (
     <div>
