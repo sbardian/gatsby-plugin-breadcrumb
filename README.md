@@ -87,6 +87,8 @@ gatsby-config.js
 
 ```javascript
 {
+  // optional: if you are using path prefix, see plugin option below
+  pathPrefix: '/blog',
   plugins: [
     {
       resolve: `gatsby-plugin-breadcrumb`,
@@ -106,6 +108,8 @@ gatsby-config.js
         // optional: switch to className styling
         // see `useClassNames example with Click Tracking` below
         useClassNames: true,
+        // optional: if you are using path prefix
+        usePathPrefix: '/blog',
       }
     }
   ],
@@ -353,6 +357,8 @@ gatsby-config.js
 
 ```javascript
 {
+  // optional: if you are using path prefix, see plugin option below
+  pathPrefix: '/blog',
   siteMetadata: {
     // siteUrl: required (Gotcha: do not include a trailing slash at the end)
     siteUrl: "http://localhost:8000",
@@ -375,6 +381,8 @@ gatsby-config.js
         // optional: switch to className styling
         // see `useClassNames example with `AutoGen` below
         useClassNames: true,
+        // optional: if you are using path prefix
+        usePathPrefix: '/blog',
      },
   ]
 }
