@@ -10,8 +10,11 @@ const Breadcrumb = props => {
 
   return (
     <>
-      {useAutoGen && <AutoGenCrumb {...props} />}
-      {!useAutoGen && <ClickTrackingCrumb {...props} />}
+      {useAutoGen ? (
+        <AutoGenCrumb {...props} />
+      ) : (
+        <ClickTrackingCrumb {...props} />
+      )}
     </>
   )
 }
