@@ -15,6 +15,7 @@ export const BreadcrumbProvider = ({ children, setHome = null }) => {
       crumbSeparator: setHome.crumbSeparator,
     }
   }
+
   const [crumbs, setCrumbs] = React.useState([{ ...defaultCrumb }])
 
   const updateCrumbs = ({

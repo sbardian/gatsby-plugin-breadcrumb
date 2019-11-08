@@ -18,9 +18,9 @@ exports.onCreatePage = ({ page, pathPrefix, actions }, pluginOptions) => {
       let acc = ''
       let crumbs = []
 
-      const splitUrl = page.path
-        .replace(new RegExp(`^${pathPrefix}`), '')
-        .split('/')
+      const splitUrl = pathPrefix
+        ? page.path.replace(new RegExp(`^${pathPrefix}`), '').split('/')
+        : page.path.split('/')
       splitUrl.forEach((split, index) => {
         if (index === 0 && split === '') {
           crumbs = [
