@@ -97,7 +97,6 @@ gatsby-config.js
         // see Click Tracking default crumb example below
         defaultCrumb: {
           location: {
-            state: { crumbClicked: false },
             pathname: "/",
           },
           crumbLabel: "HomeCustom",
@@ -224,9 +223,8 @@ available options.
     resolve: `gatsby-plugin-breadcrumb`,
     options: {
       defaultCrumb: {
-        // location: required and must include the following properties
+        // location: required and must include the pathname property
         location: {
-          state: { crumbClicked: false },
           pathname: "/",
         },
         // crumbLabel: required label for the default crumb
@@ -270,7 +268,6 @@ gatsby-config.js
       options: {
         defaultCrumb: {
           location: {
-            state: { crumbClicked: false },
             pathname: "/",
           },
           crumbLabel: "Home",

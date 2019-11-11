@@ -65,9 +65,6 @@ const ClickTrackingCrumb = ({
                       ...crumbActiveStyle,
                     }
               }
-              state={{
-                crumbClicked: true,
-              }}
               className="breadcrumb__link"
               activeClassName={
                 useClassNames ? 'breadcrumb__link__active' : null

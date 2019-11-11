@@ -24,18 +24,18 @@ export const BreadcrumbProvider = ({ children, setHome = null }) => {
     crumbStyle,
     crumbActiveStyle,
   }) => {
+    const indexOfFirstOccurrenceOfCurrentPath = crumbs.findIndex(
+      crumb => crumb.pathname === location.pathname,
+    )
+
     if (
-      (location.state && location.state.crumbClicked) ||
-      crumbs.find(
-        crumb => crumb.pathname === location.pathname && crumbs.length > 0,
-      )
+      indexOfFirstOccurrenceOfCurrentPath > -1 &&
+      indexOfFirstOccurrenceOfCurrentPath < crumbs.length - 1
     ) {
-      const removeAfter = crumbs.findIndex(
-        crumb => crumb.pathname === location.pathname,
-      )
-      crumbs.splice(removeAfter + 1)
-      setCrumbs([...crumbs])
-    } else {
+      setCrumbs(crumbs.slice(0, indexOfFirstOccurrenceOfCurrentPath))
+    }
+
+    if (indexOfFirstOccurrenceOfCurrentPath === -1) {
       setCrumbs([
         ...crumbs,
         {
@@ -71,9 +71,6 @@ BreadcrumbProvider.propTypes = {
   children: PropTypes.node.isRequired,
   setHome: PropTypes.shape({
     location: PropTypes.shape({
-      state: PropTypes.shape({
-        crumbClicked: PropTypes.bool,
-      }),
       pathname: PropTypes.string,
     }),
     crumbLabel: PropTypes.string,
