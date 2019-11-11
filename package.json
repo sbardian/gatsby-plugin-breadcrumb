@@ -29,7 +29,8 @@
     "prepublishOnly": "yarn build"
   },
   "release": {
-    "branch": "master"
+    "branch": "master",
+    "repositoryUrl": "https://github.com/sbardian/gatsby-plugin-breadcrumb"
   },
   "config": {
     "commitizen": {
@@ -72,6 +73,7 @@
     "lint-staged": "9.4.2",
     "prettier": "1.19.1",
     "react": "16.11.0",
+    "react-dom": "^16.11.0",
     "semantic-release": "15.13.30"
   },
   "peerDependencies": {

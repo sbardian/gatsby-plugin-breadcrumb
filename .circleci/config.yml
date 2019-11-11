@@ -1,29 +1,43 @@
-version: 2.1
-orbs:
-  cypress: cypress-io/cypress@1.13.0
+version: 2
 jobs:
-  lint:
-    executor: cypress/base-10
-    steps:
-      - attach_workspace:
-          at: ~/
-      - run: yarn lint
-  release:
-    executor: cypress/base-10
-    steps:
-      - attach_workspace:
-          at: ~/
-      - run: npx semantic-release
-workflows:
   build:
+    docker:
+      - image: circleci/node:10
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-
+
+      - run: yarn install
+
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+
+      # run tests!
+      - run: yarn lint
+      - run: yarn test
+  release:
+    docker:
+      - image: circleci/node:10
+    steps:
+      - run: npx semantic-release
+
+workflows:
+  version: 2
+  test_lint_release:
     jobs:
-      - cypress/run:
-          name: Cypress Tests
-          yarn: true
-          start: yarn build
-      - lint:
-          requires:
-            - Cypress Tests
+      - build
       - release:
           requires:
-            - lint
+            - build
+          filters:
+            branches:
+              only: master
