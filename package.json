@@ -3,7 +3,10 @@
   "version": "0.0.0-semantically-released",
   "description": "Gatsby plugin to add breadcrumbs to your site",
   "main": "index.js",
-  "repository": "https://github.com/sbardian/gatsby-plugin-breadcrumb",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sbardian/gatsby-plugin-breadcrumb"
+  },
   "homepage": "https://github.com/sbardian/gatsby-plugin-breadcrumb",
   "bugs": "https://github.com/sbardian/gatsby-plugin-breadcrumb/issues",
   "author": "Brian Andrews <sbardian@gmail.com>",
@@ -29,8 +32,7 @@
     "prepublishOnly": "yarn build"
   },
   "release": {
-    "branch": "master",
-    "repositoryUrl": "https://github.com/sbardian/gatsby-plugin-breadcrumb"
+    "branch": "master"
   },
   "config": {
     "commitizen": {
