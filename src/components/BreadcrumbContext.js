@@ -4,19 +4,10 @@ import PropTypes from 'prop-types'
 
 export const BreadcrumbContext = React.createContext('Breadcrumb')
 
-export const BreadcrumbProvider = ({ children, setHome = null }) => {
-  let defaultCrumb = {}
-  if (setHome) {
-    defaultCrumb = {
-      ...setHome.location,
-      crumbLabel: setHome.crumbLabel,
-      crumbStyle: setHome.crumbStyle,
-      crumbActiveStyle: setHome.crumbActiveStyle,
-      crumbSeparator: setHome.crumbSeparator,
-    }
-  }
-
-  const [crumbs, setCrumbs] = React.useState([{ ...defaultCrumb }])
+export const BreadcrumbProvider = ({ children, defaultCrumb = null }) => {
+  const [crumbs, setCrumbs] = React.useState(
+    defaultCrumb ? [{ ...defaultCrumb }] : [],
+  )
 
   const updateCrumbs = ({
     location,
@@ -65,12 +56,12 @@ export const BreadcrumbProvider = ({ children, setHome = null }) => {
 export const BreadcrumbConsumer = BreadcrumbContext.Consumer
 
 BreadcrumbProvider.defaultProps = {
-  setHome: {},
+  defaultCrumb: {},
 }
 
 BreadcrumbProvider.propTypes = {
   children: PropTypes.node.isRequired,
-  setHome: PropTypes.shape({
+  defaultCrumb: PropTypes.shape({
     location: PropTypes.shape({
       pathname: PropTypes.string,
     }),

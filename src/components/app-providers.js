@@ -19,7 +19,7 @@ export const AppProviders = ({ element, pluginOptions }) => {
       useClassNames={useClassNames || false}
       usePathPrefix={usePathPrefix || null}
     >
-      <BreadcrumbProvider setHome={defaultCrumb || null}>
+      <BreadcrumbProvider defaultCrumb={defaultCrumb || null}>
         {element}
       </BreadcrumbProvider>
     </OptionsProvider>
