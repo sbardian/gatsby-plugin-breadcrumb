@@ -8,16 +8,11 @@ import { OptionsContext } from './options-context'
 const Breadcrumb = props => {
   const { useAutoGen } = React.useContext(OptionsContext)
 
-  return (
-    <>
-      {useAutoGen ? (
-        <AutoGenCrumb {...props} />
-      ) : (
-        <ClickTrackingCrumb {...props} />
-      )}
-    </>
+  return useAutoGen ? (
+    <AutoGenCrumb {...props} />
+  ) : (
+    <ClickTrackingCrumb {...props} />
   )
-  // return <div>test</div>
 }
 
 export default Breadcrumb
