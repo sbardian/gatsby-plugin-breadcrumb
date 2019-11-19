@@ -123,8 +123,8 @@ AutoGenCrumb.propTypes = {
     }),
   ).isRequired,
   crumbLabel: Proptypes.string,
-  disableLinks: Proptypes.arrayOf,
-  hiddenCrumbs: Proptypes.arrayOf,
+  disableLinks: Proptypes.arrayOf(Proptypes.string),
+  hiddenCrumbs: Proptypes.arrayOf(Proptypes.string),
 }
 
 export default AutoGenCrumb
