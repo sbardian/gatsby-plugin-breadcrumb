@@ -68,7 +68,7 @@
     "eslint-plugin-jsx-a11y": "6.2.3",
     "eslint-plugin-prettier": "3.1.1",
     "eslint-plugin-react": "7.16.0",
-    "gatsby": "2.17.17",
+    "gatsby": "2.18.0",
     "husky": "3.1.0",
     "jest": "24.9.0",
     "jest-dom": "4.0.0",
