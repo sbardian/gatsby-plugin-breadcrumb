@@ -1,10 +1,5 @@
 import React from 'react'
-import {
-  render,
-  cleanup,
-  // fireEvent,
-  // waitForElementToBeRemoved,
-} from '@testing-library/react'
+import { render, cleanup } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 import Breadcrumb from './Breadcrumb'
 import { OptionsProvider } from './options-context'
@@ -85,28 +80,4 @@ describe('Breadcrumb Click Tracking', () => {
     )
     expect(getByText('testLabel')).toBeTruthy()
   })
-  // it('Should render click tracking breadcrumb with default crumb and click home removing testLabel', async () => {
-  //   const { getByText, queryByText } = render(
-  //     <OptionsProvider
-  //       useAutoGen={useAutoGen}
-  //       useClassNames={useClassNames}
-  //       usePathPrefix={usePathPrefix}
-  //     >
-  //       <BreadcrumbProvider defaultCrumb={defaultCrumb}>
-  //         <Breadcrumb
-  //           title={props.title}
-  //           location={props.location}
-  //           crumbLabel={props.crumbLabel}
-  //           crumbSeparator={props.crumbSeparator}
-  //         />
-  //       </BreadcrumbProvider>
-  //     </OptionsProvider>,
-  //   )
-  //   const homeLink = getByText('HomeCustom')
-  //   const testLink = getByText('testLabel')
-  //   expect(homeLink).toBeTruthy()
-  //   expect(testLink).toBeTruthy()
-  //   fireEvent.click(homeLink)
-  //   expect(queryByText('testLabel')).toBeNull()
-  // })
 })
