@@ -5,12 +5,16 @@ const actions = {
   deletePage: jest.fn(),
 }
 
-const mockPage = {
+const mockPageShortPath = {
   path: '/test',
   context: {},
 }
 
-const calledWith = {
+const mockPageLongPath = {
+  path: '/long/test',
+}
+
+const calledWithShort = {
   path: '/test',
   context: {
     breadcrumb: {
@@ -29,35 +33,70 @@ const calledWith = {
   },
 }
 
+const calledWithLong = {
+  path: '/long/test',
+  context: {
+    breadcrumb: {
+      crumbs: [
+        {
+          crumbLabel: 'Home',
+          pathname: '/',
+        },
+        {
+          crumbLabel: 'long',
+          pathname: '/long',
+        },
+        {
+          crumbLabel: 'test',
+          pathname: '/long/test',
+        },
+      ],
+      location: '/long/test',
+    },
+  },
+}
+
 afterEach(() => {
   actions.createPage.mockClear()
   actions.deletePage.mockClear()
 })
 
 describe('AutoGen crumbs: ', () => {
-  it('should generate autogen crumbs', () => {
+  it('should generate autogen crumbs short path', () => {
     onCreatePage(
-      { page: mockPage, actions },
+      { page: mockPageShortPath, actions },
       {
         useAutoGen: true,
       },
     )
     expect(actions.deletePage).toHaveBeenCalledTimes(1)
-    expect(actions.deletePage).toHaveBeenCalledWith(mockPage)
+    expect(actions.deletePage).toHaveBeenCalledWith(mockPageShortPath)
     expect(actions.createPage).toHaveBeenCalledTimes(1)
-    expect(actions.createPage).toHaveBeenCalledWith(calledWith)
+    expect(actions.createPage).toHaveBeenCalledWith(calledWithShort)
+  })
+  it('should generate autogen crumbs long path', () => {
+    onCreatePage(
+      { page: mockPageLongPath, actions },
+      {
+        useAutoGen: true,
+      },
+    )
+    expect(actions.deletePage).toHaveBeenCalledTimes(1)
+    expect(actions.deletePage).toHaveBeenCalledWith(mockPageLongPath)
+    expect(actions.createPage).toHaveBeenCalledTimes(1)
+    expect(actions.createPage).toHaveBeenCalledWith(calledWithLong)
   })
   it('should generage crumbs using pathPrefix', () => {
     onCreatePage(
-      { page: mockPage, actions, pathPrefix: '/blog' },
+      { page: mockPageShortPath, actions, pathPrefix: '/blog' },
       {
         useAutoGen: true,
       },
     )
     expect(actions.deletePage).toHaveBeenCalledTimes(1)
-    expect(actions.deletePage).toHaveBeenCalledWith(mockPage)
+    expect(actions.deletePage).toHaveBeenCalledWith(mockPageShortPath)
     expect(actions.createPage).toHaveBeenCalledTimes(1)
-    expect(actions.createPage).toHaveBeenCalledWith(calledWith)
+    expect(actions.createPage).toHaveBeenCalledWith(calledWithShort)
   })
   it('should not generate auto crumbs, no useAutoGen', () => {
     onCreatePage(
