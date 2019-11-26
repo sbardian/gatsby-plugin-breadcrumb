@@ -62,7 +62,7 @@ describe('Breadcrumb Click Tracking', () => {
     expect(getByText('testLabel')).toBeTruthy()
   })
   it('Should Render click tracking breadcrumb without default crumb', () => {
-    const { getByText } = render(
+    const { getByText, queryByText } = render(
       <OptionsProvider
         useAutoGen={useAutoGen}
         useClassNames={useClassNames}
@@ -78,6 +78,7 @@ describe('Breadcrumb Click Tracking', () => {
         </BreadcrumbProvider>
       </OptionsProvider>,
     )
+    expect(queryByText('HomeCustom')).toBeNull()
     expect(getByText('testLabel')).toBeTruthy()
   })
 })
