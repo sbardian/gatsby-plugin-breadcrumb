@@ -14,6 +14,7 @@ exports.onCreatePage = ({ page, pathPrefix, actions }, pluginOptions) => {
 
     const optionsActual = { ...defaultOptions, ...pluginOptions }
 
+    // create breadcrumbs from non excluded pages paths
     if (!optionsActual.exclude.includes(page.path)) {
       let acc = ''
       let crumbs = []
@@ -23,6 +24,7 @@ exports.onCreatePage = ({ page, pathPrefix, actions }, pluginOptions) => {
         : page.path.split('/')
       splitUrl.forEach((split, index) => {
         if (index === 0 && split === '') {
+          // root or 'home' section of path
           crumbs = [
             ...crumbs,
             {
@@ -35,6 +37,7 @@ exports.onCreatePage = ({ page, pathPrefix, actions }, pluginOptions) => {
             },
           ]
         } else if (index !== 0 && split !== '') {
+          // remaining sections of path
           acc += `/${split}`
           const n = acc.lastIndexOf('/')
           crumbs = [
@@ -45,6 +48,7 @@ exports.onCreatePage = ({ page, pathPrefix, actions }, pluginOptions) => {
             },
           ]
         } else {
+          // catch empty paths
           crumbs = [...crumbs]
         }
       })
@@ -53,6 +57,7 @@ exports.onCreatePage = ({ page, pathPrefix, actions }, pluginOptions) => {
         crumbs,
       }
 
+      // inject breadcrumbs into page context
       const { context: oldPageContext } = page
       deletePage(page)
       createPage({
