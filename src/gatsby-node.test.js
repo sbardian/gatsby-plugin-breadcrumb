@@ -10,6 +10,10 @@ const mockPageShortPath = {
   context: {},
 }
 
+const mockPageEmptyPath = {
+  path: '/test//',
+}
+
 const mockPageLongPath = {
   path: '/long/test',
 }
@@ -29,6 +33,25 @@ const calledWithShort = {
         },
       ],
       location: '/test',
+    },
+  },
+}
+
+const calledWithEmptyPath = {
+  path: '/test//',
+  context: {
+    breadcrumb: {
+      crumbs: [
+        {
+          crumbLabel: 'Home',
+          pathname: '/',
+        },
+        {
+          crumbLabel: 'test',
+          pathname: '/test',
+        },
+      ],
+      location: '/test//',
     },
   },
 }
@@ -73,6 +96,18 @@ describe('AutoGen crumbs: ', () => {
     expect(actions.deletePage).toHaveBeenCalledWith(mockPageShortPath)
     expect(actions.createPage).toHaveBeenCalledTimes(1)
     expect(actions.createPage).toHaveBeenCalledWith(calledWithShort)
+  })
+  it('should generate autogen crumbs excluding empty crumb', () => {
+    onCreatePage(
+      { page: mockPageEmptyPath, actions },
+      {
+        useAutoGen: true,
+      },
+    )
+    expect(actions.deletePage).toHaveBeenCalledTimes(1)
+    expect(actions.deletePage).toHaveBeenCalledWith(mockPageEmptyPath)
+    expect(actions.createPage).toHaveBeenCalledTimes(1)
+    expect(actions.createPage).toHaveBeenCalledWith(calledWithEmptyPath)
   })
   it('should generate autogen crumbs long path', () => {
     onCreatePage(
