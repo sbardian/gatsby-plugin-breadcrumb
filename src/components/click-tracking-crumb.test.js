@@ -81,4 +81,48 @@ describe('Breadcrumb Click Tracking', () => {
     expect(queryByText('HomeCustom')).toBeNull()
     expect(getByText('testLabel')).toBeTruthy()
   })
+  it('Should render click tracking breadcrumb with default crumb and path prefix', () => {
+    const { getByText } = render(
+      <OptionsProvider
+        useAutoGen={useAutoGen}
+        useClassNames={useClassNames}
+        usePathPrefix="/blog"
+      >
+        <BreadcrumbProvider defaultCrumb={defaultCrumb}>
+          <Breadcrumb
+            title={props.title}
+            location={props.location}
+            crumbLabel={props.crumbLabel}
+            crumbSeparator={props.crumbSeparator}
+          />
+        </BreadcrumbProvider>
+      </OptionsProvider>,
+    )
+    expect(getByText('HomeCustom')).toBeTruthy()
+    expect(getByText('testLabel')).toBeTruthy()
+  })
+  it('Should render click tracking breadcrumb with default crumb and using class names', () => {
+    const { container, getByText } = render(
+      <OptionsProvider
+        useAutoGen={useAutoGen}
+        /* eslint-disable react/jsx-boolean-value */
+        useClassNames={true}
+        usePathPrefix={usePathPrefix}
+      >
+        <BreadcrumbProvider defaultCrumb={defaultCrumb}>
+          <Breadcrumb
+            title={props.title}
+            location={props.location}
+            crumbLabel={props.crumbLabel}
+            crumbSeparator={props.crumbSeparator}
+          />
+        </BreadcrumbProvider>
+      </OptionsProvider>,
+    )
+    expect(getByText('HomeCustom')).toBeTruthy()
+    expect(getByText('testLabel')).toBeTruthy()
+    container
+      .querySelectorAll('a')
+      .forEach(a => expect(a.getAttribute('a')).toBeNull())
+  })
 })
