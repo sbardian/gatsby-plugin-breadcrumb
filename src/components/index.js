@@ -6,7 +6,7 @@ import {
   BreadcrumbContext,
   BreadcrumbConsumer,
   BreadcrumbProvider,
-} from './BreadcrumbContext'
+} from './breadcrumb-context'
 import useBreadcrumb from './useBreadcrumb'
 
 export {

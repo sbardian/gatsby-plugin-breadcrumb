@@ -3,7 +3,7 @@ import { render, cleanup } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 import Breadcrumb from './Breadcrumb'
 import { OptionsProvider } from './options-context'
-import { BreadcrumbProvider } from './BreadcrumbContext'
+import { BreadcrumbProvider } from './breadcrumb-context'
 
 const props = {
   title: 'testTitle',

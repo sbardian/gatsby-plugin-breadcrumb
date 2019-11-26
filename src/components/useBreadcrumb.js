@@ -1,6 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react'
-import { BreadcrumbContext } from './BreadcrumbContext'
+import { BreadcrumbContext } from './breadcrumb-context'
 
 const useBreadcrumb = ({
   location,

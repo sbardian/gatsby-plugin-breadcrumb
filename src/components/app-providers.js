@@ -2,7 +2,7 @@
 /* eslint-disable import/prefer-default-export */
 /* eslint-disable react/prop-types */
 import React from 'react'
-import { BreadcrumbProvider } from './BreadcrumbContext'
+import { BreadcrumbProvider } from './breadcrumb-context'
 import { OptionsProvider } from './options-context'
 
 export const AppProviders = ({ element, pluginOptions }) => {
