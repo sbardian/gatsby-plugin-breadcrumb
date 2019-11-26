@@ -26,8 +26,7 @@
     "watch": "babel -w src --out-dir . --ignore **/__tests__",
     "lint": "eslint ./src",
     "test": "jest",
-    "test:run": "cypress run",
-    "test:open": "cypress open",
+    "test:coverage": "jest --coverage --coverageReporters=text-lcov | coveralls",
     "prepare": "cross-env NODE_ENV=production npm run build",
     "prepublishOnly": "yarn build"
   },
@@ -58,6 +57,7 @@
     "babel-plugin-dynamic-import-node": "2.3.0",
     "babel-preset-gatsby-package": "0.2.12",
     "commitizen": "4.0.3",
+    "coveralls": "^3.0.9",
     "cross-env": "6.0.3",
     "cz-conventional-changelog": "3.0.2",
     "eslint": "6.7.1",
