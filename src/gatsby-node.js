@@ -14,7 +14,7 @@ exports.onCreatePage = ({ page, pathPrefix, actions }, pluginOptions) => {
 
     const optionsActual = { ...defaultOptions, ...pluginOptions }
 
-    // create breadcrumbs from non excluded pages paths
+    // for pages not excludecd, create crumbs out of each section of the page path
     if (!optionsActual.exclude.includes(page.path)) {
       let acc = ''
       let crumbs = []
@@ -48,7 +48,7 @@ exports.onCreatePage = ({ page, pathPrefix, actions }, pluginOptions) => {
             },
           ]
         } else {
-          // catch empty paths
+          // catch empty path sections
           crumbs = [...crumbs]
         }
       })
