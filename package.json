@@ -57,7 +57,7 @@
     "babel-plugin-dynamic-import-node": "2.3.0",
     "babel-preset-gatsby-package": "0.2.12",
     "commitizen": "4.0.3",
-    "coveralls": "^3.0.9",
+    "coveralls": "3.0.9",
     "cross-env": "6.0.3",
     "cz-conventional-changelog": "3.0.2",
     "eslint": "6.7.1",
