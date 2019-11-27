@@ -16,10 +16,13 @@ export const BreadcrumbProvider = ({ children, defaultCrumb = null }) => {
     crumbStyle,
     crumbActiveStyle,
   }) => {
+    // check to see if the path is already in the breadcrumb
     const indexOfFirstOccurrenceOfCurrentPath = crumbs.findIndex(
       crumb => crumb.pathname === location.pathname,
     )
 
+    // when path exists in breadcrumb we need to remove any crumbs after
+    // that pathname
     if (
       indexOfFirstOccurrenceOfCurrentPath > -1 &&
       indexOfFirstOccurrenceOfCurrentPath < crumbs.length - 1
@@ -27,6 +30,7 @@ export const BreadcrumbProvider = ({ children, defaultCrumb = null }) => {
       setCrumbs(crumbs.slice(0, indexOfFirstOccurrenceOfCurrentPath))
     }
 
+    // when path does not exist we add it to the end of the breadcrumb
     if (indexOfFirstOccurrenceOfCurrentPath === -1) {
       setCrumbs([
         ...crumbs,
