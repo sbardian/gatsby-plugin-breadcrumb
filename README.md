@@ -144,7 +144,7 @@ you to customize those breadcrumbs if you wish.
 | ----------------- | ------ | ----------------------------------------------- | --------------------------------------------------------------- | -------- | ---------------------- |
 | location          | object | Reach Router location prop                      | See Reach Router location prop, passed by Gatsby to every page. | required |                        |
 | crumbLabel        | string | Name for the breadcrumb                         | `"About Us"`                                                    | required |                        |
-| title             | string | Title proceeding the breadcrumbs                | `"Breadcrumbs: "`, `">>>"`                                      | optional |                        |
+| title             | string | Title preceding the breadcrumbs                | `"Breadcrumbs: "`, `">>>"`                                      | optional |                        |
 | crumbSeparator    | string | Separator between each breadcrumb               | `" / "`                                                         | optional |                        |
 | crumbWrapperStyle | object | CSS object applied to breadcrumb wrapper        | `{ border: '1px solid white' }`                                 | optional | x                      |
 | crumbStyle        | object | CSS object applied to the current crumb         | `{ color: 'orange' }`                                           | optional | x                      |
@@ -427,7 +427,7 @@ of to individual crumbs, as with Click Tracking.
 | prop              | type   | description                                   | examples                        | required | useClassNames disables |
 | ----------------- | ------ | --------------------------------------------- | ------------------------------- | -------- | ---------------------- |
 | crumbs            | array  | Array of crumbs return from pageContext       | n/a                             | required |                        |
-| title             | string | Title proceeding the breadcrumbs              | `"Breadcrumbs: "`, `">>>"`      | optional |                        |
+| title             | string | Title preceding the breadcrumbs              | `"Breadcrumbs: "`, `">>>"`      | optional |                        |
 | crumbSeparator    | string | Separator between each breadcrumb             | `" / "`                         | optional |                        |
 | crumbLabel        | string | Override crumb label from xml path            | `"About Us"`                    | optional |                        |
 | crumbWrapperStyle | object | CSS object applied to breadcrumb wrapper      | `{ border: '1px solid white' }` | optional | x                      |
