@@ -21,7 +21,7 @@ const AutoGenCrumb = ({
 
   return (
     <div>
-      <span>{title}</span>
+      <span className="breadcrumb__title">{title}</span>
       {autoGenCrumbs.map((c, i) => {
         if (hiddenCrumbs.includes(c.pathname)) {
           return null
