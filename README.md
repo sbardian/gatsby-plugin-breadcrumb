@@ -376,8 +376,8 @@ gatsby-config.js
           `/404.html`,
           `/offline-plugin-app-shell-fallback`,
         ],
-        // updateCrumbLabels: optional, update specific crumbLabels in the path
-        updateCrumbLabels: [
+        // crumbLabelUpdates: optional, update specific crumbLabels in the path
+        crumbLabelUpdates: [
           {
             pathname: '/book',
             crumbLabel: 'Books'
