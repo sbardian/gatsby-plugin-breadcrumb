@@ -13,6 +13,7 @@ exports.onCreatePage = ({ page, pathPrefix, actions }, pluginOptions) => {
     }
 
     const optionsActual = { ...defaultOptions, ...pluginOptions }
+    const { crumbLabelUpdates = [] } = optionsActual
 
     // for pages not excludecd, create crumbs out of each section of the page path
     if (!optionsActual.exclude.includes(page.path)) {
@@ -40,11 +41,20 @@ exports.onCreatePage = ({ page, pathPrefix, actions }, pluginOptions) => {
           // remaining sections of path
           acc += `/${split}`
           const n = acc.lastIndexOf('/')
+
+          // update crumbLabel for any crumbLabelUpdates otherwise use path
+          let crumbLabel = acc.slice(n + 1).replace(/%20/g, ' ')
+          crumbLabelUpdates.forEach(labelUpdate => {
+            if (labelUpdate.pathname === acc) {
+              crumbLabel = labelUpdate.crumbLabel
+            }
+          })
+
           crumbs = [
             ...crumbs,
             {
               pathname: acc,
-              crumbLabel: acc.slice(n + 1).replace(/%20/g, ' '),
+              crumbLabel,
             },
           ]
         } else {

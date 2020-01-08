@@ -133,6 +133,19 @@ describe('AutoGen crumbs: ', () => {
     expect(actions.createPage).toHaveBeenCalledTimes(1)
     expect(actions.createPage).toHaveBeenCalledWith(calledWithShort)
   })
+  it('should generate crumbs with update path crumb labels', () => {
+    onCreatePage(
+      { page: mockPageLongPath, actions },
+      {
+        useAutoGen: true,
+        crumbLabelUpdates: [{ pathname: '/long', crumbLabel: 'LONG' }],
+      },
+    )
+    expect(actions.deletePage).toHaveBeenCalledTimes(1)
+    expect(actions.deletePage).toHaveBeenCalledWith(mockPageLongPath)
+    expect(actions.createPage).toHaveBeenCalledTimes(1)
+    expect(actions.createPage).toHaveBeenCalledWith(calledWithLong)
+  })
   it('should not generate auto crumbs, no useAutoGen', () => {
     onCreatePage(
       {
