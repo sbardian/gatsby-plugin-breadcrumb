@@ -79,6 +79,29 @@ const calledWithLong = {
   },
 }
 
+const calledWithLongLabelUpdates = {
+  path: '/long/test',
+  context: {
+    breadcrumb: {
+      crumbs: [
+        {
+          crumbLabel: 'Home',
+          pathname: '/',
+        },
+        {
+          crumbLabel: 'LONG',
+          pathname: '/long',
+        },
+        {
+          crumbLabel: 'test',
+          pathname: '/long/test',
+        },
+      ],
+      location: '/long/test',
+    },
+  },
+}
+
 afterEach(() => {
   actions.createPage.mockClear()
   actions.deletePage.mockClear()
@@ -144,7 +167,7 @@ describe('AutoGen crumbs: ', () => {
     expect(actions.deletePage).toHaveBeenCalledTimes(1)
     expect(actions.deletePage).toHaveBeenCalledWith(mockPageLongPath)
     expect(actions.createPage).toHaveBeenCalledTimes(1)
-    expect(actions.createPage).toHaveBeenCalledWith(calledWithLong)
+    expect(actions.createPage).toHaveBeenCalledWith(calledWithLongLabelUpdates)
   })
   it('should not generate auto crumbs, no useAutoGen', () => {
     onCreatePage(
