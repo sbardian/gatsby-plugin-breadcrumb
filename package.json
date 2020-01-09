@@ -70,7 +70,7 @@
     "eslint-plugin-react": "7.17.0",
     "eslint-plugin-react-hooks": "2.3.0",
     "gatsby": "2.18.20",
-    "husky": "4.0.3",
+    "husky": "4.0.4",
     "jest": "24.9.0",
     "jest-dom": "4.0.0",
     "lint-staged": "9.5.0",
