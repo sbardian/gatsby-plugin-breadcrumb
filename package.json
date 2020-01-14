@@ -69,7 +69,7 @@
     "eslint-plugin-prettier": "3.1.2",
     "eslint-plugin-react": "7.17.0",
     "eslint-plugin-react-hooks": "2.3.0",
-    "gatsby": "2.18.21",
+    "gatsby": "2.18.22",
     "husky": "4.0.9",
     "jest": "24.9.0",
     "jest-dom": "4.0.0",
