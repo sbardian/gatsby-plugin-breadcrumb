@@ -1,6 +1,5 @@
 exports.onCreatePage = ({ page, pathPrefix, actions }, pluginOptions) => {
-  // TODO: remove useSitemap before v7 release
-  if (pluginOptions.useSitemap || pluginOptions.useAutoGen) {
+  if (pluginOptions.useAutoGen) {
     const { createPage, deletePage } = actions
 
     const defaultOptions = {
@@ -30,11 +29,7 @@ exports.onCreatePage = ({ page, pathPrefix, actions }, pluginOptions) => {
             ...crumbs,
             {
               pathname: '/',
-              // TODO: remove sitemapHomeLabel option before v7 release
-              crumbLabel:
-                optionsActual.sitemapHomeLabel ||
-                optionsActual.autoGenHomeLabel ||
-                'Home',
+              crumbLabel: optionsActual.autoGenHomeLabel || 'Home',
             },
           ]
         } else if (index !== 0 && split !== '') {

@@ -6,8 +6,6 @@ import { Link } from 'gatsby'
 import { OptionsContext } from './options-context'
 import useBreadcrumb from './useBreadcrumb'
 
-// TODO: Delete before v7 release
-
 const ClickTrackingCrumb = ({
   title,
   location,
