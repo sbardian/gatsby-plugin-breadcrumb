@@ -2570,7 +2570,19 @@
   dependencies:
     defer-to-connect "^1.0.1"
 
-"@testing-library/dom@6.11.0", "@testing-library/dom@^6.11.0":
+"@testing-library/dom@6.11.1":
+  version "6.11.1"
+  resolved "https://registry.yarnpkg.com/@testing-library/dom/-/dom-6.11.1.tgz#b8a6e51b5e300b9dc7b99b5aba43e10b855bdafa"
+  integrity sha512-v8MF+OjbYxDcH/2WtNv6XxFPDprPDpmiFIBoxju0m8+NiL5yrXNvOsHDooeapkupbve8qbv2Y+GmXYg/RZQlCQ==
+  dependencies:
+    "@babel/runtime" "^7.6.2"
+    "@sheerun/mutationobserver-shim" "^0.3.2"
+    "@types/testing-library__dom" "^6.0.0"
+    aria-query "3.0.0"
+    pretty-format "^24.9.0"
+    wait-for-expect "^3.0.0"
+
+"@testing-library/dom@^6.11.0":
   version "6.11.0"
   resolved "https://registry.yarnpkg.com/@testing-library/dom/-/dom-6.11.0.tgz#962a38f1a721fdb7c9e35e7579e33ff13a00eda4"
   integrity sha512-Pkx9LMIGshyNbfmecjt18rrAp/ayMqGH674jYER0SXj0iG9xZc+zWRjk2Pg9JgPBDvwI//xGrI/oOQkAi4YEew==
