@@ -18,6 +18,10 @@ const mockPageLongPath = {
   path: '/long/test',
 }
 
+const mockPathExcluded = {
+  path: '/404.html',
+}
+
 const calledWithShort = {
   path: '/test',
   context: {
@@ -108,6 +112,16 @@ afterEach(() => {
 })
 
 describe('AutoGen crumbs: ', () => {
+  it('should generate no crumbs, excluded path', () => {
+    onCreatePage(
+      { page: mockPathExcluded, actions },
+      {
+        useAutoGen: true,
+      },
+    )
+    expect(actions.deletePage).toHaveBeenCalledTimes(0)
+    expect(actions.createPage).toHaveBeenCalledTimes(0)
+  })
   it('should generate autogen crumbs short path', () => {
     onCreatePage(
       { page: mockPageShortPath, actions },
