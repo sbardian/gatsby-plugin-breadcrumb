@@ -2,13 +2,7 @@
 import React from 'react'
 import { BreadcrumbContext } from './breadcrumb-context'
 
-const useBreadcrumb = ({
-  location,
-  crumbLabel,
-  crumbSeparator,
-  crumbStyle = {},
-  crumbActiveStyle = {},
-}) => {
+const useBreadcrumb = ({ location, crumbLabel, crumbSeparator }) => {
   const { crumbs, updateCrumbs } = React.useContext(BreadcrumbContext)
 
   React.useEffect(() => {
@@ -16,17 +10,8 @@ const useBreadcrumb = ({
       location,
       crumbLabel,
       crumbSeparator,
-      crumbStyle,
-      crumbActiveStyle,
     })
-  }, [
-    location,
-    crumbLabel,
-    crumbSeparator,
-    crumbStyle,
-    crumbActiveStyle,
-    updateCrumbs,
-  ])
+  }, [location, crumbLabel, crumbSeparator, updateCrumbs])
 
   return {
     crumbs,

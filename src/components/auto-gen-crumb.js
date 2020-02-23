@@ -3,43 +3,21 @@
 import React from 'react'
 import Proptypes from 'prop-types'
 import { Link } from 'gatsby'
-import { OptionsContext } from './options-context'
 
 const AutoGenCrumb = ({
   title,
-  crumbSeparator,
-  crumbWrapperStyle,
-  crumbActiveStyle,
-  crumbStyle,
   crumbs: autoGenCrumbs,
   crumbLabel: crumbLabelOverride,
+  crumbSeparator,
   disableLinks,
   hiddenCrumbs,
   ...rest
 }) => {
-  const { useClassNames } = React.useContext(OptionsContext)
-
   return (
     <>
       <span className="breadcrumb__title">{title}</span>
-      <nav
-        className="breadcrumb"
-        aria-label="Breadcrumb"
-        style={
-          useClassNames ? null : { display: 'inline', ...crumbWrapperStyle }
-        }
-      >
-        <ol
-          className="breadcrumb__list"
-          style={
-            useClassNames
-              ? null
-              : {
-                  display: 'block',
-                  listStyle: 'none',
-                }
-          }
-        >
+      <nav className="breadcrumb" aria-label="Breadcrumb">
+        <ol className="breadcrumb__list">
           {autoGenCrumbs.map((c, i) => {
             if (hiddenCrumbs.includes(c.pathname)) {
               return null
@@ -47,36 +25,9 @@ const AutoGenCrumb = ({
             return (
               <React.Fragment key={`${i}-${c.pathname}`}>
                 {!disableLinks.includes(c.pathname) && (
-                  <li
-                    className="breadcrumb__list__item"
-                    style={
-                      useClassNames
-                        ? null
-                        : {
-                            display: 'inline',
-                          }
-                    }
-                  >
+                  <li className="breadcrumb__list__item">
                     <Link
                       to={c.pathname}
-                      style={
-                        useClassNames
-                          ? null
-                          : {
-                              textDecoration: 'none',
-                              fontSize: '16pt',
-                              color: '#e1e1e1',
-                              ...crumbStyle,
-                            }
-                      }
-                      activeStyle={
-                        useClassNames
-                          ? null
-                          : {
-                              color: 'white',
-                              ...crumbActiveStyle,
-                            }
-                      }
                       className="breadcrumb__link"
                       activeClassName="breadcrumb__link__active"
                       aria-current={
@@ -91,30 +42,8 @@ const AutoGenCrumb = ({
                   </li>
                 )}
                 {disableLinks.includes(c.pathname) && (
-                  <li
-                    className="breadcrumb__list__item"
-                    style={
-                      useClassNames
-                        ? null
-                        : {
-                            display: 'inline',
-                          }
-                    }
-                  >
-                    <span
-                      style={
-                        useClassNames
-                          ? null
-                          : {
-                              textDecoration: 'none',
-                              fontSize: '16pt',
-                              color: '#e1e1e1',
-                              ...crumbStyle,
-                            }
-                      }
-                      className="breadcrumb__link__disabled"
-                      {...rest}
-                    >
+                  <li className="breadcrumb__list__item">
+                    <span className="breadcrumb__link__disabled" {...rest}>
                       {crumbLabelOverride && i === autoGenCrumbs.length - 1
                         ? crumbLabelOverride
                         : c.crumbLabel}
@@ -122,20 +51,7 @@ const AutoGenCrumb = ({
                   </li>
                 )}
                 {i === autoGenCrumbs.length - 1 ? null : (
-                  <span
-                    className="breadcrumb__separator"
-                    aria-hidden="true"
-                    style={
-                      useClassNames
-                        ? null
-                        : {
-                            display: 'inline-block',
-                            fontSize: '16pt',
-                            margin: '0 0.25em',
-                            ...crumbStyle,
-                          }
-                    }
-                  >
+                  <span className="breadcrumb__separator" aria-hidden="true">
                     {crumbSeparator}
                   </span>
                 )}
@@ -151,9 +67,6 @@ const AutoGenCrumb = ({
 AutoGenCrumb.defaultProps = {
   title: '',
   crumbSeparator: ' / ',
-  crumbWrapperStyle: {},
-  crumbStyle: {},
-  crumbActiveStyle: {},
   crumbLabel: null,
   disableLinks: [],
   hiddenCrumbs: [],
@@ -162,9 +75,6 @@ AutoGenCrumb.defaultProps = {
 AutoGenCrumb.propTypes = {
   title: Proptypes.string,
   crumbSeparator: Proptypes.string,
-  crumbWrapperStyle: Proptypes.shape(),
-  crumbActiveStyle: Proptypes.shape(),
-  crumbStyle: Proptypes.shape(),
   crumbs: Proptypes.arrayOf(
     Proptypes.shape({
       location: Proptypes.shape(),

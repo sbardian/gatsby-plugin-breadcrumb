@@ -49,12 +49,9 @@ const defaultCrumb = {
   },
   crumbLabel: 'HomeCustom',
   crumbSeparator: ' / ',
-  crumbStyle: { color: '#666' },
-  crumbActiveStyle: { color: 'orange' },
 }
 
 const useAutoGen = false
-const useClassNames = false
 const usePathPrefix = null
 
 afterEach(() => {
@@ -64,11 +61,7 @@ afterEach(() => {
 describe('Breadcrumb Click Tracking', () => {
   it('Should render click tracking breadcrumb with default crumb', () => {
     const { getByText } = render(
-      <OptionsProvider
-        useAutoGen={useAutoGen}
-        useClassNames={useClassNames}
-        usePathPrefix={usePathPrefix}
-      >
+      <OptionsProvider useAutoGen={useAutoGen} usePathPrefix={usePathPrefix}>
         <BreadcrumbProvider defaultCrumb={defaultCrumb}>
           <Breadcrumb
             title={props.title}
@@ -84,11 +77,7 @@ describe('Breadcrumb Click Tracking', () => {
   })
   it('should only render one HomeCustom crumb while using defaultCrumb', () => {
     const { getByText, queryByText } = render(
-      <OptionsProvider
-        useAutoGen={useAutoGen}
-        useClassNames={useClassNames}
-        usePathPrefix={usePathPrefix}
-      >
+      <OptionsProvider useAutoGen={useAutoGen} usePathPrefix={usePathPrefix}>
         <BreadcrumbProvider defaultCrumb={defaultCrumb}>
           <Breadcrumb
             title={homeProps.title}
@@ -104,11 +93,7 @@ describe('Breadcrumb Click Tracking', () => {
   })
   it('Should Render click tracking breadcrumb without default crumb', () => {
     const { getByText, queryByText } = render(
-      <OptionsProvider
-        useAutoGen={useAutoGen}
-        useClassNames={useClassNames}
-        usePathPrefix={usePathPrefix}
-      >
+      <OptionsProvider useAutoGen={useAutoGen} usePathPrefix={usePathPrefix}>
         <BreadcrumbProvider>
           <Breadcrumb
             title={props.title}
@@ -124,11 +109,7 @@ describe('Breadcrumb Click Tracking', () => {
   })
   it('Should render click tracking breadcrumb with default crumb and path prefix', () => {
     const { getByText } = render(
-      <OptionsProvider
-        useAutoGen={useAutoGen}
-        useClassNames={useClassNames}
-        usePathPrefix="/blog"
-      >
+      <OptionsProvider useAutoGen={useAutoGen} usePathPrefix="/blog">
         <BreadcrumbProvider defaultCrumb={defaultCrumb}>
           <Breadcrumb
             title={props.title}
@@ -144,12 +125,7 @@ describe('Breadcrumb Click Tracking', () => {
   })
   it('Should render click tracking breadcrumb with default crumb and using class names', () => {
     const { container, getByText } = render(
-      <OptionsProvider
-        useAutoGen={useAutoGen}
-        /* eslint-disable react/jsx-boolean-value */
-        useClassNames={true}
-        usePathPrefix={usePathPrefix}
-      >
+      <OptionsProvider useAutoGen={useAutoGen} usePathPrefix={usePathPrefix}>
         <BreadcrumbProvider defaultCrumb={defaultCrumb}>
           <Breadcrumb
             title={props.title}

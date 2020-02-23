@@ -11,9 +11,6 @@ const ClickTrackingCrumb = ({
   location,
   crumbLabel,
   crumbSeparator,
-  crumbWrapperStyle,
-  crumbActiveStyle,
-  crumbStyle,
   ...rest
 }) => {
   const { useClassNames, usePathPrefix } = React.useContext(OptionsContext)
@@ -27,20 +24,12 @@ const ClickTrackingCrumb = ({
     },
     crumbLabel,
     crumbSeparator,
-    crumbStyle,
-    crumbActiveStyle,
   })
 
   return (
     <>
       <span className="breadcrumb__title">{title}</span>
-      <nav
-        className="breadcrumb"
-        aria-label="Breadcrumb"
-        style={
-          useClassNames ? null : { display: 'inline', ...crumbWrapperStyle }
-        }
-      >
+      <nav className="breadcrumb" aria-label="Breadcrumb">
         <ol
           className="breadcrumb__list"
           style={
@@ -54,38 +43,9 @@ const ClickTrackingCrumb = ({
         >
           {crumbs.map((c, i) => {
             return (
-              <li
-                className="breadcrumb__item"
-                key={i}
-                style={
-                  useClassNames
-                    ? null
-                    : {
-                        display: 'inline',
-                        ...crumbWrapperStyle,
-                      }
-                }
-              >
+              <li className="breadcrumb__item" key={i}>
                 <Link
                   to={c.pathname || ''}
-                  style={
-                    useClassNames
-                      ? null
-                      : {
-                          textDecoration: 'none',
-                          fontSize: '16pt',
-                          color: '#e1e1e1',
-                          ...c.crumbStyle,
-                        }
-                  }
-                  activeStyle={
-                    useClassNames
-                      ? null
-                      : {
-                          color: 'white',
-                          ...crumbActiveStyle,
-                        }
-                  }
                   className="breadcrumb__link"
                   activeClassName="breadcrumb__link__active"
                   aria-current={i === crumbs.length - 1 ? 'page' : null}
@@ -94,20 +54,7 @@ const ClickTrackingCrumb = ({
                   {c.crumbLabel}
                 </Link>
                 {i === crumbs.length - 1 ? null : (
-                  <span
-                    className="breadcrumb__separator"
-                    aria-hidden="true"
-                    style={
-                      useClassNames
-                        ? null
-                        : {
-                            display: 'inline-block',
-                            fontSize: '16pt',
-                            margin: '0 0.25em',
-                            ...c.crumbStyle,
-                          }
-                    }
-                  >
+                  <span className="breadcrumb__separator" aria-hidden="true">
                     {c.crumbSeparator}
                   </span>
                 )}
@@ -123,9 +70,6 @@ const ClickTrackingCrumb = ({
 ClickTrackingCrumb.defaultProps = {
   title: '',
   crumbSeparator: ' / ',
-  crumbWrapperStyle: {},
-  crumbStyle: {},
-  crumbActiveStyle: {},
 }
 
 ClickTrackingCrumb.propTypes = {
@@ -133,9 +77,6 @@ ClickTrackingCrumb.propTypes = {
   crumbLabel: Proptypes.string.isRequired,
   title: Proptypes.string,
   crumbSeparator: Proptypes.string,
-  crumbWrapperStyle: Proptypes.shape(),
-  crumbActiveStyle: Proptypes.shape(),
-  crumbStyle: Proptypes.shape(),
 }
 
 export default ClickTrackingCrumb
