@@ -248,12 +248,15 @@ will disable any default styling of the component and allow you to use CSS to
 style your breadcrumbs. Here is a list of the classes used with the
 `<Breadcrumb />` component:
 
-| class                      | description                                    |
-| -------------------------- | ---------------------------------------------- |
-| `breadcrumb__title`        | Applied to the breadcrumb title (if supplied)  |
-| `breadcrumb`               | Applied to the breadcrumb wrapping div         |
-| `breadcrumb__link`         | Applied to the link of the breadcrumb          |
-| `breadcrumb__link__active` | Applied to the link when active (current link) |
+| class                      | description                                   |
+| -------------------------- | --------------------------------------------- |
+| `breadcrumb__title`        | Applied to the breadcrumb title (<span>)      |
+| `breadcrumb`               | Applied to the breadcrumb container (<nav>)   |
+| `breadcrumb__list`         | Applied to the breadcrumb ordered list (<ol>) |
+| `breadcrumb__list__item`   | Applied to each breadcrumb 'crumbs' (<li>)    |
+| `breadcrumb__link`         | Applied to the link of the breadcrumb <a>     |
+| `breadcrumb__link__active` | Added to the current link (<a>)               |
+| `breadcrumb__separator`    | Applied to the breadcrumb separators (<span>) |
 
 gatsby-config.js
 
@@ -456,13 +459,16 @@ will disable any default styling of the component and allow you to use CSS to
 style your breadcrumbs. Here is a list of the classes used with the
 `<Breadcrumb />` component:
 
-| class                        | description                                    |
-| ---------------------------- | ---------------------------------------------- |
-| `breadcrumb__title`          | Applied to the breadcrumb title (if supplied)  |
-| `breadcrumb`                 | Applied to the breadcrumb wrapping div         |
-| `breadcrumb__link`           | Applied to the link of the breadcrumb          |
-| `breadcrumb__link__active`   | Applied to the link when active (current link) |
-| `breadcrumb__link__disabled` | Applied to crumbs that have links disabled     |
+| class                        | description                                         |
+| ---------------------------- | --------------------------------------------------- |
+| `breadcrumb__title`          | Applied to the breadcrumb title (<span>)            |
+| `breadcrumb`                 | Applied to the breadcrumb container (<nav>)         |
+| `breadcrumb__list`           | Applied to the breadcrumb ordered list (<ol>)       |
+| `breadcrumb__list__item`     | Applied to each breadcrumb 'crumbs' (<li>)          |
+| `breadcrumb__link`           | Applied to the link of the breadcrumb <a>           |
+| `breadcrumb__link__active`   | Added to the current link (<a>)                     |
+| `breadcrumb__link__disabled` | Applied to crumbs that have links disabled (<span>) |
+| `breadcrumb__separator`      | Applied to the breadcrumb separators (<span>)       |
 
 gatsby-config.js
 

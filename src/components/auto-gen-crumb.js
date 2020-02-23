@@ -20,82 +20,131 @@ const AutoGenCrumb = ({
   const { useClassNames } = React.useContext(OptionsContext)
 
   return (
-    <div>
+    <>
       <span className="breadcrumb__title">{title}</span>
-      {autoGenCrumbs.map((c, i) => {
-        if (hiddenCrumbs.includes(c.pathname)) {
-          return null
+      <nav
+        className="breadcrumb"
+        aria-label="Breadcrumb"
+        style={
+          useClassNames ? null : { display: 'inline', ...crumbWrapperStyle }
         }
-        return (
-          <div
-            className="breadcrumb"
-            style={
-              useClassNames ? null : { display: 'inline', ...crumbWrapperStyle }
+      >
+        <ol
+          className="breadcrumb__list"
+          style={
+            useClassNames
+              ? null
+              : {
+                  display: 'block',
+                  listStyle: 'none',
+                }
+          }
+        >
+          {autoGenCrumbs.map((c, i) => {
+            if (hiddenCrumbs.includes(c.pathname)) {
+              return null
             }
-            key={i}
-          >
-            {!disableLinks.includes(c.pathname) && (
-              <Link
-                to={c.pathname}
-                style={
-                  useClassNames
-                    ? null
-                    : {
-                        textDecoration: 'none',
-                        fontSize: '16pt',
-                        color: '#e1e1e1',
-                        ...crumbStyle,
+            return (
+              <React.Fragment key={`${i}-${c.pathname}`}>
+                {!disableLinks.includes(c.pathname) && (
+                  <li
+                    className="breadcrumb__list__item"
+                    style={
+                      useClassNames
+                        ? null
+                        : {
+                            display: 'inline',
+                          }
+                    }
+                  >
+                    <Link
+                      to={c.pathname}
+                      style={
+                        useClassNames
+                          ? null
+                          : {
+                              textDecoration: 'none',
+                              fontSize: '16pt',
+                              color: '#e1e1e1',
+                              ...crumbStyle,
+                            }
                       }
-                }
-                activeStyle={
-                  useClassNames
-                    ? null
-                    : {
-                        color: 'white',
-                        ...crumbActiveStyle,
+                      activeStyle={
+                        useClassNames
+                          ? null
+                          : {
+                              color: 'white',
+                              ...crumbActiveStyle,
+                            }
                       }
-                }
-                className="breadcrumb__link"
-                activeClassName={
-                  useClassNames ? 'breadcrumb__link__active' : null
-                }
-                {...rest}
-              >
-                {crumbLabelOverride && i === autoGenCrumbs.length - 1
-                  ? crumbLabelOverride
-                  : c.crumbLabel}
-              </Link>
-            )}
-            {disableLinks.includes(c.pathname) && (
-              <span
-                style={
-                  useClassNames
-                    ? null
-                    : {
-                        textDecoration: 'none',
-                        fontSize: '16pt',
-                        color: '#e1e1e1',
-                        ...crumbStyle,
+                      className="breadcrumb__link"
+                      activeClassName="breadcrumb__link__active"
+                      aria-current={
+                        i === autoGenCrumbs.length - 1 ? 'page' : null
                       }
-                }
-                className="breadcrumb__link__disabled"
-                {...rest}
-              >
-                {crumbLabelOverride && i === autoGenCrumbs.length - 1
-                  ? crumbLabelOverride
-                  : c.crumbLabel}
-              </span>
-            )}
-            <span
-              className="breadcrumb__separator"
-              style={useClassNames ? null : { fontSize: '16pt', ...crumbStyle }}
-            >
-              {i === autoGenCrumbs.length - 1 ? null : crumbSeparator}
-            </span>
-          </div>
-        )
-      })}
-    </div>
+                      {...rest}
+                    >
+                      {crumbLabelOverride && i === autoGenCrumbs.length - 1
+                        ? crumbLabelOverride
+                        : c.crumbLabel}
+                    </Link>
+                  </li>
+                )}
+                {disableLinks.includes(c.pathname) && (
+                  <li
+                    className="breadcrumb__list__item"
+                    style={
+                      useClassNames
+                        ? null
+                        : {
+                            display: 'inline',
+                          }
+                    }
+                  >
+                    <span
+                      style={
+                        useClassNames
+                          ? null
+                          : {
+                              textDecoration: 'none',
+                              fontSize: '16pt',
+                              color: '#e1e1e1',
+                              ...crumbStyle,
+                            }
+                      }
+                      className="breadcrumb__link__disabled"
+                      {...rest}
+                    >
+                      {crumbLabelOverride && i === autoGenCrumbs.length - 1
+                        ? crumbLabelOverride
+                        : c.crumbLabel}
+                    </span>
+                  </li>
+                )}
+                {i === autoGenCrumbs.length - 1 ? null : (
+                  <span
+                    className="breadcrumb__separator"
+                    aria-hidden="true"
+                    style={
+                      useClassNames
+                        ? null
+                        : {
+                            display: 'inline-block',
+                            fontSize: '16pt',
+                            margin: '0 0.25em',
+                            ...crumbStyle,
+                          }
+                    }
+                  >
+                    {crumbSeparator}
+                  </span>
+                )}
+              </React.Fragment>
+            )
+          })}
+        </ol>
+      </nav>
+    </>
   )
 }
 

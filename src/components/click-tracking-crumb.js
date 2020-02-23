@@ -32,57 +32,91 @@ const ClickTrackingCrumb = ({
   })
 
   return (
-    <div>
+    <>
       <span className="breadcrumb__title">{title}</span>
-      {crumbs.map((c, i) => {
-        return (
-          <div
-            className="breadcrumb"
-            style={
-              useClassNames ? null : { display: 'inline', ...crumbWrapperStyle }
-            }
-            key={i}
-          >
-            <Link
-              to={c.pathname || ''}
-              style={
-                useClassNames
-                  ? null
-                  : {
-                      textDecoration: 'none',
-                      fontSize: '16pt',
-                      color: '#e1e1e1',
-                      ...c.crumbStyle,
+      <nav
+        className="breadcrumb"
+        aria-label="Breadcrumb"
+        style={
+          useClassNames ? null : { display: 'inline', ...crumbWrapperStyle }
+        }
+      >
+        <ol
+          className="breadcrumb__list"
+          style={
+            useClassNames
+              ? null
+              : {
+                  display: 'block',
+                  listStyle: 'none',
+                }
+          }
+        >
+          {crumbs.map((c, i) => {
+            return (
+              <li
+                className="breadcrumb__item"
+                key={i}
+                style={
+                  useClassNames
+                    ? null
+                    : {
+                        display: 'inline',
+                        ...crumbWrapperStyle,
+                      }
+                }
+              >
+                <Link
+                  to={c.pathname || ''}
+                  style={
+                    useClassNames
+                      ? null
+                      : {
+                          textDecoration: 'none',
+                          fontSize: '16pt',
+                          color: '#e1e1e1',
+                          ...c.crumbStyle,
+                        }
+                  }
+                  activeStyle={
+                    useClassNames
+                      ? null
+                      : {
+                          color: 'white',
+                          ...crumbActiveStyle,
+                        }
+                  }
+                  className="breadcrumb__link"
+                  activeClassName="breadcrumb__link__active"
+                  aria-current={i === crumbs.length - 1 ? 'page' : null}
+                  {...rest}
+                >
+                  {c.crumbLabel}
+                </Link>
+                {i === crumbs.length - 1 ? null : (
+                  <span
+                    className="breadcrumb__separator"
+                    aria-hidden="true"
+                    style={
+                      useClassNames
+                        ? null
+                        : {
+                            display: 'inline-block',
+                            fontSize: '16pt',
+                            margin: '0 0.25em',
+                            ...c.crumbStyle,
+                          }
                     }
-              }
-              activeStyle={
-                useClassNames
-                  ? null
-                  : {
-                      color: 'white',
-                      ...crumbActiveStyle,
-                    }
-              }
-              className="breadcrumb__link"
-              activeClassName={
-                useClassNames ? 'breadcrumb__link__active' : null
-              }
-              {...rest}
-            >
-              {c.crumbLabel}
-            </Link>
-            <span
-              className="breadcrumb__separator"
-              style={
-                useClassNames ? null : { fontSize: '16pt', ...c.crumbStyle }
-              }
-            >
-              {i === crumbs.length - 1 ? null : c.crumbSeparator}
-            </span>
-          </div>
-        )
-      })}
-    </div>
+                  >
+                    {c.crumbSeparator}
+                  </span>
+                )}
+              </li>
+            )
+          })}
+        </ol>
+      </nav>
+    </>
   )
 }
 
