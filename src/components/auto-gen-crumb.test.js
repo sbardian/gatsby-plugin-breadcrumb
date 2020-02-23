@@ -55,6 +55,26 @@ describe('Breadcrumb Click Tracking', () => {
     expect(getByText('long')).toBeTruthy()
     expect(getByText('testLabel')).toBeTruthy()
   })
+  it('Should Render autogen breadcrumb with no title', () => {
+    const { getByText } = render(
+      <OptionsProvider
+        useAutoGen={useAutoGen}
+        useClassNames={useClassNames}
+        usePathPrefix={usePathPrefix}
+      >
+        <BreadcrumbProvider defaultCrumb={null}>
+          <Breadcrumb
+            crumbs={props.breadcrumb.crumbs}
+            crumbLabel={props.crumbLabel}
+            crumbSeparator={props.crumbSeparator}
+          />
+        </BreadcrumbProvider>
+      </OptionsProvider>,
+    )
+    expect(getByText('Home')).toBeTruthy()
+    expect(getByText('long')).toBeTruthy()
+    expect(getByText('testLabel')).toBeTruthy()
+  })
   it('Should render autogen breadcrumb, with disabled long crumb', () => {
     const { container, getByText } = render(
       <OptionsProvider
@@ -116,6 +136,33 @@ describe('Breadcrumb Click Tracking', () => {
             crumbs={props.breadcrumb.crumbs}
             crumbLabel={props.crumbLabel}
             crumbSeparator={props.crumbSeparator}
+          />
+        </BreadcrumbProvider>
+      </OptionsProvider>,
+    )
+    expect(getByText('Home')).toBeTruthy()
+    expect(getByText('long')).toBeTruthy()
+    expect(getByText('testLabel')).toBeTruthy()
+    container
+      .querySelectorAll('a')
+      .forEach(a => expect(a.getAttribute('style')).toBeNull())
+  })
+
+  it('Should Render autogen breadcrumb using class names, with disabled links', () => {
+    const { container, getByText } = render(
+      <OptionsProvider
+        useAutoGen={useAutoGen}
+        /* eslint-disable react/jsx-boolean-value */
+        useClassNames={true}
+        usePathPrefix={usePathPrefix}
+      >
+        <BreadcrumbProvider defaultCrumb={null}>
+          <Breadcrumb
+            title={props.title}
+            crumbs={props.breadcrumb.crumbs}
+            crumbLabel={props.crumbLabel}
+            crumbSeparator={props.crumbSeparator}
+            disableLinks={['/long']}
           />
         </BreadcrumbProvider>
       </OptionsProvider>,

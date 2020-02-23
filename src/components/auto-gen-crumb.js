@@ -6,13 +6,13 @@ import { Link } from 'gatsby'
 import { OptionsContext } from './options-context'
 
 const AutoGenCrumb = ({
-  title = '',
+  title,
   crumbSeparator,
   crumbWrapperStyle,
   crumbActiveStyle,
   crumbStyle,
   crumbs: autoGenCrumbs,
-  crumbLabel: crumbLabelOverride = null,
+  crumbLabel: crumbLabelOverride,
   disableLinks,
   hiddenCrumbs,
   ...rest
