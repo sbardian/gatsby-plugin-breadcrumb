@@ -24,6 +24,25 @@ const props = {
   crumbSeparator: ' - ',
 }
 
+const homeProps = {
+  title: 'homeTitle',
+  location: {
+    href: 'http://localhost:8000/',
+    origin: 'http://localhost:8000',
+    protocol: 'http:',
+    host: 'localhost:8000',
+    hostname: 'localhost',
+    port: '8000',
+    pathname: '/',
+    search: '',
+    hash: '',
+    state: null,
+    key: 'initial',
+  },
+  crumbLabel: 'Home',
+  crumbSeparator: ' - ',
+}
+
 const defaultCrumb = {
   location: {
     pathname: '/',
@@ -38,7 +57,9 @@ const useAutoGen = false
 const useClassNames = false
 const usePathPrefix = null
 
-afterEach(cleanup)
+afterEach(() => {
+  cleanup()
+})
 
 describe('Breadcrumb Click Tracking', () => {
   it('Should render click tracking breadcrumb with default crumb', () => {
@@ -61,6 +82,26 @@ describe('Breadcrumb Click Tracking', () => {
     expect(getByText('HomeCustom')).toBeTruthy()
     expect(getByText('testLabel')).toBeTruthy()
   })
+  it('should only render one HomeCustom crumb while using defaultCrumb', () => {
+    const { getByText, queryByText } = render(
+      <OptionsProvider
+        useAutoGen={useAutoGen}
+        useClassNames={useClassNames}
+        usePathPrefix={usePathPrefix}
+      >
+        <BreadcrumbProvider defaultCrumb={defaultCrumb}>
+          <Breadcrumb
+            title={homeProps.title}
+            location={homeProps.location}
+            crumbLabel={homeProps.crumbLabel}
+            crumbSeparator={homeProps.crumbSeparator}
+          />
+        </BreadcrumbProvider>
+      </OptionsProvider>,
+    )
+    expect(getByText('HomeCustom')).toBeTruthy()
+    expect(queryByText('Home')).toBeNull()
+  })
   it('Should Render click tracking breadcrumb without default crumb', () => {
     const { getByText, queryByText } = render(
       <OptionsProvider
@@ -68,7 +109,7 @@ describe('Breadcrumb Click Tracking', () => {
         useClassNames={useClassNames}
         usePathPrefix={usePathPrefix}
       >
-        <BreadcrumbProvider defaultCrumb={null}>
+        <BreadcrumbProvider>
           <Breadcrumb
             title={props.title}
             location={props.location}
