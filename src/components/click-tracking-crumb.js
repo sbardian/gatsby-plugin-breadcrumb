@@ -13,7 +13,7 @@ const ClickTrackingCrumb = ({
   crumbSeparator,
   ...rest
 }) => {
-  const { useClassNames, usePathPrefix } = React.useContext(OptionsContext)
+  const { usePathPrefix } = React.useContext(OptionsContext)
 
   const { crumbs = [] } = useBreadcrumb({
     location: {
@@ -30,17 +30,7 @@ const ClickTrackingCrumb = ({
     <>
       <span className="breadcrumb__title">{title}</span>
       <nav className="breadcrumb" aria-label="Breadcrumb">
-        <ol
-          className="breadcrumb__list"
-          style={
-            useClassNames
-              ? null
-              : {
-                  display: 'block',
-                  listStyle: 'none',
-                }
-          }
-        >
+        <ol className="breadcrumb__list">
           {crumbs.map((c, i) => {
             return (
               <li className="breadcrumb__item" key={i}>
