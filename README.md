@@ -243,15 +243,15 @@ import 'gatsby-plugin-breadcrumb/gatsby-plugin-breadcrumb.css'
 If you would rather style your own breadcrumb, here is a list of the classes
 used with the `<Breadcrumb />` component:
 
-| class                      | description                                   |
-| -------------------------- | --------------------------------------------- |
-| `breadcrumb__title`        | Applied to the breadcrumb title (<span>)      |
-| `breadcrumb`               | Applied to the breadcrumb container (<nav>)   |
-| `breadcrumb__list`         | Applied to the breadcrumb ordered list (<ol>) |
-| `breadcrumb__list__item`   | Applied to each breadcrumb 'crumbs' (<li>)    |
-| `breadcrumb__link`         | Applied to the link of the breadcrumb <a>     |
-| `breadcrumb__link__active` | Added to the current link (<a>)               |
-| `breadcrumb__separator`    | Applied to the breadcrumb separators (<span>) |
+| class                      | description                                     |
+| -------------------------- | ----------------------------------------------- |
+| `breadcrumb__title`        | Applied to the breadcrumb title (`<span>`)      |
+| `breadcrumb`               | Applied to the breadcrumb container (`<nav>`)   |
+| `breadcrumb__list`         | Applied to the breadcrumb ordered list (`<ol>`) |
+| `breadcrumb__list__item`   | Applied to each breadcrumb 'crumbs' (`<li>`)    |
+| `breadcrumb__link`         | Applied to the link of the breadcrumb (`<a>`)   |
+| `breadcrumb__link__active` | Added to the current link (`<a>`)               |
+| `breadcrumb__separator`    | Applied to the breadcrumb separators (`<span>`) |
 
 gatsby-config.js
 
@@ -447,16 +447,16 @@ import 'gatsby-plugin-breadcrumb/gatsby-plugin-breadcrumb.css'
 If you would rather style your own breadcrumb, here is a list of the classes
 used with the `<Breadcrumb />` component:
 
-| class                        | description                                         |
-| ---------------------------- | --------------------------------------------------- |
-| `breadcrumb__title`          | Applied to the breadcrumb title (<span>)            |
-| `breadcrumb`                 | Applied to the breadcrumb container (<nav>)         |
-| `breadcrumb__list`           | Applied to the breadcrumb ordered list (<ol>)       |
-| `breadcrumb__list__item`     | Applied to each breadcrumb 'crumbs' (<li>)          |
-| `breadcrumb__link`           | Applied to the link of the breadcrumb <a>           |
-| `breadcrumb__link__active`   | Added to the current link (<a>)                     |
-| `breadcrumb__link__disabled` | Applied to crumbs that have links disabled (<span>) |
-| `breadcrumb__separator`      | Applied to the breadcrumb separators (<span>)       |
+| class                        | description                                           |
+| ---------------------------- | ----------------------------------------------------- |
+| `breadcrumb__title`          | Applied to the breadcrumb title (`<span>`)            |
+| `breadcrumb`                 | Applied to the breadcrumb container (`<nav>`)         |
+| `breadcrumb__list`           | Applied to the breadcrumb ordered list (`<ol>`)       |
+| `breadcrumb__list__item`     | Applied to each breadcrumb 'crumbs' (`<li>`)          |
+| `breadcrumb__link`           | Applied to the link of the breadcrumb (`<a>`)         |
+| `breadcrumb__link__active`   | Added to the current link (`<a>`)                     |
+| `breadcrumb__link__disabled` | Applied to crumbs that have links disabled (`<span>`) |
+| `breadcrumb__separator`      | Applied to the breadcrumb separators (`<span>`)       |
 
 gatsby-config.js
 
@@ -485,5 +485,5 @@ here submit a PR or create an issue.
   trailing slashes
 
 - The `<Link />'s` throughout your site need to have `to` properties that match
-  your breadcrumb `to` properties for the `breadcrumb**link**active class to be
+  your breadcrumb `to` properties for the `breadcrumb__link__active` class to be
   applied.
