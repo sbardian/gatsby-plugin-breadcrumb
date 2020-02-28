@@ -13,6 +13,8 @@
 - [Installation](https://github.com/sbardian/gatsby-plugin-breadcrumb#installation)
 - [Usage](https://github.com/sbardian/gatsby-plugin-breadcrumb#usage)
 - [Gotchas](https://github.com/sbardian/gatsby-plugin-breadcrumb#gotchas)
+  - Give these a quick read to see common issues you might face while using this
+    plugin!
 
 ## Installation
 
@@ -486,4 +488,50 @@ here submit a PR or create an issue.
 
 - The `<Link />'s` throughout your site need to have `to` properties that match
   your breadcrumb `to` properties for the `breadcrumb__link__active` class to be
-  applied.
+  applied. The URLs in your site also need to match the `to` properties of the
+  breadcrumb for active classes to take effect.
+
+  - Your sites URLs might have trailing slashes, and the breadcrumb `to` URLs
+    might not. One option is to use the
+    [gatsby-plugin-remove-trailing-slashes](https://www.gatsbyjs.org/packages/gatsby-plugin-remove-trailing-slashes/)
+    plugin to ensure your URLs match and the `breadcrumb__link__active` class is
+    applied.
+  - You can also pass the `<Breadcrumb>` component the Reach Routers `getProps`
+    prop a function to fine tune when the active class is applied.
+
+    ### Reach Router `getprops` example
+
+    /pages/about-us.js
+
+    ```jsx
+    import React from 'react'
+    import { Breadcrumb } from 'gatsby-plugin-breadcrumb'
+
+    export const AboutUs = ({ pageContext }) => {
+      const {
+        breadcrumb: { crumbs },
+      } = pageContext
+
+      const isPartiallyActive = ({ isPartiallyCurrent, isCurrent }) => {
+        return isPartiallyCurrent && isCurrent
+          ? { className: 'breadcrumb__link breadcrumb__link__active' }
+          : {}
+      }
+
+      return (
+        <div>
+          <Header>
+            <main>
+              <Breadcrumb
+                crumbs={crumbs}
+                crumbSeparator=" - "
+                crumbLabel="About Us"
+                getProps={isPartiallyActive}
+              />
+              ...
+            </main>
+          </Header>
+        </div>
+      )
+    }
+    ```
