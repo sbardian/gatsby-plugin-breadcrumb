@@ -96,7 +96,7 @@ gatsby-config.js
     {
       resolve: `gatsby-plugin-breadcrumb`,
       options: {
-        // optional: To create a default crumb
+        // defaultCrumb: optional To create a default crumb
         // see Click Tracking default crumb example below
         defaultCrumb: {
           location: {
@@ -105,7 +105,7 @@ gatsby-config.js
           crumbLabel: "HomeCustom",
           crumbSeparator: " / ",
         },
-        // optional: if you are using path prefix
+        // usePathPrefix: optional, if you are using pathPrefix above
         usePathPrefix: '/blog',
       }
     }
@@ -255,30 +255,6 @@ used with the `<Breadcrumb />` component:
 | `breadcrumb__link__active` | Added to the current link (`<a>`)               |
 | `breadcrumb__separator`    | Applied to the breadcrumb separators (`<span>`) |
 
-gatsby-config.js
-
-```javascript
-{
-  siteMetadata: {
-    // siteUrl: required (Gotcha: do not include a trailing slash at the end)
-    siteUrl: "http://localhost:8000",
-  },
-  plugins: [
-    {
-      resolve: `gatsby-plugin-breadcrumb`,
-      options: {
-        defaultCrumb: {
-          location: {
-            pathname: "/",
-          },
-          crumbLabel: "Home",
-          crumbSeparator: " - ",
-      },
-     },
-  ]
-}
-```
-
 ### useBreadcrumb example:
 
 gatsby-config.js
@@ -379,7 +355,7 @@ gatsby-config.js
             crumbLabel: 'Books'
           }
         ]
-        // optional: if you are using path prefix
+        // usePathPrefix: optional, if you are using pathPrefix above
         usePathPrefix: '/blog',
      },
   ]
@@ -400,7 +376,7 @@ export const AboutUs = ({ pageContext, location }) => {
   } = pageContext
 
   // Example of dynamically using location prop as a crumbLabel
-  // NOTE: this will not work for every case and is only and example
+  // NOTE: this code will not work for every use case, and is only an example
   const customCrumbLabel = location.pathname.toLowerCase().replace('-', ' ')
 
   return (
@@ -459,24 +435,6 @@ used with the `<Breadcrumb />` component:
 | `breadcrumb__link__active`   | Added to the current link (`<a>`)                     |
 | `breadcrumb__link__disabled` | Applied to crumbs that have links disabled (`<span>`) |
 | `breadcrumb__separator`      | Applied to the breadcrumb separators (`<span>`)       |
-
-gatsby-config.js
-
-```javascript
-{
-  siteMetadata: {
-    // siteUrl: required (Gotcha: do not include a trailing slash at the end)
-    siteUrl: "http://localhost:8000",
-  },
-  plugins: [
-    {
-      resolve: `gatsby-plugin-breadcrumb`,
-      options: {
-        useAutoGen: true,
-     },
-  ]
-}
-```
 
 ## Gotchas
 
