@@ -10,6 +10,8 @@
 
 ### Breadcrumbs for Gatsby
 
+<img src="src/images/example.png" alt="Example screenshot showing breadcrumbs - a list of links separated by slashes to aid in navigation" />
+
 - [Installation](https://github.com/sbardian/gatsby-plugin-breadcrumb#installation)
 - [Usage](https://github.com/sbardian/gatsby-plugin-breadcrumb#usage)
 - [Gotchas](https://github.com/sbardian/gatsby-plugin-breadcrumb#gotchas)
