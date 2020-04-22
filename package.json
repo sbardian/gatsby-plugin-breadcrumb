@@ -74,7 +74,7 @@
     "jest": "25.4.0",
     "jest-dom": "4.0.0",
     "lint-staged": "10.1.7",
-    "prettier": "2.0.4",
+    "prettier": "2.0.5",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "semantic-release": "17.0.6"
