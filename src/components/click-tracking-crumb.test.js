@@ -139,7 +139,7 @@ describe('Breadcrumb Click Tracking', () => {
         </BreadcrumbProvider>
       </OptionsProvider>,
     )
-    expect(queryByText('testTitle')).toBeTruthy()
+    expect(queryByText('testTitle')).toBeNull()
     expect(getByText('HomeCustom')).toBeTruthy()
     expect(getByText('testLabel')).toBeTruthy()
     container
