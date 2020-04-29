@@ -25,6 +25,7 @@ const props = {
   },
   crumbLabel: 'testLabel',
   crumbSeparator: ' - ',
+  title: 'Breadcrumb',
 }
 
 const useAutoGen = true
@@ -49,9 +50,10 @@ describe('Breadcrumb Click Tracking', () => {
     expect(getByText('Home')).toBeTruthy()
     expect(getByText('long')).toBeTruthy()
     expect(getByText('testLabel')).toBeTruthy()
+    expect(getByText('Breadcrumb')).toBeTruthy()
   })
   it('Should Render autogen breadcrumb with no title', () => {
-    const { getByText } = render(
+    const { getByText, queryByText } = render(
       <OptionsProvider useAutoGen={useAutoGen} usePathPrefix={usePathPrefix}>
         <BreadcrumbProvider defaultCrumb={null}>
           <Breadcrumb
@@ -65,6 +67,7 @@ describe('Breadcrumb Click Tracking', () => {
     expect(getByText('Home')).toBeTruthy()
     expect(getByText('long')).toBeTruthy()
     expect(getByText('testLabel')).toBeTruthy()
+    expect(queryByText('Breadcrumb')).toBeNull()
   })
   it('Should render autogen breadcrumb, with disabled long crumb', () => {
     const { container, getByText } = render(
@@ -83,6 +86,7 @@ describe('Breadcrumb Click Tracking', () => {
     expect(getByText('Home')).toBeTruthy()
     expect(getByText('long')).toBeTruthy()
     expect(getByText('testLabel')).toBeTruthy()
+    expect(getByText('Breadcrumb')).toBeTruthy()
     expect(container.querySelectorAll('a')).toHaveLength(2)
   })
   it('Should render autogen breadcrumb, with long crumb hidden', () => {
@@ -102,6 +106,7 @@ describe('Breadcrumb Click Tracking', () => {
     expect(getByText('Home')).toBeTruthy()
     expect(queryByText('long')).toBeNull()
     expect(getByText('testLabel')).toBeTruthy()
+    expect(getByText('Breadcrumb')).toBeTruthy()
     expect(container.querySelectorAll('a')).toHaveLength(2)
   })
 
@@ -120,10 +125,11 @@ describe('Breadcrumb Click Tracking', () => {
     )
     expect(getByText('Home')).toBeTruthy()
     expect(getByText('long')).toBeTruthy()
+    expect(getByText('Breadcrumb')).toBeTruthy()
     expect(getByText('testLabel')).toBeTruthy()
     container
       .querySelectorAll('a')
-      .forEach(a => expect(a.getAttribute('style')).toBeNull())
+      .forEach((a) => expect(a.getAttribute('style')).toBeNull())
   })
 
   it('Should Render autogen breadcrumb using class names, with disabled links', () => {
@@ -142,9 +148,10 @@ describe('Breadcrumb Click Tracking', () => {
     )
     expect(getByText('Home')).toBeTruthy()
     expect(getByText('long')).toBeTruthy()
+    expect(getByText('Breadcrumb')).toBeTruthy()
     expect(getByText('testLabel')).toBeTruthy()
     container
       .querySelectorAll('a')
-      .forEach(a => expect(a.getAttribute('style')).toBeNull())
+      .forEach((a) => expect(a.getAttribute('style')).toBeNull())
   })
 })

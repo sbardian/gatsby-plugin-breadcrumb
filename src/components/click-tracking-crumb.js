@@ -28,7 +28,7 @@ const ClickTrackingCrumb = ({
 
   return (
     <>
-      <span className="breadcrumb__title">{title}</span>
+      {title && <span className="breadcrumb__title">{title}</span>}
       <nav className="breadcrumb" aria-label="Breadcrumb">
         <ol className="breadcrumb__list">
           {crumbs.map((c, i) => {

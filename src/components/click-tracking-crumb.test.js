@@ -72,6 +72,7 @@ describe('Breadcrumb Click Tracking', () => {
         </BreadcrumbProvider>
       </OptionsProvider>,
     )
+    expect(getByText('testTitle')).toBeTruthy()
     expect(getByText('HomeCustom')).toBeTruthy()
     expect(getByText('testLabel')).toBeTruthy()
   })
@@ -88,6 +89,7 @@ describe('Breadcrumb Click Tracking', () => {
         </BreadcrumbProvider>
       </OptionsProvider>,
     )
+    expect(getByText('homeTitle')).toBeTruthy()
     expect(getByText('HomeCustom')).toBeTruthy()
     expect(queryByText('Home')).toBeNull()
   })
@@ -104,6 +106,7 @@ describe('Breadcrumb Click Tracking', () => {
         </BreadcrumbProvider>
       </OptionsProvider>,
     )
+    expect(getByText('testTitle')).toBeTruthy()
     expect(queryByText('HomeCustom')).toBeNull()
     expect(getByText('testLabel')).toBeTruthy()
   })
@@ -120,15 +123,15 @@ describe('Breadcrumb Click Tracking', () => {
         </BreadcrumbProvider>
       </OptionsProvider>,
     )
+    expect(getByText('testTitle')).toBeTruthy()
     expect(getByText('HomeCustom')).toBeTruthy()
     expect(getByText('testLabel')).toBeTruthy()
   })
   it('Should render click tracking breadcrumb with default crumb and using class names', () => {
-    const { container, getByText } = render(
+    const { container, getByText, queryByText } = render(
       <OptionsProvider useAutoGen={useAutoGen} usePathPrefix={usePathPrefix}>
         <BreadcrumbProvider defaultCrumb={defaultCrumb}>
           <Breadcrumb
-            title={props.title}
             location={props.location}
             crumbLabel={props.crumbLabel}
             crumbSeparator={props.crumbSeparator}
@@ -136,10 +139,11 @@ describe('Breadcrumb Click Tracking', () => {
         </BreadcrumbProvider>
       </OptionsProvider>,
     )
+    expect(queryByText('testTitle')).toBeTruthy()
     expect(getByText('HomeCustom')).toBeTruthy()
     expect(getByText('testLabel')).toBeTruthy()
     container
       .querySelectorAll('a')
-      .forEach(a => expect(a.getAttribute('a')).toBeNull())
+      .forEach((a) => expect(a.getAttribute('a')).toBeNull())
   })
 })
