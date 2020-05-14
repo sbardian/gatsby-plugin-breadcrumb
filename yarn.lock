@@ -1683,10 +1683,10 @@
   dependencies:
     defer-to-connect "^1.0.1"
 
-"@testing-library/dom@7.5.4":
-  version "7.5.4"
-  resolved "https://registry.yarnpkg.com/@testing-library/dom/-/dom-7.5.4.tgz#7404d498c0a7400f5bd0684702ef81ccaae31607"
-  integrity sha512-wubluhNntK0yzDyj0z9x99mUfoI7cITJpajF9KWMOzAiecYGHKEfCcj4PwPNtPeF/b1v7SjvDfjY8On2PyOM9g==
+"@testing-library/dom@7.5.5":
+  version "7.5.5"
+  resolved "https://registry.yarnpkg.com/@testing-library/dom/-/dom-7.5.5.tgz#af79467c5c35ec859e75277cc273ee4245f45b49"
+  integrity sha512-KFVa+RHO6zCLZO9qz+q+6rbbH2g4J5YBVFP5srYm6r5aPJru3148EkedZ2XSnyNjJW/HEm8HQ2didKvxQxMOcg==
   dependencies:
     "@babel/runtime" "^7.9.6"
     aria-query "^4.0.2"
