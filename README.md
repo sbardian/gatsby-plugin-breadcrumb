@@ -446,10 +446,10 @@ here submit a PR or create an issue.
 - In your `gatsby-config.js` option `siteMetaData.siteUrl` be sure to remove any
   trailing slashes
 
-- The `<Link />'s` throughout your site need to have `to` properties that match
-  your breadcrumb `to` properties for the `breadcrumb__link__active` class to be
-  applied. The URLs in your site also need to match the `to` properties of the
-  breadcrumb for active classes to take effect.
+- The Gatsby `<Link />'s` throughout your site need to have `to` properties that
+  match your breadcrumb `to` properties for the `breadcrumb__link__active` class
+  to be applied. The URLs in your site also need to match the `to` properties of
+  the breadcrumb for active classes to take effect.
 
   - Your sites URLs might have trailing slashes, and the breadcrumb `to` URLs
     might not. One option is to use the
