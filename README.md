@@ -238,7 +238,7 @@ available options.
 To use the default styles please import the `gatsby-plugin-breadcrumb.css` file
 into your gatsby-browser.js file.
 
-gatsby-broswer.js
+gatsby-browser.js
 
 ```javascript
 import 'gatsby-plugin-breadcrumb/gatsby-plugin-breadcrumb.css'
@@ -418,7 +418,7 @@ export const AboutUs = ({ pageContext, location }) => {
 To use the default styles please import the `gatsby-plugin-breadcrumb.css` file
 into your gatsby-browser.js file.
 
-gatsby-broswer.js
+gatsby-browser.js
 
 ```javascript
 import 'gatsby-plugin-breadcrumb/gatsby-plugin-breadcrumb.css'
