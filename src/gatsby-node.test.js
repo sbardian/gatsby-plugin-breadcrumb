@@ -106,6 +106,52 @@ const calledWithLongLabelUpdates = {
   },
 }
 
+const calledWithTrailingSlashes = {
+  path: '/long/test',
+  context: {
+    breadcrumb: {
+      crumbs: [
+        {
+          crumbLabel: 'Home',
+          pathname: '/',
+        },
+        {
+          crumbLabel: 'long',
+          pathname: '/long/',
+        },
+        {
+          crumbLabel: 'test',
+          pathname: '/long/test/',
+        },
+      ],
+      location: '/long/test',
+    },
+  },
+}
+
+const calledWithTrailingSlashesLabelUpdates = {
+  path: '/long/test',
+  context: {
+    breadcrumb: {
+      crumbs: [
+        {
+          crumbLabel: 'Home',
+          pathname: '/',
+        },
+        {
+          crumbLabel: 'LONG',
+          pathname: '/long/',
+        },
+        {
+          crumbLabel: 'test',
+          pathname: '/long/test/',
+        },
+      ],
+      location: '/long/test',
+    },
+  },
+}
+
 afterEach(() => {
   actions.createPage.mockClear()
   actions.deletePage.mockClear()
@@ -201,5 +247,34 @@ describe('AutoGen crumbs: ', () => {
     onCreatePage({ page: { path: '/404', context: {} }, actions }, {})
     expect(actions.deletePage).not.toHaveBeenCalled()
     expect(actions.createPage).not.toHaveBeenCalled()
+  })
+  it('should generate crumbs with trailingSlashes', () => {
+    onCreatePage(
+      { page: mockPageLongPath, actions },
+      {
+        useAutoGen: true,
+        trailingSlashes: true,
+      },
+    )
+    expect(actions.deletePage).toHaveBeenCalledTimes(1)
+    expect(actions.deletePage).toHaveBeenCalledWith(mockPageLongPath)
+    expect(actions.createPage).toHaveBeenCalledTimes(1)
+    expect(actions.createPage).toHaveBeenCalledWith(calledWithTrailingSlashes)
+  })
+  it('should generate crumbs with trailingSlashes and label updates', () => {
+    onCreatePage(
+      { page: mockPageLongPath, actions },
+      {
+        useAutoGen: true,
+        trailingSlashes: true,
+        crumbLabelUpdates: [{ pathname: '/long', crumbLabel: 'LONG' }],
+      },
+    )
+    expect(actions.deletePage).toHaveBeenCalledTimes(1)
+    expect(actions.deletePage).toHaveBeenCalledWith(mockPageLongPath)
+    expect(actions.createPage).toHaveBeenCalledTimes(1)
+    expect(actions.createPage).toHaveBeenCalledWith(
+      calledWithTrailingSlashesLabelUpdates,
+    )
   })
 })

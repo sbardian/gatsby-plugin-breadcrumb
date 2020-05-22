@@ -345,10 +345,10 @@ gatsby-config.js
         autoGenHomeLabel: `Root`,
         // exlude: optional, include to overwrite these default excluded pages
         exclude: [
-          `/dev-404-page`,
-          `/404`,
+          `/dev-404-page/`,
+          `/404/`,
           `/404.html`,
-          `/offline-plugin-app-shell-fallback`,
+          `/offline-plugin-app-shell-fallback/`,
         ],
         // crumbLabelUpdates: optional, update specific crumbLabels in the path
         crumbLabelUpdates: [
@@ -356,7 +356,10 @@ gatsby-config.js
             pathname: '/book',
             crumbLabel: 'Books'
           }
-        ]
+        ],
+        // trailingSlashes: optional, will add trailing slashes to the end
+        // of crumb pathnames. default is false
+        trailingSlashes: true,
         // usePathPrefix: optional, if you are using pathPrefix above
         usePathPrefix: '/blog',
      },
