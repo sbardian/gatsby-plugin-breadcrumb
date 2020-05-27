@@ -46,8 +46,8 @@
     "prop-types": "^15.7.2"
   },
   "devDependencies": {
-    "@babel/cli": "7.10.0",
-    "@babel/core": "7.10.0",
+    "@babel/cli": "7.10.1",
+    "@babel/core": "7.10.1",
     "@commitlint/cli": "8.3.5",
     "@commitlint/config-conventional": "8.3.4",
     "@testing-library/dom": "7.5.9",
