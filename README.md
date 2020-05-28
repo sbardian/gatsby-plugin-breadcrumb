@@ -343,7 +343,8 @@ gatsby-config.js
         useAutoGen: true,
         // autoGenHomeLabel: optional 'Home' is default
         autoGenHomeLabel: `Root`,
-        // exlude: optional, include to overwrite these default excluded pages
+        // exlude: optional, include this array to overwrite paths you don't want to
+        // generate breadcrumbs for.
         exclude: [
           `/dev-404-page/`,
           `/404/`,

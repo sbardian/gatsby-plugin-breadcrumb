@@ -4,12 +4,7 @@ exports.onCreatePage = ({ page, pathPrefix, actions }, pluginOptions) => {
 
     const defaultOptions = {
       trailingSlashes: false,
-      exclude: [
-        `/dev-404-page/`,
-        `/404/`,
-        `/404.html`,
-        `/offline-plugin-app-shell-fallback/`,
-      ],
+      exclude: [],
     }
 
     const optionsActual = { ...defaultOptions, ...pluginOptions }
