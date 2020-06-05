@@ -2752,7 +2752,17 @@
   dependencies:
     defer-to-connect "^1.0.1"
 
-"@testing-library/dom@7.9.0", "@testing-library/dom@^7.9.0":
+"@testing-library/dom@7.10.0":
+  version "7.10.0"
+  resolved "https://registry.yarnpkg.com/@testing-library/dom/-/dom-7.10.0.tgz#ceb77b80ddc0f1b5b71f49684eabd18d07f2d3cb"
+  integrity sha512-nCCutwtbChYPnWFvmxCIRINeA0mlT0B3dAeCb2RxX65nZZVbf3jHfd6+v//TYnWo5O6nL5j6x6mJE5JUU3zNSw==
+  dependencies:
+    "@babel/runtime" "^7.10.2"
+    aria-query "^4.0.2"
+    dom-accessibility-api "^0.4.4"
+    pretty-format "^25.5.0"
+
+"@testing-library/dom@^7.9.0":
   version "7.9.0"
   resolved "https://registry.yarnpkg.com/@testing-library/dom/-/dom-7.9.0.tgz#3805cda47ab691645775c59c93c9044a2cad4c91"
   integrity sha512-WYnJx9I94cYKib/Ber2BU3v1dUB+4n5wnJpvWJLTiwgERRTSElsivEtfX5S0LSljS122One6Bewhx2kgoZKXzA==
