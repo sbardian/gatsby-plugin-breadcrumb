@@ -3072,10 +3072,10 @@
   dependencies:
     defer-to-connect "^1.0.1"
 
-"@testing-library/dom@7.14.1":
-  version "7.14.1"
-  resolved "https://registry.yarnpkg.com/@testing-library/dom/-/dom-7.14.1.tgz#cbb06fe52fd819cf6bb2859b7e20b2f6ac4def73"
-  integrity sha512-inDCC4QInw58JkxIINXqo9AcinV2xNonbSrnDC05FBsnTktJ5T0DUvtFVj241QDNgA2prxQAPttyHcYWxMTS7g==
+"@testing-library/dom@7.14.2":
+  version "7.14.2"
+  resolved "https://registry.yarnpkg.com/@testing-library/dom/-/dom-7.14.2.tgz#e539b2342c5a67e2dfd285bba02308abeb237195"
+  integrity sha512-MZjve+Qn0bPFAJ8w0SIkuplCMd52Bh2JyNAvS0xh/RSZVAsux1HGL24yhTf6fT+HtHMqG1F0vZFU8ncZmmAK1Q==
   dependencies:
     "@babel/runtime" "^7.10.2"
     aria-query "^4.0.2"
