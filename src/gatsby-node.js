@@ -14,6 +14,7 @@ exports.onCreatePage = ({ page, pathPrefix, actions }, pluginOptions) => {
     if (!optionsActual.exclude.includes(page.path)) {
       let acc = ''
       let crumbs = []
+      let pathname = ''
 
       const splitUrl = pathPrefix
         ? page.path.replace(new RegExp(`^${pathPrefix}`), '').split('/')
@@ -30,22 +31,28 @@ exports.onCreatePage = ({ page, pathPrefix, actions }, pluginOptions) => {
           ]
         } else if (index !== 0 && split !== '') {
           // remaining sections of path
-
           acc += `/${split}`
-          const n = acc.lastIndexOf('/')
 
           // update crumbLabel for any crumbLabelUpdates otherwise use path
-          let crumbLabel = acc.slice(n + 1).replace(/%20/g, ' ')
+          let crumbLabel = split
           crumbLabelUpdates.forEach((labelUpdate) => {
             if (labelUpdate.pathname === acc) {
               crumbLabel = labelUpdate.crumbLabel
             }
           })
 
+          // if trailingSlashes add a trailing slash to the end of
+          // each crumb. Excluding root (/) and crumbs including a "." (ex: 404.html)
+          if (trailingSlashes && index !== 0 && acc.indexOf('.') === -1) {
+            pathname = `${acc}/`
+          } else {
+            pathname = acc
+          }
+
           crumbs = [
             ...crumbs,
             {
-              pathname: acc,
+              pathname,
               crumbLabel,
             },
           ]
@@ -54,16 +61,6 @@ exports.onCreatePage = ({ page, pathPrefix, actions }, pluginOptions) => {
           crumbs = [...crumbs]
         }
       })
-
-      // if trailingSlashes add a trailing slash to the end of
-      // each crumb. Excluding root (/) and crumbs including a "." (ex: 404.html)
-      if (trailingSlashes) {
-        crumbs.forEach((crumb, index) => {
-          if (index !== 0 && crumb.pathname.indexOf('.') === -1) {
-            crumbs[index].pathname = `${crumbs[index].pathname}/`
-          }
-        })
-      }
 
       const breadcrumb = {
         location: page.path,
