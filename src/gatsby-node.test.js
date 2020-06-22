@@ -22,6 +22,10 @@ const mockPathExcluded = {
   path: '/404',
 }
 
+const mockPathHTML = {
+  path: '/long/404.html',
+}
+
 const calledWithShort = {
   path: '/test',
   context: {
@@ -152,6 +156,29 @@ const calledWithTrailingSlashesLabelUpdates = {
   },
 }
 
+const calledWithTrailingSlashesLabelUpdatesHTMLExt = {
+  path: '/long/404.html',
+  context: {
+    breadcrumb: {
+      crumbs: [
+        {
+          crumbLabel: 'Home',
+          pathname: '/',
+        },
+        {
+          crumbLabel: 'LONG',
+          pathname: '/long/',
+        },
+        {
+          crumbLabel: '404.html',
+          pathname: '/long/404.html',
+        },
+      ],
+      location: '/long/404.html',
+    },
+  },
+}
+
 afterEach(() => {
   actions.createPage.mockClear()
   actions.deletePage.mockClear()
@@ -276,6 +303,22 @@ describe('AutoGen crumbs: ', () => {
     expect(actions.createPage).toHaveBeenCalledTimes(1)
     expect(actions.createPage).toHaveBeenCalledWith(
       calledWithTrailingSlashesLabelUpdates,
+    )
+  })
+  it('should generate crumbs with trailingSlashes, no trailing slash on html extension', () => {
+    onCreatePage(
+      { page: mockPathHTML, actions },
+      {
+        useAutoGen: true,
+        trailingSlashes: true,
+        crumbLabelUpdates: [{ pathname: '/long', crumbLabel: 'LONG' }],
+      },
+    )
+    expect(actions.deletePage).toHaveBeenCalledTimes(1)
+    expect(actions.deletePage).toHaveBeenCalledWith(mockPathHTML)
+    expect(actions.createPage).toHaveBeenCalledTimes(1)
+    expect(actions.createPage).toHaveBeenCalledWith(
+      calledWithTrailingSlashesLabelUpdatesHTMLExt,
     )
   })
 })
