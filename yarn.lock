@@ -2997,10 +2997,10 @@
   dependencies:
     defer-to-connect "^1.0.1"
 
-"@testing-library/dom@7.17.2":
-  version "7.17.2"
-  resolved "https://registry.yarnpkg.com/@testing-library/dom/-/dom-7.17.2.tgz#d062e41336b885107bca8ffc7022eaf37cccaee1"
-  integrity sha512-TQAoIzoI9g64oNVJ+13i4cCh/DQp/n7fJOyMqlFB1oQVusPtSgiPImyb52CwtvPO7J0Im0+/4YcmxU9a+cVxxw==
+"@testing-library/dom@7.18.0":
+  version "7.18.0"
+  resolved "https://registry.yarnpkg.com/@testing-library/dom/-/dom-7.18.0.tgz#fc883ba993f35cd00c863099cfcf314395f0a9eb"
+  integrity sha512-OD6jgGc4nwM4GNXZJlVcI6wwP5hcJ4T8g752wbtK/Ub7jdATvAdnVSauODdoBMsEZejb1VoWNQsTDc4C9bgrsw==
   dependencies:
     "@babel/runtime" "^7.10.3"
     aria-query "^4.2.2"
