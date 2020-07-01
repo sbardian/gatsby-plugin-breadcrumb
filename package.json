@@ -41,7 +41,7 @@
   "dependencies": {
     "@babel/runtime": "^7.3.4",
     "babel-jest": "^26.0.0",
-    "babel-preset-gatsby": "^0.4.0",
+    "babel-preset-gatsby": "^0.5.0",
     "identity-obj-proxy": "^3.0.0",
     "prop-types": "^15.7.2"
   },
@@ -55,7 +55,7 @@
     "@testing-library/react": "10.4.3",
     "babel-eslint": "10.1.0",
     "babel-plugin-dynamic-import-node": "2.3.3",
-    "babel-preset-gatsby-package": "0.4.6",
+    "babel-preset-gatsby-package": "0.5.0",
     "commitizen": "4.1.2",
     "coveralls": "3.1.0",
     "cross-env": "7.0.2",
@@ -69,7 +69,7 @@
     "eslint-plugin-prettier": "3.1.4",
     "eslint-plugin-react": "7.20.3",
     "eslint-plugin-react-hooks": "4.0.5",
-    "gatsby": "2.23.12",
+    "gatsby": "2.23.14",
     "husky": "4.2.5",
     "jest": "26.1.0",
     "jest-dom": "4.0.0",
