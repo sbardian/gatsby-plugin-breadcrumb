@@ -2780,10 +2780,10 @@
   dependencies:
     defer-to-connect "^1.0.1"
 
-"@testing-library/dom@7.22.4":
-  version "7.22.4"
-  resolved "https://registry.yarnpkg.com/@testing-library/dom/-/dom-7.22.4.tgz#92a43253507b2436199449d344d3ec4a29df773c"
-  integrity sha512-b+/z7/dIzEckmu7YS29xkl7JbI+n5XAnneQVUv3rXb19oVkxUFoYU6c0CTXuWEznNDU+g+eTYXB5CXMzbr232g==
+"@testing-library/dom@7.22.5":
+  version "7.22.5"
+  resolved "https://registry.yarnpkg.com/@testing-library/dom/-/dom-7.22.5.tgz#178fb0bfb52540538667f2f72d4b7fb406a49499"
+  integrity sha512-qALmosaNSny/JqQ+mDhdT0N5u1a76pEcOvfWFDpBQOchtkxDm/w/bCfe0J/K7nHrwJPHelFiAZksaBs//P9fsw==
   dependencies:
     "@babel/runtime" "^7.10.3"
     "@types/aria-query" "^4.2.0"
