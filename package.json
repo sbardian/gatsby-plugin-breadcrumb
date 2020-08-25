@@ -73,7 +73,7 @@
     "husky": "4.2.5",
     "jest": "26.4.2",
     "jest-dom": "4.0.0",
-    "lint-staged": "10.2.12",
+    "lint-staged": "10.2.13",
     "prettier": "2.1.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
