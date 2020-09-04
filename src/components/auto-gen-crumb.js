@@ -74,7 +74,7 @@ AutoGenCrumb.defaultProps = {
 
 AutoGenCrumb.propTypes = {
   title: Proptypes.string,
-  crumbSeparator: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.object]),
+  crumbSeparator: Proptypes.oneOfType([Proptypes.string, Proptypes.object]),
   crumbs: Proptypes.arrayOf(
     Proptypes.shape({
       location: Proptypes.shape(),
