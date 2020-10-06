@@ -71,7 +71,7 @@
     "eslint-plugin-react-hooks": "4.1.2",
     "gatsby": "2.24.68",
     "husky": "4.3.0",
-    "jest": "26.5.0",
+    "jest": "26.5.2",
     "jest-dom": "4.0.0",
     "lint-staged": "10.4.0",
     "prettier": "2.1.2",
