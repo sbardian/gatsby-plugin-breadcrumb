@@ -50,7 +50,7 @@
     "@babel/core": "7.11.6",
     "@commitlint/cli": "11.0.0",
     "@commitlint/config-conventional": "11.0.0",
-    "@testing-library/dom": "7.24.4",
+    "@testing-library/dom": "7.24.5",
     "@testing-library/jest-dom": "5.11.4",
     "@testing-library/react": "11.0.4",
     "babel-eslint": "10.1.0",
