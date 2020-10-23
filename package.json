@@ -51,7 +51,7 @@
     "@commitlint/cli": "11.0.0",
     "@commitlint/config-conventional": "11.0.0",
     "@testing-library/dom": "7.26.3",
-    "@testing-library/jest-dom": "5.11.4",
+    "@testing-library/jest-dom": "5.11.5",
     "@testing-library/react": "11.1.0",
     "babel-eslint": "10.1.0",
     "babel-plugin-dynamic-import-node": "2.3.3",
