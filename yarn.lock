@@ -2461,10 +2461,10 @@
   dependencies:
     defer-to-connect "^1.0.1"
 
-"@testing-library/dom@7.27.0":
-  version "7.27.0"
-  resolved "https://registry.yarnpkg.com/@testing-library/dom/-/dom-7.27.0.tgz#b4c7393f488db6de18c6cfa619390e7d6da57a3b"
-  integrity sha512-OH4lK9R0DdKdePG76cKQXORMpXLahqRLmyIau084TdN2sM1sfjxnGEiiTbJe/PDiam7sMOuf9uBXsTByH3pPhQ==
+"@testing-library/dom@7.27.1":
+  version "7.27.1"
+  resolved "https://registry.yarnpkg.com/@testing-library/dom/-/dom-7.27.1.tgz#b760182513357e4448a8461f9565d733a88d71d0"
+  integrity sha512-AF56RoeUU8bO4DOvLyMI44H3O1LVKZQi2D/m5fNDr+iR4drfOFikTr26hT6IY7YG+l8g69FXsHERa+uThaYYQg==
   dependencies:
     "@babel/code-frame" "^7.10.4"
     "@babel/runtime" "^7.12.5"
