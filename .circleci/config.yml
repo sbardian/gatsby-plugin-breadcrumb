@@ -9,15 +9,15 @@ jobs:
 
       - restore_cache:
           keys:
-            - v4-dependencies-{{ checksum "package.json" }}
-            - v4-dependencies-
+            - v5-dependencies-{{ checksum "package.json" }}
+            - v5-dependencies-
 
       - run: yarn install
 
       - save_cache:
           paths:
             - node_modules
-          key: v4-dependencies-{{ checksum "package.json" }}
+          key: v5-dependencies-{{ checksum "package.json" }}
 
       # run tests!
       - run: yarn lint
