@@ -20,7 +20,7 @@ export const BreadcrumbProvider = ({ children, defaultCrumb }) => {
   }) => {
     // check to see if the path is already in the breadcrumb
     const indexOfFirstOccurrenceOfCurrentPath = crumbs.findIndex(
-      crumb => crumb.pathname === location.pathname,
+      (crumb) => crumb.pathname === location.pathname,
     )
 
     // when path exists in breadcrumb we need to remove any crumbs after
