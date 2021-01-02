@@ -1,3 +1,6 @@
+// import wcmatch from 'wildcard-match'
+const wcmatch = require('wildcard-match')
+
 exports.onCreatePage = ({ page, pathPrefix, actions }, pluginOptions) => {
   if (pluginOptions.useAutoGen) {
     const { createPage, deletePage } = actions
@@ -5,13 +8,22 @@ exports.onCreatePage = ({ page, pathPrefix, actions }, pluginOptions) => {
     const defaultOptions = {
       trailingSlashes: false,
       exclude: [],
+      excludeOptions: {
+        separator: true,
+      },
     }
 
     const optionsActual = { ...defaultOptions, ...pluginOptions }
-    const { crumbLabelUpdates = [], trailingSlashes } = optionsActual
+    const {
+      crumbLabelUpdates = [],
+      trailingSlashes,
+      exclude,
+      excludeOptions,
+    } = optionsActual
 
     // for pages not excludecd, create crumbs out of each section of the page path
-    if (!optionsActual.exclude.includes(page.path)) {
+    const isMatch = wcmatch(exclude, excludeOptions)
+    if (!isMatch(page.path)) {
       let acc = ''
       let crumbs = []
       let pathname = ''

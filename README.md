@@ -343,14 +343,18 @@ gatsby-config.js
         useAutoGen: true,
         // autoGenHomeLabel: optional 'Home' is default
         autoGenHomeLabel: `Root`,
-        // exlude: optional, include this array to overwrite paths you don't want to
-        // generate breadcrumbs for.
-        exclude: [
-          `/dev-404-page/`,
-          `/404/`,
-          `/404.html`,
-          `/offline-plugin-app-shell-fallback/`,
+        // exlude: optional, include this array to exclude paths you don't want to
+        // generate breadcrumbs for (see below for details).
+        excludes: [
+          `**/dev-404-page/**`,
+          `**/404/**`,
+          `**/404.html`,
+          `**/offline-plugin-app-shell-fallback/**`
         ],
+        // isMatchOptions: optional, include this object to configure the wildcard-match library.
+        excludeOptions: {
+          separator: '.'
+        },
         // crumbLabelUpdates: optional, update specific crumbLabels in the path
         crumbLabelUpdates: [
           {
@@ -367,6 +371,33 @@ gatsby-config.js
   ]
 }
 ```
+
+### gatsby-config.js exclude array and excludeOptions
+
+- As of v11 the `exclude` array option in the config of this plugin uses
+  [wildcard-match](https://github.com/axtgr/wildcard-match) library. You can
+  write wildcard strings to exclude paths you don't want to create breadcrumbs
+  for. Please review the
+  [wildcard-match](https://github.com/axtgr/wildcard-match) library for further
+  details on how to write new exclude strings.
+
+  > > To upgrade to v11 and keep similar behavior to your old excluded paths
+  > > simply add `**` to the start and end of your exclude strings
+
+  example:
+
+  ```
+  // old
+  exclude: [ '/books/', '/chapters/' ]
+
+  // new
+  exclude: [ '**/books/**', '**/chapters/**' ]
+  ```
+
+- The `excludeOptions` object option is used to pass options to configure the
+  `wildcard-match` library. Please see the
+  [wildcard-match](https://github.com/axtgr/wildcard-match) library for more
+  details. Omitting this option will use the default options.
 
 ### Breadcrumb component example with AutoGen
 

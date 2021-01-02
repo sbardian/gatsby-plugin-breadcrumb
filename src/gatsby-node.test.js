@@ -19,7 +19,7 @@ const mockPageLongPath = {
 }
 
 const mockPathExcluded = {
-  path: '/404',
+  path: '/404/test.html',
 }
 
 const mockPathHTML = {
@@ -190,7 +190,7 @@ describe('AutoGen crumbs: ', () => {
       { page: mockPathExcluded, actions },
       {
         useAutoGen: true,
-        exclude: ['/404'],
+        exclude: ['**/404/**', '**/*.html', '**/test.????', '**/*?m?', '**'],
       },
     )
     expect(actions.deletePage).toHaveBeenCalledTimes(0)

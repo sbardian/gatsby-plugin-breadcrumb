@@ -17347,6 +17347,11 @@ widest-line@^3.1.0:
   dependencies:
     string-width "^4.0.0"
 
+wildcard-match@^5.1.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/wildcard-match/-/wildcard-match-5.1.0.tgz#cb9d0c54a8bde298e534054146f3577f9e7b3c97"
+  integrity sha512-Q02fSwOl4xPEyLLMs3TiAOBD735ELrdiczcCnvYAn5VRDAycmzYzc69BmWI1MGONfngCSq+5mgIaYMoGfICqQg==
+
 windows-release@^3.1.0:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/windows-release/-/windows-release-3.3.0.tgz#dce167e9f8be733f21c849ebd4d03fe66b29b9f0"
