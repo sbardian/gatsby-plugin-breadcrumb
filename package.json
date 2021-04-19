@@ -39,7 +39,7 @@
     }
   },
   "dependencies": {
-    "@babel/runtime": "^7.3.4",
+    "@babel/runtime": "^7.9.6",
     "babel-jest": "^26.0.0",
     "babel-preset-gatsby": "^0.12.0",
     "identity-obj-proxy": "^3.0.0",
