@@ -1,0 +1,1151 @@
+{
+	"name": "wildcard-match",
+	"versions": {
+		"1.0.0": {
+			"name": "wildcard-match",
+			"version": "1.0.0",
+			"description": "Match two glob-like patterns",
+			"author": {
+				"name": "Alex Shnayder",
+				"email": "alex@shnayder.pro"
+			},
+			"license": "MIT",
+			"main": "src/index.js",
+			"scripts": {
+				"lint": "eslint src test",
+				"test": "mocha"
+			},
+			"keywords": [
+				"match",
+				"wildcard",
+				"glob",
+				"pattern"
+			],
+			"homepage": "https://github.com/alex-shnayder/wildcard-match",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/alex-shnayder/wildcard-match.git"
+			},
+			"bugs": {
+				"url": "https://github.com/alex-shnayder/wildcard-match/issues"
+			},
+			"devDependencies": {
+				"chai": "^3.5.0",
+				"eslint": "^3.11.0",
+				"eslint-plugin-no-empty-blocks": "0.0.2",
+				"mocha": "^3.2.0"
+			},
+			"gitHead": "10c5fac8594383fd1523dc8ed55e106d7e262395",
+			"_id": "wildcard-match@1.0.0",
+			"_shasum": "3536b1803e314d0e0e8139c594324688df9e3b01",
+			"_from": ".",
+			"_npmVersion": "4.0.2",
+			"_nodeVersion": "7.2.0",
+			"_npmUser": {
+				"name": "alex-shnayder",
+				"email": "alex@shnayder.pro"
+			},
+			"dist": {
+				"shasum": "3536b1803e314d0e0e8139c594324688df9e3b01",
+				"tarball": "https://registry.npmjs.org/wildcard-match/-/wildcard-match-1.0.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "alex-shnayder",
+					"email": "alex@shnayder.pro"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "packages-12-west.internal.npmjs.com",
+				"tmp": "tmp/wildcard-match-1.0.0.tgz_1480691639072_0.656692290212959"
+			},
+			"directories": {},
+			"contributors": []
+		},
+		"1.1.0": {
+			"name": "wildcard-match",
+			"version": "1.1.0",
+			"description": "Match two glob-like patterns",
+			"author": {
+				"name": "Alex Shnayder",
+				"email": "alex@shnayder.pro"
+			},
+			"license": "ISC",
+			"main": "src/index.js",
+			"types": "src/index.d.ts",
+			"scripts": {
+				"lint": "eslint src test",
+				"test": "mocha test/**/*"
+			},
+			"keywords": [
+				"match",
+				"wildcard",
+				"glob",
+				"pattern"
+			],
+			"homepage": "https://github.com/alex-shnayder/wildcard-match",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/alex-shnayder/wildcard-match.git"
+			},
+			"bugs": {
+				"url": "https://github.com/alex-shnayder/wildcard-match/issues"
+			},
+			"devDependencies": {
+				"chai": "^4.1.2",
+				"eslint": "^4.6.1",
+				"mocha": "^3.5.3"
+			},
+			"gitHead": "bc559bdc7f3e03432d82c9cf78181be8134c0969",
+			"_id": "wildcard-match@1.1.0",
+			"_npmVersion": "5.3.0",
+			"_nodeVersion": "8.1.2",
+			"_npmUser": {
+				"name": "alex-shnayder",
+				"email": "alex@shnayder.pro"
+			},
+			"dist": {
+				"integrity": "sha512-iYLDT7W2XmPqp45HylJzwSqD8qUSL6gIVz+/k0v0B+WPGt28rj/BLIUy3YoS3Fvfs4d6Yhl0o+kDWpd+0tDJAA==",
+				"shasum": "166a247a83581921867841c9dba03b75b98e9a3e",
+				"tarball": "https://registry.npmjs.org/wildcard-match/-/wildcard-match-1.1.0.tgz"
+			},
+			"maintainers": [
+				{
+					"name": "alex-shnayder",
+					"email": "alex@shnayder.pro"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/wildcard-match-1.1.0.tgz_1505430562865_0.3585709473118186"
+			},
+			"directories": {},
+			"contributors": []
+		},
+		"2.0.0": {
+			"name": "wildcard-match",
+			"version": "2.0.0",
+			"description": "Check if a string matches a pattern containing * and ** wildcards",
+			"author": {
+				"name": "Alex Schneider",
+				"email": "me@schneider.ax"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/axtgr/wildcard-match.git"
+			},
+			"license": "ISC",
+			"keywords": [
+				"match",
+				"wildcard",
+				"glob",
+				"pattern"
+			],
+			"main": "dist/index.js",
+			"scripts": {
+				"build": "tsc",
+				"lint": "eslint src test",
+				"test": "ts-mocha test/**"
+			},
+			"husky": {
+				"hooks": {
+					"pre-commit": "lint-staged && npm run test -- -b"
+				}
+			},
+			"lint-staged": {
+				"(src|test)/**/*.ts": [
+					"eslint --cache --fix"
+				],
+				"*.md": "prettier --write"
+			},
+			"devDependencies": {
+				"@types/mocha": "^7.0.2",
+				"@types/node": "^14.0.14",
+				"@typescript-eslint/eslint-plugin": "^3.4.0",
+				"@typescript-eslint/parser": "^3.4.0",
+				"eslint": "^7.3.1",
+				"eslint-config-prettier": "^6.11.0",
+				"eslint-config-problems": "^4.0.0",
+				"eslint-plugin-prefer-let": "^1.0.1",
+				"eslint-plugin-prettier": "^3.1.4",
+				"husky": "^4.2.5",
+				"lint-staged": "^10.2.11",
+				"mocha": "^8.0.1",
+				"prettier": "^2.0.5",
+				"ts-mocha": "^7.0.0",
+				"typescript": "^3.9.5"
+			},
+			"gitHead": "d61dad0b8f8c57f097354c8ecf0d8d640dbae67d",
+			"bugs": {
+				"url": "https://github.com/axtgr/wildcard-match/issues"
+			},
+			"homepage": "https://github.com/axtgr/wildcard-match#readme",
+			"_id": "wildcard-match@2.0.0",
+			"_nodeVersion": "14.4.0",
+			"_npmVersion": "6.14.5",
+			"dist": {
+				"integrity": "sha512-hNJgro8itKm3046kF4IsTCSKsv7m+rdX9rlYZocIM/3msSN3jA+TJA3w07pqPVAdYYC9S/Oj3R/lmQtIUW1fAw==",
+				"shasum": "1fd09177c6c501a14e1a82d50cab2a2ca6502e9e",
+				"tarball": "https://registry.npmjs.org/wildcard-match/-/wildcard-match-2.0.0.tgz",
+				"fileCount": 6,
+				"unpackedSize": 7750,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJe9e3JCRA9TVsSAnZWagAA0fcQAJxHE22honc3sLOotby7\n5zzBL2Iti6cd4eIHIXp9KzByp0zKCWNc8oqXPLyq/Nxt0AT0rb3zYL3oslK8\nnJUq1BDasABhSAfubCgBuu2G5AJ28nIopKVeo06vrEIW7JLP8nhHfPdXzKqY\nvOi/0ryp5KoDeR7Z9vSa9NO9LjewMpUctAvzdiaAQd04KF4ZS0kd8FvIKmMc\npu+B742OCQXiWYclmeZfI3s+GepZVC2EVkY7fzemPSKzvB5q+tT4LojObZ5t\nneRJJDzBAMmdBS6vo0nbWbZqu9+83y57fsXXL3jjxjoThiP4sp/lrLBs/uid\n7Ho3vQAurOJhE2t9Jl5AFku1fihTXBVZycqS+S/LXC7boHFXT62VguH+FQk/\nrOTZdTds8qu6JdihKMVf/2qGEsSVkRKzUYkZ/q3ZKyfI3s1lN2zj4guPfoU+\nchHpLJex+Jg0pTKmUkPXPxjy02+rtPPTivhUxvazPd4buOsLMllKurdfZTdE\n7aHN8r436/frs3ebJVCGpAg1VOr5KVmXuA02NJa7Vxde+fnfovPsdykSWFrH\nc6pEe21x27ANFgf6paUtvyUfRgZjoBODR6oODzTu3VU5wHCQEkQ2x4UkNBoe\nAS7abnQE+iNdALXI2Xr+QjQV1J9qTYWUADaGLPq7cokKLVFQi4L598QRljAQ\ntwLP\r\n=cQ49\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"email": "me@schneider.ax",
+					"name": "ax-schneider"
+				}
+			],
+			"_npmUser": {
+				"name": "ax-schneider",
+				"email": "me@schneider.ax"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/wildcard-match_2.0.0_1593175497438_0.41606336907172503"
+			},
+			"_hasShrinkwrap": false,
+			"contributors": []
+		},
+		"2.0.1": {
+			"name": "wildcard-match",
+			"version": "2.0.1",
+			"description": "Check if a string matches a pattern containing * and ** wildcards",
+			"author": {
+				"name": "Alex Schneider",
+				"email": "me@schneider.ax"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/axtgr/wildcard-match.git"
+			},
+			"license": "ISC",
+			"keywords": [
+				"match",
+				"wildcard",
+				"glob",
+				"pattern"
+			],
+			"main": "dist/index.js",
+			"scripts": {
+				"build": "tsc",
+				"lint": "eslint src test",
+				"test": "ts-mocha test/**"
+			},
+			"husky": {
+				"hooks": {
+					"pre-commit": "lint-staged && npm run test -- -b"
+				}
+			},
+			"lint-staged": {
+				"(src|test)/**/*.ts": [
+					"eslint --cache --fix"
+				],
+				"*.md": "prettier --write"
+			},
+			"devDependencies": {
+				"@types/mocha": "^7.0.2",
+				"@types/node": "^14.0.14",
+				"@typescript-eslint/eslint-plugin": "^3.4.0",
+				"@typescript-eslint/parser": "^3.4.0",
+				"eslint": "^7.3.1",
+				"eslint-config-prettier": "^6.11.0",
+				"eslint-config-problems": "^4.0.0",
+				"eslint-plugin-prefer-let": "^1.0.1",
+				"eslint-plugin-prettier": "^3.1.4",
+				"husky": "^4.2.5",
+				"lint-staged": "^10.2.11",
+				"mocha": "^8.0.1",
+				"prettier": "^2.0.5",
+				"ts-mocha": "^7.0.0",
+				"typescript": "^3.9.5"
+			},
+			"gitHead": "b9c1dbb2527d57acf25cab2ab31b4b28948b7861",
+			"bugs": {
+				"url": "https://github.com/axtgr/wildcard-match/issues"
+			},
+			"homepage": "https://github.com/axtgr/wildcard-match#readme",
+			"_id": "wildcard-match@2.0.1",
+			"_nodeVersion": "14.4.0",
+			"_npmVersion": "6.14.5",
+			"dist": {
+				"integrity": "sha512-BcaGV273EETFxeX3LEa+qG02+xU+lRIaEghLrjPwqM2HgFM4AM+4Wp4JVkM6HGlFGqyut+H54tHQNWTyWdvcRA==",
+				"shasum": "1702856a8cee6f2a0e98ef69a5d1e1f58585ba04",
+				"tarball": "https://registry.npmjs.org/wildcard-match/-/wildcard-match-2.0.1.tgz",
+				"fileCount": 6,
+				"unpackedSize": 7959,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJe9gbQCRA9TVsSAnZWagAAMCAP/iCAIzcXAtrwvv9wWJwB\non5WnBFFvai4SyLwZmsZGtOdJsytQ27vvBl3puaLtbXC2LWXzKRG4/QbbO3r\npu0G45DviEe6Wjx8TlwtIrcuXecPAVv2sp++qyzDdU5m/D3RjFHYCrJ/Ri5F\nJqiOyJvWJMT7htS07xCJ45fMqnv6wncF8+Ww5PAVGJ3yluJteMn4fIDWl65u\nqPgw4UeZJPjgrcbCJhSGAnZw8FDbZW3Kw56uOZV+O5gbsgBgvhu7jS1a+neP\nrOmadVqdBYjQv8VutFFohv0Aqvw8xHV4/9cCtkvmGgJxY8mN1lFkzV+YrhiJ\nj/En8cc/cCdJReVMpEi1vfnVvNVYYYh6YCm/TQ1mMz3IgQ87d9qsfHRF3ooz\nXId16+CJ0qtg3Tib9jPqzyRRcBJBVXb9LUHVpM+p+/eUtFDXaYJwIvQE9sFM\ngXjqH1b3RPH+/YTOCoM1y0eC7T63YMpRK0KxBhU2zZZ3nS3dNrObp9ib9xqp\nHBEbbxBDZ8yIPduICUgBcLHdBvNTS/1LRk6S6+HcSp2gI5b08pDcn6+C0f7x\nxqMK5A1DL2YQllTcuOPz+fHPvG3jVvhKRP1MqmHWN2isP7vknelkVJv8LE+a\nzy1UiRc/JsXG44/ft50F/+M8tFxCAyUTZGxyC5w3vzWdKmZigE9bGLFWwkFa\nBmov\r\n=IKS+\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"email": "me@schneider.ax",
+					"name": "ax-schneider"
+				}
+			],
+			"_npmUser": {
+				"name": "ax-schneider",
+				"email": "me@schneider.ax"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/wildcard-match_2.0.1_1593181904436_0.94780526359337"
+			},
+			"_hasShrinkwrap": false,
+			"contributors": []
+		},
+		"3.0.0": {
+			"name": "wildcard-match",
+			"version": "3.0.0",
+			"description": "Check if a string matches a glob-like pattern containing ?, * and **",
+			"author": {
+				"name": "Alex Schneider",
+				"email": "me@schneider.ax"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/axtgr/wildcard-match.git"
+			},
+			"license": "ISC",
+			"keywords": [
+				"match",
+				"wildcard",
+				"glob",
+				"pattern"
+			],
+			"main": "dist/index.js",
+			"scripts": {
+				"build": "tsc",
+				"lint": "eslint src test",
+				"test": "tap --jobs=1 --no-coverage --reporter=terse test/**/*.ts"
+			},
+			"husky": {
+				"hooks": {
+					"pre-commit": "lint-staged && npm run test"
+				}
+			},
+			"lint-staged": {
+				"(src|test)/**/*.ts": [
+					"eslint --cache --fix"
+				],
+				"*.md": "prettier --write"
+			},
+			"devDependencies": {
+				"@types/tap": "^14.10.0",
+				"@typescript-eslint/eslint-plugin": "^3.4.0",
+				"@typescript-eslint/parser": "^3.4.0",
+				"eslint": "^7.3.1",
+				"eslint-config-prettier": "^6.11.0",
+				"eslint-config-problems": "^4.0.0",
+				"eslint-plugin-prefer-let": "^1.0.1",
+				"eslint-plugin-prettier": "^3.1.4",
+				"husky": "^4.2.5",
+				"lint-staged": "^10.2.11",
+				"prettier": "^2.0.5",
+				"tap": "^14.10.7",
+				"typescript": "^3.9.5"
+			},
+			"gitHead": "f18232ca8362452d22e415d94e765b9d01cab311",
+			"bugs": {
+				"url": "https://github.com/axtgr/wildcard-match/issues"
+			},
+			"homepage": "https://github.com/axtgr/wildcard-match#readme",
+			"_id": "wildcard-match@3.0.0",
+			"_nodeVersion": "14.4.0",
+			"_npmVersion": "6.14.5",
+			"dist": {
+				"integrity": "sha512-RXSNb6zaZ6cDatpLNpEABYc8Ln/h/nbFNISSWW44SX6b7vGhZkaScQRElzDsZjlXUBtaJs+pycNL7m7jPVj01w==",
+				"shasum": "3ab97941ff642383475a6026a2f47cc14836af04",
+				"tarball": "https://registry.npmjs.org/wildcard-match/-/wildcard-match-3.0.0.tgz",
+				"fileCount": 6,
+				"unpackedSize": 9400,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJe+h2nCRA9TVsSAnZWagAAtk4P/RUFFUZM9tfD2AMycmLt\nFMA1BeaRHvZdBaA+GGgVeeKoz292XjuGEuzwKHkVybbNQW3mRgJzb85lhw+X\nZHMW6XlSvOE9EgolCtUc/nbaaxW/F2OGZ45lyCiaWrqrW+nK7+havTJV0wOV\nYsrXhpQdD3npysnYAA3SS9q5wg+eiF3/oR2rMwJ+jUMlsysQgh1UiXPxq99M\nl8liQLNV5rHNMebJHl0TzUsDi60Yk0GiN3kuXTf7fFM7tiQ4LKS/fqxCnMvM\nZ8S88plNLfEJK1MezO8pOKaBRuSstCb1N9dCGqIamJ5L5mQ1FN+VGobd7LH5\njGnzxoCyG4gOvGInZfbnSiJqpOACyBqrZrKhw6lujyIszzSNzYJl+pawk616\nCwYMDDdXWuGakxeSlyKPq/cqaK2l1IbAMZK+uz4mdX3gvv12W/3cjxKN0nHv\nYs2WBuN8/aa1HJWSc/o7n4RwxG0CIMjtJfXpYDIAkVbDuFzuN8bq1lsiFwha\nfbJvkOm66+PcKxzA/kwrk13i2CQb9SSg065k2XnyKhEN8/2XKpjmZ+vY2Tz5\nYPnLja9mF91OFplD1aZQxt5MHNPnK0eVIE4pGYic/c/MphWXqCuEtODuEKRM\n6o4wLxWyH73DfrUX/5DSbCSbrJUKukWq5dpA8IwH2Pcmro9nD71FtrNpUjLD\npyNy\r\n=e2MA\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"email": "me@schneider.ax",
+					"name": "ax-schneider"
+				}
+			],
+			"_npmUser": {
+				"name": "ax-schneider",
+				"email": "me@schneider.ax"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/wildcard-match_3.0.0_1593449894611_0.904863111509342"
+			},
+			"_hasShrinkwrap": false,
+			"contributors": []
+		},
+		"4.0.0": {
+			"name": "wildcard-match",
+			"version": "4.0.0",
+			"description": "Compile a glob-like pattern into a regular expression",
+			"author": {
+				"name": "Alex Schneider",
+				"email": "me@schneider.ax"
+			},
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/axtgr/wildcard-match.git"
+			},
+			"license": "ISC",
+			"keywords": [
+				"match",
+				"wildcard",
+				"glob",
+				"pattern",
+				"regexp"
+			],
+			"main": "dist/index.js",
+			"scripts": {
+				"build": "tsc",
+				"lint": "eslint src test",
+				"test": "tap --jobs=1 --no-coverage --reporter=terse test/**/*.ts"
+			},
+			"husky": {
+				"hooks": {
+					"pre-commit": "lint-staged && npm run test"
+				}
+			},
+			"lint-staged": {
+				"(src|test)/**/*.ts": [
+					"eslint --cache --fix"
+				],
+				"*.md": "prettier --write"
+			},
+			"devDependencies": {
+				"@types/tap": "^14.10.0",
+				"@typescript-eslint/eslint-plugin": "^3.4.0",
+				"@typescript-eslint/parser": "^3.4.0",
+				"eslint": "^7.3.1",
+				"eslint-config-prettier": "^6.11.0",
+				"eslint-config-problems": "^4.0.0",
+				"eslint-plugin-prefer-let": "^1.0.1",
+				"eslint-plugin-prettier": "^3.1.4",
+				"husky": "^4.2.5",
+				"lint-staged": "^10.2.11",
+				"prettier": "^2.0.5",
+				"tap": "^14.10.7",
+				"typescript": "^3.9.5"
+			},
+			"gitHead": "5ba9e1a1540ac79dd1fa845febc6b9cefda38b0d",
+			"bugs": {
+				"url": "https://github.com/axtgr/wildcard-match/issues"
+			},
+			"homepage": "https://github.com/axtgr/wildcard-match#readme",
+			"_id": "wildcard-match@4.0.0",
+			"_nodeVersion": "14.4.0",
+			"_npmVersion": "6.14.5",
+			"dist": {
+				"integrity": "sha512-o+mO6JNEU+0zgNJluqbV9Ds8lvr2qfmqF8vg+ZQ87NimBUnCKKmIP3pNnaNiMlhLrvKB2OsQ5/E1ttZ1ICrYEQ==",
+				"shasum": "bf576b8f819dca6e57a744c0f60fc513e8467815",
+				"tarball": "https://registry.npmjs.org/wildcard-match/-/wildcard-match-4.0.0.tgz",
+				"fileCount": 6,
+				"unpackedSize": 10520,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfA/GICRA9TVsSAnZWagAAwrgP/3TZnogECEfFdPElo1q+\n3vF6HVCs0lSrZHbJzQz0kPXr1y2DZkLaGTVSnsSLH/IlXzJeUw/+8RxLU/P3\nLeryK5uxZSoW9nfE+9qlN49tUukkHkJ13eqHYaeEYfSwWCvjt0RZbWehaCmF\nONfCtTfaQuYOWtrmv8hWojdpS/ZhGddRUx80ViQzJL8lXf8ctSRm+1MeTp3A\n+IeDrz3W9M/Kd1q5R4x6G7uT+Td/ZrebOXorUOFLNJqusFnvUkccbFk4C5AB\nToRb6g10sUJGYI1BZAzuDLdqN9Plx+hAuY3dU7w+7UHCDVn6BSpu+jVsFaNR\n79TAtqZll9+HljKy0nvNkoVvfhmwb1HQKXBOFSxxfowpxx9mZpgcLApscBkI\nuuqxXbuJbZWmvdMPWNLuzM8gPpvSl9JbZT16IB6W0LaMZxk0jLYKmgPFneww\nl84NIEZlnZraCqYhVRP6szbXp5MvmbtaXHonHtFITnRY6GnZZxV46fFMeIRZ\nDO+qRVLcLJJoblQO8WCHwafbBQESkwZxscgwNjqs6Gd9P2xFjJICbd++MIo0\nQEqziUUOWfjAxkGhpaqRxfaoudD572dStv5EU4uJDyUMXxPmVEtRmNvxJcJy\n3mC2qg6hfhcIoK3yYvifP41ojYhFJ88682a56zetY4FJWLfiNaj0b1a4kled\nVDCD\r\n=OJLo\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"email": "me@schneider.ax",
+					"name": "ax-schneider"
+				}
+			],
+			"_npmUser": {
+				"name": "ax-schneider",
+				"email": "me@schneider.ax"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/wildcard-match_4.0.0_1594093959805_0.6189251045594533"
+			},
+			"_hasShrinkwrap": false,
+			"contributors": []
+		},
+		"4.1.0": {
+			"name": "wildcard-match",
+			"version": "4.1.0",
+			"description": "Compile a glob-like pattern into a regular expression",
+			"author": {
+				"name": "Alex Schneider",
+				"email": "me@schneider.ax"
+			},
+			"license": "ISC",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/axtgr/wildcard-match.git"
+			},
+			"keywords": [
+				"glob",
+				"pattern",
+				"wildcard",
+				"match",
+				"regexp"
+			],
+			"type": "commonjs",
+			"main": "build/index.js",
+			"module": "build/index.mjs",
+			"unpkg": "build/index.umd.js",
+			"types": "build/index.d.ts",
+			"exports": {
+				"import": "./build/index.mjs",
+				"require": "./build/index.js"
+			},
+			"scripts": {
+				"build": "rollup -c",
+				"lint": "eslint {src,test}/*",
+				"format": "eslint --cache --fix {src,test}/* && prettier --write **/*.md",
+				"test": "ts-node -T -r \"core-js/modules/es.symbol.async-iterator\" -I \" \" node_modules/pta/src/cli.js --no-esm test/[!_]*.js"
+			},
+			"husky": {
+				"hooks": {
+					"pre-commit": "npm run format"
+				}
+			},
+			"devDependencies": {
+				"@typescript-eslint/eslint-plugin": "^3.4.0",
+				"@typescript-eslint/parser": "^3.4.0",
+				"@wessberg/rollup-plugin-ts": "^1.3.5",
+				"core-js": "^3.6.5",
+				"eslint": "^7.3.1",
+				"eslint-config-prettier": "^6.11.0",
+				"eslint-config-problems": "^4.0.0",
+				"eslint-plugin-es5": "^1.5.0",
+				"eslint-plugin-prefer-let": "^1.0.1",
+				"eslint-plugin-prettier": "^3.1.4",
+				"husky": "^4.2.5",
+				"prettier": "^2.0.5",
+				"pta": "^0.1.3",
+				"rollup": "^2.32.0",
+				"rollup-plugin-cleanup": "^3.2.1",
+				"rollup-plugin-delete": "^2.0.0",
+				"rollup-plugin-terser": "^7.0.2",
+				"ts-node": "^9.0.0",
+				"ts-transform-default-export": "^1.0.2",
+				"typescript": "^3.9.5",
+				"typescript-transform-macros": "^1.1.1"
+			},
+			"gitHead": "b1039006f698878280545313f457d88f30ce02b4",
+			"bugs": {
+				"url": "https://github.com/axtgr/wildcard-match/issues"
+			},
+			"homepage": "https://github.com/axtgr/wildcard-match#readme",
+			"_id": "wildcard-match@4.1.0",
+			"_nodeVersion": "14.13.1",
+			"_npmVersion": "6.14.8",
+			"dist": {
+				"integrity": "sha512-SlXrhvfmk5tp1q46RtuiwBwm83FOEBUlMPrjmqpI21lGGARVvJBlDmnIU06rMKixKmNgxJ3Zh0qXMLtWqGZbdQ==",
+				"shasum": "4b42d9125244f97ecf124f2aadce1ce3ab2ef623",
+				"tarball": "https://registry.npmjs.org/wildcard-match/-/wildcard-match-4.1.0.tgz",
+				"fileCount": 10,
+				"unpackedSize": 24373,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfjuf4CRA9TVsSAnZWagAAG3sQAKRPpewXo6HWodGsr0VD\ntnKBdEdahOYDvcIQQKx7HpCEWbaOeqKfz+JrfaA01K+z/q/utj649txvl5f7\nczlb/kA+3j9u5U7V3J/KB2PAoZfGyUPxZxlSmqaAZ4ahdPTXDgeEeeNp2rVb\nprohO7SMLXIhmR+RCPscIGm04JImvC5qUtDRiNWIGhGOZf+7ecXD3fuqVReK\n1/DLwrfYz5pp8xF0rTXgFbPj5X8mXOqGmQcCqI5ci3SwDW261Y7Qz/M/9wX4\n3MaBuOBdNcnwJ1DRcDrP5i0BB9IU4KzwYN/EJzYlE0FNvCcIAUWFhoEJawox\n/zzOPTfUhcL/hsWw+LP5CVTZZYlg7a1cMpepVUQh2OU0lj5lewI0sZWeX6qx\nDYvKKI5cyFnN2rStfC8Zk16zOhiX65bxBfbPJXioLcAL/3U8kopNAr3cLfUC\noH6yGUoGq0lFQy746fQV1cjWpvoLa8p4fynG/y/nTA5KOZampN6wogbrh/1o\nvtW2k9I4EZcbXk7yEfDY/hIRy6pvSeCd/rLQ8uuqt4vLnYKBdNx8yGPllZGg\nOO55xHOy/BZS5n6FYzcJlOdMhEruIv13xScvUW5z6wM38+zkD2syEBITUFXP\noZ0Qj+MffyRLoZYqfKyuHaSL53qY6DfLOik5IZ5nqwDPFnFXH2bfmrf7iUOY\nrkln\r\n=DFNL\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "axtgr",
+					"email": "adtomsk@gmail.com"
+				}
+			],
+			"_npmUser": {
+				"name": "axtgr",
+				"email": "adtomsk@gmail.com"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/wildcard-match_4.1.0_1603201015661_0.9184692183218242"
+			},
+			"_hasShrinkwrap": false,
+			"contributors": []
+		},
+		"4.1.1": {
+			"name": "wildcard-match",
+			"version": "4.1.1",
+			"description": "Compile a glob-like pattern into a regular expression",
+			"author": {
+				"name": "Alex Schneider",
+				"email": "me@schneider.ax"
+			},
+			"license": "ISC",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/axtgr/wildcard-match.git"
+			},
+			"keywords": [
+				"glob",
+				"pattern",
+				"wildcard",
+				"match",
+				"regexp"
+			],
+			"type": "commonjs",
+			"main": "build/index.js",
+			"module": "build/index.es.mjs",
+			"unpkg": "build/index.umd.js",
+			"types": "build/index.d.ts",
+			"exports": {
+				"import": "./build/index.es.mjs",
+				"require": "./build/index.js"
+			},
+			"scripts": {
+				"build": "rollup -c",
+				"lint": "eslint {src,test}/*",
+				"format": "eslint --cache --fix {src,test}/* && prettier --write **/*.md",
+				"test": "ts-node -T -r \"core-js/modules/es.symbol.async-iterator\" -I \" \" node_modules/pta/src/cli.js --no-esm test/[!_]*.js"
+			},
+			"husky": {
+				"hooks": {
+					"pre-commit": "npm run format"
+				}
+			},
+			"devDependencies": {
+				"@typescript-eslint/eslint-plugin": "^3.4.0",
+				"@typescript-eslint/parser": "^3.4.0",
+				"@wessberg/rollup-plugin-ts": "^1.3.5",
+				"core-js": "^3.6.5",
+				"eslint": "^7.3.1",
+				"eslint-config-prettier": "^6.11.0",
+				"eslint-config-problems": "^4.0.0",
+				"eslint-plugin-es5": "^1.5.0",
+				"eslint-plugin-prefer-let": "^1.0.1",
+				"eslint-plugin-prettier": "^3.1.4",
+				"husky": "^4.2.5",
+				"prettier": "^2.0.5",
+				"pta": "^0.1.3",
+				"rollup": "^2.32.0",
+				"rollup-plugin-cleanup": "^3.2.1",
+				"rollup-plugin-delete": "^2.0.0",
+				"rollup-plugin-terser": "^7.0.2",
+				"ts-node": "^9.0.0",
+				"ts-transform-default-export": "^1.0.2",
+				"typescript": "^3.9.5",
+				"typescript-transform-macros": "^1.1.1"
+			},
+			"gitHead": "1a056eb7c84fff0ad64c65791fb723e6d72b925a",
+			"bugs": {
+				"url": "https://github.com/axtgr/wildcard-match/issues"
+			},
+			"homepage": "https://github.com/axtgr/wildcard-match#readme",
+			"_id": "wildcard-match@4.1.1",
+			"_nodeVersion": "14.13.1",
+			"_npmVersion": "6.14.8",
+			"dist": {
+				"integrity": "sha512-wlRT1XAMFSSceRrvnUqBHmOuTi6DSaxsK5Gec/sO1e2PczxHtEg788VxKTyyE1+8ksXB8cfpQttL+mse4ynWHA==",
+				"shasum": "46d74a569e1cd0e871341e421a9c737b12e6c43b",
+				"tarball": "https://registry.npmjs.org/wildcard-match/-/wildcard-match-4.1.1.tgz",
+				"fileCount": 12,
+				"unpackedSize": 24843,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfkWwOCRA9TVsSAnZWagAAm/QQAJk/Sr2iGKAHGdSb58vQ\nm+2i//96i15P0nS2x1VN4A/t0L9hwm8RocqQc/jO8qcrUUUUKNYic8kexBwu\npmBxu8pOSXEWa9dUwAkNUReJ/wbiNibeutycBi50W7E/9cdMwQ6vLKikyI0p\n/xPat8VtpgcC12Jd+q7jMlngrZb8LZDqo1uiq1QwQOHy8AwPJj2kyhrBHCGr\n3QnBQYvIk3brGpQPSNpMZ/Ccs63gAympKF4HsyG9SDwx/hhHVBlGxQoJWUYL\nDGT9sLABl22e933LJeoX6+PglKPDf8bjY7YUmNcPptweGbAzC1I+yFCdqTy4\nOa0fKuE6YCjcaX5/YxqOpA+3EVzleVxhIJkUREMXIKqnmepMjhv7JBHX/Lg5\n8EStV+H88or+2FHjDm1Vh0C4p1kkWw3UZWIRHKPWgQyOLmIzRunVIe+K5TED\nR1pR7iAn/qXdFWA267nPz/ErpEdnz1e87FL3BuFrSqfjGIcda2hJfr8+jp+1\nbK6MqatZls1g2dhqWp2i4zmKkB0S4lQ+w1zofbMi1BG8BWzoJITHN3YEtNqf\nIQGI6Zn9CuJuIc2kgbMmLbgoQHcX2MPjDR7sFtvavq1IcTUPMVUQHubHr3cq\nIdJqX7ga+g/TVnOSMFOcMoFR+NlaEqgI1CLTX7uWzLTahEXEENGsbmmC9RDr\n0xdl\r\n=m8u9\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "axtgr",
+					"email": "adtomsk@gmail.com"
+				}
+			],
+			"_npmUser": {
+				"name": "axtgr",
+				"email": "adtomsk@gmail.com"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/wildcard-match_4.1.1_1603365902126_0.3517816069193227"
+			},
+			"_hasShrinkwrap": false,
+			"contributors": []
+		},
+		"5.0.0": {
+			"name": "wildcard-match",
+			"version": "5.0.0",
+			"description": "Compile a glob-like pattern into a regular expression",
+			"author": {
+				"name": "Alex Schneider",
+				"email": "me@schneider.ax"
+			},
+			"license": "ISC",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/axtgr/wildcard-match.git"
+			},
+			"keywords": [
+				"glob",
+				"pattern",
+				"wildcard",
+				"match",
+				"regexp"
+			],
+			"type": "commonjs",
+			"main": "build/index.js",
+			"module": "build/index.es.mjs",
+			"unpkg": "build/index.umd.js",
+			"types": "build/index.d.ts",
+			"exports": {
+				"import": "./build/index.es.mjs",
+				"require": "./build/index.js"
+			},
+			"scripts": {
+				"build": "rollup -c",
+				"bench": "node bench/bench",
+				"lint": "eslint {src,test,bench}/*",
+				"format": "eslint --cache --fix {src,test,bench}/* && prettier --write **/*.md",
+				"test": "ts-node -T -r \"core-js/modules/es.symbol.async-iterator\" -I \" \" node_modules/pta/src/cli.js --no-esm test/[!_]*.js"
+			},
+			"husky": {
+				"hooks": {
+					"pre-commit": "npm run format"
+				}
+			},
+			"devDependencies": {
+				"@typescript-eslint/eslint-plugin": "^3.4.0",
+				"@typescript-eslint/parser": "^3.4.0",
+				"@wessberg/rollup-plugin-ts": "^1.3.5",
+				"benchmark": "^2.1.4",
+				"core-js": "^3.6.5",
+				"eslint": "^7.3.1",
+				"eslint-config-prettier": "^6.11.0",
+				"eslint-plugin-prettier": "^3.1.4",
+				"globrex": "^0.1.2",
+				"husky": "^4.2.5",
+				"matcher": "^3.0.0",
+				"picomatch": "^2.2.2",
+				"prettier": "^2.0.5",
+				"pta": "^0.1.3",
+				"rollup": "^2.32.0",
+				"rollup-plugin-cleanup": "^3.2.1",
+				"rollup-plugin-delete": "^2.0.0",
+				"rollup-plugin-terser": "^7.0.2",
+				"ts-node": "^9.0.0",
+				"ts-transform-default-export": "^1.0.2",
+				"typescript": "^3.9.5",
+				"typescript-transform-macros": "^1.1.1"
+			},
+			"gitHead": "23cd6382931b2e257ba9fd4e0c2109b3438f98df",
+			"bugs": {
+				"url": "https://github.com/axtgr/wildcard-match/issues"
+			},
+			"homepage": "https://github.com/axtgr/wildcard-match#readme",
+			"_id": "wildcard-match@5.0.0",
+			"_nodeVersion": "14.13.1",
+			"_npmVersion": "6.14.8",
+			"dist": {
+				"integrity": "sha512-c2Cn0DwUloa7LXF9bIAs8xvksa62q8jiCWurnmq6zCLoH7Wasl+4f3Pa8GLpbVGlekmBRwkdAkF7XQacUM8Eqw==",
+				"shasum": "1265fce9e9f1851eac4f1b6659d0e6a7fdbd0ef7",
+				"tarball": "https://registry.npmjs.org/wildcard-match/-/wildcard-match-5.0.0.tgz",
+				"fileCount": 12,
+				"unpackedSize": 55988,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfkcrGCRA9TVsSAnZWagAAF3QP/2IuUfn4o3LHZy0EtHbK\ns9ItBZ1/vXXsQ7GZvW9TseCTC9SivBG6L11P6aRJnZZQgz0kvIP52Q2Cx068\n5WlgvAbFGqh1wkuOoF1Q28cdSx1Sr7o7NdQCFKkrTIt0KO+F1gtRpQozgskb\ndXHcv0Kkew8KPo9iTZc6wr9y9QC7E2jlVtKbI9Neq/TipgRW04jrVhz/udCO\nNzeZyPw83kzYfOSPsPCi3mc7LyJSoSEi0YTetygnbeysOO2Gf/XyCZTYCNCf\nM1pb84Crv4Z0D+wG/uSems+euiay8k62zk55zpC5p+Iv7Vrbz9H9pPGWanxU\nGWRTpi2554RbrBqkY+sLtC0NMOuX3yDfz1ib5tmEjoXeRoxY6z4ylb6//dsT\n2lUNTZ8AuTSfCemCCxQ89f9d4xqIVJKveFXohAZmDSzkvkXfazbkX7EU2Q8P\n6rA7l6tc5izxjbwtK2nKuzm2bvC4aoD5UnarMUAa0g9ksL8vlUNt4Mhfzfox\nvMztmk2TokOIyLDBbrh0gYKJoX0JqQDwJ8Ry42wQ+dM5g3dJFeDBGyR+iIoe\nvSA8x6M/g4mGgG6ApsSfzJAudJxb+tvBsC9Fajwb8S9ZFAB+bi3GsXETn73A\nN8R5WWo/VW768vTLfi3OJmecRCvGdkJt2PvhKqFT8Kkxy53MGspBGtQchy7X\nBmF1\r\n=a5Cj\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"maintainers": [
+				{
+					"name": "axtgr",
+					"email": "adtomsk@gmail.com"
+				}
+			],
+			"_npmUser": {
+				"name": "axtgr",
+				"email": "adtomsk@gmail.com"
+			},
+			"directories": {},
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/wildcard-match_5.0.0_1603390150325_0.9178687173919535"
+			},
+			"_hasShrinkwrap": false,
+			"contributors": []
+		},
+		"5.1.0": {
+			"name": "wildcard-match",
+			"version": "5.1.0",
+			"description": "Compile a glob-like pattern into a regular expression",
+			"author": {
+				"name": "Alex Schneider",
+				"email": "me@schneider.ax"
+			},
+			"license": "ISC",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/axtgr/wildcard-match.git"
+			},
+			"keywords": [
+				"glob",
+				"pattern",
+				"wildcard",
+				"match",
+				"regexp"
+			],
+			"type": "commonjs",
+			"main": "build/index.js",
+			"module": "build/index.es.mjs",
+			"unpkg": "build/index.umd.js",
+			"types": "build/index.d.ts",
+			"exports": {
+				"import": "./build/index.es.mjs",
+				"require": "./build/index.js"
+			},
+			"scripts": {
+				"build": "rollup -c",
+				"bench": "node bench/bench",
+				"lint": "eslint {src,test,bench}/*",
+				"format": "eslint --cache --fix {src,test,bench}/* && prettier --write **/*.md",
+				"test": "ts-node -T -r \"core-js/modules/es.symbol.async-iterator\" -I \" \" node_modules/pta/src/cli.js test/[!_]*.js"
+			},
+			"husky": {
+				"hooks": {
+					"pre-commit": "npm run format"
+				}
+			},
+			"devDependencies": {
+				"@typescript-eslint/eslint-plugin": "^3.4.0",
+				"@typescript-eslint/parser": "^3.4.0",
+				"@wessberg/rollup-plugin-ts": "^1.3.5",
+				"benchmark": "^2.1.4",
+				"core-js": "^3.6.5",
+				"eslint": "^7.3.1",
+				"eslint-config-prettier": "^6.11.0",
+				"eslint-plugin-prettier": "^3.1.4",
+				"globrex": "^0.1.2",
+				"husky": "^4.2.5",
+				"matcher": "^3.0.0",
+				"picomatch": "^2.2.2",
+				"prettier": "^2.0.5",
+				"pta": "^0.1.3",
+				"rollup": "^2.32.0",
+				"rollup-plugin-cleanup": "^3.2.1",
+				"rollup-plugin-delete": "^2.0.0",
+				"rollup-plugin-terser": "^7.0.2",
+				"ts-node": "^9.0.0",
+				"ts-transform-default-export": "^1.0.2",
+				"typescript": "^3.9.5",
+				"typescript-transform-macros": "^1.1.1"
+			},
+			"gitHead": "1e011a2b44240a80e2933233695005ca9007f5e8",
+			"bugs": {
+				"url": "https://github.com/axtgr/wildcard-match/issues"
+			},
+			"homepage": "https://github.com/axtgr/wildcard-match#readme",
+			"_id": "wildcard-match@5.1.0",
+			"_nodeVersion": "14.15.0",
+			"_npmVersion": "6.14.8",
+			"dist": {
+				"integrity": "sha512-Q02fSwOl4xPEyLLMs3TiAOBD735ELrdiczcCnvYAn5VRDAycmzYzc69BmWI1MGONfngCSq+5mgIaYMoGfICqQg==",
+				"shasum": "cb9d0c54a8bde298e534054146f3577f9e7b3c97",
+				"tarball": "https://registry.npmjs.org/wildcard-match/-/wildcard-match-5.1.0.tgz",
+				"fileCount": 12,
+				"unpackedSize": 56646,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJfqa56CRA9TVsSAnZWagAAWj0P/1VNlc+PrS6/7zVBKo8J\npQB5BNDxh3bPwzBRD9obLJ+ot4V1qmjIdujpyTHScyjY3ZUFa5J4DttbVsDm\nw/iULP3EHLaiKLfaotWQcSxDBolFDrNGxejYwebfXiClygyrModBcMB/46cP\nZDAcW3GkWGK8uyNr4LWa10u+iVagZlaGEC/PVlRFoIc0kOvBBeLne7/L0jGF\nqDrJWhl832BBk2xq/H2Xg925GwZdmtffCwNzCYrojs1P74F5ESonCPtHSsod\nvols7nzBflEz9qyHXsz4pnOPVlZ/Y2PNh9Ill7qdpoC1WaqDSzrsvvCFnTIx\nWKphjAeVYnhGuNiJR0mq1TqNpo1aS/PaXqlUWXILJfPF+e/12bCzuYzAGfOW\nUEF/eXP8R99NvIB7vqoEJueCxhHyy+L/xidfyyt8V8BISMc3XHfZmPQ4Y/uF\n2XHP/SnC6fZQaWrJNSqZwT68z4KCZOm8c5D48qpqevQwVAS7/Fjb693hdLw9\nVvgmtU5fIwBm6gd/g/SPu5qxK9sy8reUOut/2sWViVOkGL/47itOJHwYuDcM\nrKKS2EEyynlSI83jPWatGGBRyGsFeEWu0iHH+uCLDvCV9+8wUNmmXj6EjlH8\nnoBiPaCnE+1jqvSEgftXJEWK7QOcKv+H6d9wbPu3jdENRsA2q76C1znutT/q\nOlks\r\n=tdRV\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "axtgr",
+				"email": "adtomsk@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "axtgr",
+					"email": "adtomsk@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/wildcard-match_5.1.0_1604955769695_0.4602061788843037"
+			},
+			"_hasShrinkwrap": false,
+			"contributors": []
+		},
+		"5.1.1": {
+			"name": "wildcard-match",
+			"version": "5.1.1",
+			"description": "A tiny and extremely fast library for compiling and matching basic glob patterns",
+			"author": {
+				"name": "Alex Schneider",
+				"email": "me@schneider.ax"
+			},
+			"license": "ISC",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/axtgr/wildcard-match.git"
+			},
+			"keywords": [
+				"glob",
+				"pattern",
+				"wildcard",
+				"match",
+				"regexp"
+			],
+			"type": "commonjs",
+			"main": "build/index.js",
+			"module": "build/index.es.mjs",
+			"unpkg": "build/index.umd.js",
+			"types": "build/index.d.ts",
+			"exports": {
+				"import": "./build/index.es.mjs",
+				"require": "./build/index.js"
+			},
+			"scripts": {
+				"build": "rollup -c",
+				"bench": "node bench/bench",
+				"lint": "eslint {src,test,bench}/*",
+				"format": "eslint --cache --fix {src,test,bench}/* && prettier --write **/*.md",
+				"test": "ts-node -T -r \"core-js/modules/es.symbol.async-iterator\" -I \" \" node_modules/pta/src/cli.js test/[!_]*.js"
+			},
+			"husky": {
+				"hooks": {
+					"pre-commit": "npm run format"
+				}
+			},
+			"devDependencies": {
+				"@typescript-eslint/eslint-plugin": "^4.26.1",
+				"@typescript-eslint/parser": "^4.26.1",
+				"@wessberg/rollup-plugin-ts": "^1.3.5",
+				"benchmark": "^2.1.4",
+				"core-js": "^3.6.5",
+				"eslint": "^7.3.1",
+				"eslint-config-prettier": "^8.3.0",
+				"eslint-plugin-prettier": "^3.1.4",
+				"globrex": "^0.1.2",
+				"husky": "^4.2.5",
+				"matcher": "^4.0.0",
+				"picomatch": "^2.2.2",
+				"prettier": "^2.0.5",
+				"pta": "^0.1.3",
+				"rollup": "^2.32.0",
+				"rollup-plugin-cleanup": "^3.2.1",
+				"rollup-plugin-delete": "^2.0.0",
+				"rollup-plugin-terser": "^7.0.2",
+				"ts-node": "^9.0.0",
+				"ts-transform-default-export": "^1.0.2",
+				"typescript": "^4.3.2"
+			},
+			"gitHead": "d72fe4d8231e53f9758f014408400bd8c8ba9499",
+			"bugs": {
+				"url": "https://github.com/axtgr/wildcard-match/issues"
+			},
+			"homepage": "https://github.com/axtgr/wildcard-match#readme",
+			"_id": "wildcard-match@5.1.1",
+			"_nodeVersion": "14.17.0",
+			"_npmVersion": "6.14.13",
+			"dist": {
+				"integrity": "sha512-gEhyikE35x7ApjBSXfKUMQdKsLuNrgW1DiolVgTcxEnj4JHX2z4k54GBtR4p1mKLFmuQUoTH3QoOXR+9udsmLw==",
+				"shasum": "1b9e1476a0ab4408f3da205c1c41ea5ae21dbf75",
+				"tarball": "https://registry.npmjs.org/wildcard-match/-/wildcard-match-5.1.1.tgz",
+				"fileCount": 12,
+				"unpackedSize": 59487,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJgvrOpCRA9TVsSAnZWagAA4aIP/jS1nYm4M6EcwCIAHioJ\nwTs1jprvCJtPHbvEonviUh5UYnKEN7kichvlzqhECZqkwnBZU/ZMP8dHE4T/\n9tG5yhcpg17VajbwZgS+N0vVr1h0xaqXg/gboQRWcIoWiM+6ZhoxNvXDFGS+\nQ2jrKzo9V0Pb5DE5B2e8FNloSU5IIFqeNdTAwDahvwQirDff9WeQNOG1nl/t\nS6EQHFKUg3YPgFGAQc+h22WQWHvug0vzY4MCNl7Tjg9nKk52jDTgXWFpL1x4\nBjumlbfyPB1Nbte04whA5udsmISR2dj+yBjhoVMtUXbDjqiFZNFZPRv4zIkd\nEcxrWj9VfApjCxxLEg7zYFRIkvxykFerzfVRr2L6Ukz7xGHo3EVnLthJ0BmI\nTZqaE5/c3fkvZbTGZaPx+HajzSdKU1lueAaZttGlPUQCJ5EWTLv0EoJyyEmK\nloktp2PcEJUynJANDzqb1R4PgUQmvgAilf/4r4dLDsywRalAD5QtEahCC7IV\n2E7C6p6irJV/XfGVOA2AO78RarMDF+2jBh3am4GECk0p6JTSxtkNKJa5P3NL\nH5LcH8dlRa+UGFDeRKk4DKzlS1IbZyLcNykZvyXQ/E9RAK3Z0hCbiPBtZPwx\nzgzT1ZgBTEzuSf35JUSis4sKwicu/mr4oMf0zKtSFINr/4K27YCefNpQKafR\nkAOP\r\n=P6Nn\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "axtgr",
+				"email": "adtomsk@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "axtgr",
+					"email": "adtomsk@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/wildcard-match_5.1.1_1623110569286_0.00043808339266204754"
+			},
+			"_hasShrinkwrap": false,
+			"contributors": []
+		},
+		"5.1.2": {
+			"name": "wildcard-match",
+			"version": "5.1.2",
+			"description": "A tiny and extremely fast library for compiling and matching basic glob patterns",
+			"author": {
+				"name": "Alex Schneider",
+				"email": "me@schneider.ax"
+			},
+			"license": "ISC",
+			"repository": {
+				"type": "git",
+				"url": "git+https://github.com/axtgr/wildcard-match.git"
+			},
+			"keywords": [
+				"glob",
+				"pattern",
+				"wildcard",
+				"match",
+				"regexp"
+			],
+			"type": "commonjs",
+			"main": "build/index.js",
+			"module": "build/index.es.mjs",
+			"unpkg": "build/index.umd.js",
+			"types": "build/index.d.ts",
+			"exports": {
+				"import": "./build/index.es.mjs",
+				"require": "./build/index.js"
+			},
+			"scripts": {
+				"build": "rollup -c",
+				"bench": "node bench/bench",
+				"lint": "eslint {src,test,bench}/*",
+				"format": "eslint --cache --fix {src,test,bench}/* && prettier --write **/*.md",
+				"test": "ts-node -T -r \"core-js/modules/es.symbol.async-iterator\" -I \" \" node_modules/pta/src/cli.js test/[!_]*.js"
+			},
+			"husky": {
+				"hooks": {
+					"pre-commit": "npm run format"
+				}
+			},
+			"devDependencies": {
+				"@typescript-eslint/eslint-plugin": "^4.26.1",
+				"@typescript-eslint/parser": "^4.26.1",
+				"@wessberg/rollup-plugin-ts": "^1.3.5",
+				"benchmark": "^2.1.4",
+				"core-js": "^3.6.5",
+				"eslint": "^7.3.1",
+				"eslint-config-prettier": "^8.3.0",
+				"eslint-plugin-prettier": "^3.1.4",
+				"globrex": "^0.1.2",
+				"husky": "^4.2.5",
+				"matcher": "^4.0.0",
+				"picomatch": "^2.2.2",
+				"prettier": "^2.0.5",
+				"pta": "^0.1.3",
+				"rollup": "^2.32.0",
+				"rollup-plugin-cleanup": "^3.2.1",
+				"rollup-plugin-delete": "^2.0.0",
+				"rollup-plugin-terser": "^7.0.2",
+				"ts-node": "^9.0.0",
+				"ts-transform-default-export": "^1.0.2",
+				"typescript": "^4.3.2"
+			},
+			"gitHead": "b6ad593e780f148396be0db9e1823e0b68baed06",
+			"bugs": {
+				"url": "https://github.com/axtgr/wildcard-match/issues"
+			},
+			"homepage": "https://github.com/axtgr/wildcard-match#readme",
+			"_id": "wildcard-match@5.1.2",
+			"_nodeVersion": "14.17.0",
+			"_npmVersion": "6.14.13",
+			"dist": {
+				"integrity": "sha512-qNXwI591Z88c8bWxp+yjV60Ch4F8Riawe3iGxbzquhy8Xs9m+0+SLFBGb/0yCTIDElawtaImC37fYZ+dr32KqQ==",
+				"shasum": "66b438001391674d8599b45da051e0bd9f33cd2a",
+				"tarball": "https://registry.npmjs.org/wildcard-match/-/wildcard-match-5.1.2.tgz",
+				"fileCount": 12,
+				"unpackedSize": 60804,
+				"npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.13\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJg0262CRA9TVsSAnZWagAABMsP/15kXSaIW4aGNb8XDhNR\nXlpuVZInirhllyGIKhcfptsobBgSu/06iZA4ylGe8zTaLrtdBQz6JoWM7JO9\n9QPbOd1YSVd4mNiBJ/6Ngmt/RWnlKo4okfrM3ziew5qZR1FpRQT0MLj48Vh6\nnnXb3RfBT5xpyMNlka+0KCOqp8pH4n9AuWqfiFaK8b/4IXX31T9Jd00VBZv4\nJ9aPG3GDl0aMwhaAISrBR3e/bLbelsg/+9d44UqPu8lqvCopq5g4Wdw5nv9e\noirAfGS6kG/3n3bXsozgkdRp6r/a6jQhql8lUWZd2oy2pltKhRH/kJvk2rTj\nFbUH9d9JgxOiGJWm6vDV8MLw4H76Wrsi9EPUn8M8AzPnexvqvGQf+UewM0sY\nUoO0IaCo7hInTzTkpjyRC1meiuZcxDgvF6ol1xZA4viGxMyQVgR8q7bVkAFS\nmcNI/t3TDfBn/ynpRFGI+ZaLsKJCq8YYT2qbHjkrH4+4K6BKT+TAYhHDRQo+\ncz2TIOzMt02/JyEG3WR/okH7gv3vipT/rjJimNViHfZhWYaox8XaozW+pZ8f\nqpSAv3BpcHUyiBq6C3OM8xVvg4sv0pl0jTm1JsW3jjU8huUTA/t0KXwE8vnd\nzDWo3FDZDVgk4Zps/NbkN3M/8d2/+wT+WfaGhentttoLL0gvnitZPKkcRjhy\nAWyb\r\n=G1Gz\r\n-----END PGP SIGNATURE-----\r\n"
+			},
+			"_npmUser": {
+				"name": "axtgr",
+				"email": "adtomsk@gmail.com"
+			},
+			"directories": {},
+			"maintainers": [
+				{
+					"name": "axtgr",
+					"email": "adtomsk@gmail.com"
+				}
+			],
+			"_npmOperationalInternal": {
+				"host": "s3://npm-registry-packages",
+				"tmp": "tmp/wildcard-match_5.1.2_1624469174181_0.7188208559709444"
+			},
+			"_hasShrinkwrap": false,
+			"contributors": []
+		}
+	},
+	"time": {
+		"modified": "2021-06-23T17:26:16.534Z",
+		"created": "2016-12-02T15:14:01.082Z",
+		"1.0.0": "2016-12-02T15:14:01.082Z",
+		"1.1.0": "2017-09-14T23:09:24.286Z",
+		"2.0.0": "2020-06-26T12:44:57.563Z",
+		"2.0.1": "2020-06-26T14:31:44.579Z",
+		"3.0.0": "2020-06-29T16:58:14.737Z",
+		"4.0.0": "2020-07-07T03:52:39.895Z",
+		"4.1.0": "2020-10-20T13:36:55.806Z",
+		"4.1.1": "2020-10-22T11:25:02.282Z",
+		"5.0.0": "2020-10-22T18:09:10.433Z",
+		"5.1.0": "2020-11-09T21:02:49.792Z",
+		"5.1.1": "2021-06-08T00:02:49.394Z",
+		"5.1.2": "2021-06-23T17:26:14.348Z"
+	},
+	"users": {},
+	"dist-tags": {
+		"latest": "5.1.2"
+	},
+	"_uplinks": {
+		"npmjs": {
+			"etag": "W/\"c38c9eafaff1354888fcee8e4b00eb08\"",
+			"fetched": 1634852589029
+		}
+	},
+	"_distfiles": {
+		"wildcard-match-1.0.0.tgz": {
+			"url": "https://registry.npmjs.org/wildcard-match/-/wildcard-match-1.0.0.tgz",
+			"sha": "3536b1803e314d0e0e8139c594324688df9e3b01",
+			"registry": "npmjs"
+		},
+		"wildcard-match-1.1.0.tgz": {
+			"url": "https://registry.npmjs.org/wildcard-match/-/wildcard-match-1.1.0.tgz",
+			"sha": "166a247a83581921867841c9dba03b75b98e9a3e",
+			"registry": "npmjs"
+		},
+		"wildcard-match-2.0.0.tgz": {
+			"url": "https://registry.npmjs.org/wildcard-match/-/wildcard-match-2.0.0.tgz",
+			"sha": "1fd09177c6c501a14e1a82d50cab2a2ca6502e9e",
+			"registry": "npmjs"
+		},
+		"wildcard-match-2.0.1.tgz": {
+			"url": "https://registry.npmjs.org/wildcard-match/-/wildcard-match-2.0.1.tgz",
+			"sha": "1702856a8cee6f2a0e98ef69a5d1e1f58585ba04",
+			"registry": "npmjs"
+		},
+		"wildcard-match-3.0.0.tgz": {
+			"url": "https://registry.npmjs.org/wildcard-match/-/wildcard-match-3.0.0.tgz",
+			"sha": "3ab97941ff642383475a6026a2f47cc14836af04",
+			"registry": "npmjs"
+		},
+		"wildcard-match-4.0.0.tgz": {
+			"url": "https://registry.npmjs.org/wildcard-match/-/wildcard-match-4.0.0.tgz",
+			"sha": "bf576b8f819dca6e57a744c0f60fc513e8467815",
+			"registry": "npmjs"
+		},
+		"wildcard-match-4.1.0.tgz": {
+			"url": "https://registry.npmjs.org/wildcard-match/-/wildcard-match-4.1.0.tgz",
+			"sha": "4b42d9125244f97ecf124f2aadce1ce3ab2ef623",
+			"registry": "npmjs"
+		},
+		"wildcard-match-4.1.1.tgz": {
+			"url": "https://registry.npmjs.org/wildcard-match/-/wildcard-match-4.1.1.tgz",
+			"sha": "46d74a569e1cd0e871341e421a9c737b12e6c43b",
+			"registry": "npmjs"
+		},
+		"wildcard-match-5.0.0.tgz": {
+			"url": "https://registry.npmjs.org/wildcard-match/-/wildcard-match-5.0.0.tgz",
+			"sha": "1265fce9e9f1851eac4f1b6659d0e6a7fdbd0ef7",
+			"registry": "npmjs"
+		},
+		"wildcard-match-5.1.0.tgz": {
+			"url": "https://registry.npmjs.org/wildcard-match/-/wildcard-match-5.1.0.tgz",
+			"sha": "cb9d0c54a8bde298e534054146f3577f9e7b3c97",
+			"registry": "npmjs"
+		},
+		"wildcard-match-5.1.1.tgz": {
+			"url": "https://registry.npmjs.org/wildcard-match/-/wildcard-match-5.1.1.tgz",
+			"sha": "1b9e1476a0ab4408f3da205c1c41ea5ae21dbf75",
+			"registry": "npmjs"
+		},
+		"wildcard-match-5.1.2.tgz": {
+			"url": "https://registry.npmjs.org/wildcard-match/-/wildcard-match-5.1.2.tgz",
+			"sha": "66b438001391674d8599b45da051e0bd9f33cd2a",
+			"registry": "npmjs"
+		}
+	},
+	"_attachments": {},
+	"_rev": "1-61a7b3f1836dbb57",
+	"_id": "wildcard-match",
+	"readme": "<br>\n\n<h1 align=\"center\">wildcard-match</h1>\n\n<p align=\"center\">\n  <strong>A tiny and extremely fast JavaScript library for compiling and matching basic glob patterns</strong>\n</p>\n\n<p align=\"center\">\n  <a href=\"https://www.npmjs.com/package/wildcard-match\"><img src=\"https://img.shields.io/npm/v/wildcard-match\" alt=\"npm package\"></a>\n  &nbsp;\n  <a href=\"https://bundlephobia.com/package/wildcard-match\"><img src=\"https://img.shields.io/bundlephobia/minzip/wildcard-match?color=%23b4a&label=size\" alt=\"size\"></a>\n  &nbsp;\n  <a href=\"https://github.com/axtgr/wildcard-match/actions\"><img src=\"https://img.shields.io/github/workflow/status/axtgr/wildcard-match/CI?label=CI&logo=github\" alt=\"CI\"></a>\n  &nbsp;\n  <a href=\"https://www.buymeacoffee.com/axtgr\"><img src=\"https://img.shields.io/badge/%F0%9F%8D%BA-Buy%20me%20a%20beer-red?style=flat\" alt=\"Buy me a beer\"></a>\n</p>\n\n<br>\n\nWildcard-match takes one or more basic glob patterns, compiles them into a RegExp and returns a function for matching strings with it.\n\nGlob patterns are strings that contain `?`, `*` and `**` wildcards. When such a pattern is compared with another string, these wildcards can replace one or more symbols. For example, `src/*` would match both `src/foo` and `src/bar`.\n\nThis library's goal is to be as small and as fast as possible while supporting only the most basic wildcards. If you need character ranges, extended globs, braces and other advanced features, check out [outmatch](https://github.com/axtgr/outmatch).\n\n## Quickstart\n\n```\nnpm install wildcard-match\n```\n\n```js\nimport wcmatch from 'wildcard-match'\n\nconst isMatch = wcmatch('src/**/*.?s')\n\nisMatch('src/components/header/index.js') //=> true\nisMatch('src/README.md') //=> false\n\nisMatch.pattern //=> 'src/**/*.?s'\nisMatch.options //=> { separator: true }\nisMatch.regexp //=> /^src[/\\\\]+?(?:[^/\\\\]*?[/\\\\]+?)*?[^/\\\\]*?\\.[^/\\\\]s[/\\\\]*?$/\n```\n\nMore details are available in the [Installation](#installation), [Usage](#usage) and [API](#api) sections.\n\n## Features\n\n<table>\n  <tr>\n    <td align=\"center\">🍃</td>\n    <td><strong>Lightweight</strong><br>No dependencies. <em>Less than 1 KB</em> when minified and gzipped</td>\n  </tr>\n  <tr>\n    <td align=\"center\">🏎</td>\n    <td><strong>Fast</strong><br>Compiles and matches patterns faster than any other known library</td>\n  </tr>\n  <tr>\n    <td align=\"center\">🌞</td>\n    <td><strong>Simple</strong><br>The API is a single function</td>\n  </tr>\n  <tr>\n    <td align=\"center\">⚒</td>\n    <td><strong>Reliable</strong><br>Written in TypeScript. Covered by hundreds of unit tests</td>\n  </tr>\n  <tr>\n    <td align=\"center\">🔌</td>\n    <td><strong>Compatible</strong><br>Works in any ES5+ environment including older versions of Node.js, Deno, React Native and browsers</td>\n  </tr>\n</table>\n\nFor comparison with the alternatives, see the [corresponding section](#comparison).\n\n## Installation\n\nThe package is distributed via the npm package registry. It can be installed using one of the compatible package managers or included directly from a CDN.\n\n#### [npm](https://www.npmjs.com)\n\n```\nnpm install wildcard-match\n```\n\n#### [Yarn](https://yarnpkg.com)\n\n```\nyarn add wildcard-match\n```\n\n#### [pnpm](https://pnpm.js.org)\n\n```\npnpm install wildcard-match\n```\n\n#### CDN\n\nWhen included from a CDN, wildcard-match is available as the global function `wcmatch`.\n\n- [unpkg](https://unpkg.com/wildcard-match)\n- [jsDelivr](https://www.jsdelivr.com/package/npm/wildcard-match)\n\n## Usage\n\n### Basics\n\nWildcard-match comes built in ESM, CommonJS and UMD formats and includes TypeScript typings. The examples use ESM imports, which can be replaced with the following line for CommonJS: `const wcmatch = require('wildcard-match')`.\n\nThe default export is a function of two arguments, first of which can be either a single glob string or an array of such patterns. The second argument is optional and can be either an [options](#options) object or a separator (which will be the value of the `separator` option). Wildcard-match compiles them into a regular expression and returns a function (usually called `isMatch` in the examples) that tests strings against the pattern. The pattern, options and the compiled RegExp object are available as properties on the returned function:\n\n```js\nimport wcmatch from 'wildcard-match'\n\nconst isMatch = wcmatch('src/?ar')\n\nisMatch('src/bar') //=> true\nisMatch('src/car') //=> true\nisMatch('src/cvar') //=> false\n\nisMatch.pattern //=> 'src/?ar'\nisMatch.options //=> {}\nisMatch.regexp //=> /^src[/\\\\]+?[^/\\\\]ar[/\\\\]*?$/\n```\n\nThe returned function can be invoked immediately if there is no need to match a pattern more than once:\n\n```js\nwcmatch('src/**/*.js')('src/components/body/index.js') //=> true\n```\n\nCompiling a pattern is much slower than comparing a string to it, so it is recommended to always reuse the returned function when possible.\n\n### Syntax\n\nWildcard-match supports the following glob syntax in patterns:\n\n- `?` matches exactly one arbitrary character excluding separators\n- `*` matches zero or more arbitrary characters excluding separators\n- `**` matches any number of segments when used as a whole segment in a separated pattern (e.g. <code>/\\*\\*/</code> if <code>/</code> is the separator)\n- `\\` escapes the following character making it be treated literally\n\nMore features are available in the [outmatch](https://github.com/axtgr/outmatch) library.\n\n### Separators\n\nGlobs are most often used to search file paths, which are, essentially, strings split into segments by slashes. While other libraries are usually restricted to this use-case, wildcard-match is able to work with _arbitrary_ strings by accepting a custom separator in the second parameter:\n\n```js\nconst matchDomain = wcmatch('*.example.com', { separator: '.' })\nmatchDomain('subdomain.example.com') //=> true\n\n// Here, the second parameter is a shorthand for `{ separator: ',' }`\nconst matchLike = wcmatch('one,**,f?ur', ',')\nmatchLike('one,two,three,four') //=> true\n```\n\nThe only limitation is that backslashes `\\` cannot be used as separators in patterns because\nwildcard-match uses them for character escaping. However, when `separator` is `undefined`\nor `true`, `/` in patterns will match both `/` and `\\`, so a single pattern with forward\nslashes can match both Unix and Windows paths:\n\n```js\nconst isMatchA = outmatch('foo\\\\bar') // throws an error\n\nconst isMatchB = outmatch('foo/bar') // same as passing `true` as the separator\n\nisMatchB('foo/bar') //=> true\nisMatchB('foo\\\\bar') //=> true\n\nconst isMatchC = outmatch('foo/bar', '/')\n\nisMatchC('foo/bar') //=> true\nisMatchC('foo\\\\bar') //=> false\n```\n\nThe matching features work with a _segment_ rather than a whole pattern:\n\n```js\nconst isMatch = wcmatch('foo/b*')\n\nisMatch('foo/bar') //=> true\nisMatch('foo/b/ar') //=> false\n```\n\nSegmentation can be turned off completely by passing `false` as the separator, which makes wildcard-match treat whole patterns as a single segment. Slashes become regular symbols and `*` matches _anything_:\n\n```js\nconst isMatch = wcmatch('foo?ba*', false)\nisMatch('foo/bar/qux') //=> true\n```\n\nA single separator in a pattern will match _one or more_ separators in a sample string:\n\n```js\nwcmatch('foo/bar/baz')('foo/bar///baz') //=> true\n```\n\nWhen a pattern has an explicit separator at its end, samples also require one or more trailing separators:\n\n```js\nconst isMatch = wcmatch('foo/bar/')\n\nisMatch('foo/bar') //=> false\nisMatch('foo/bar/') //=> true\nisMatch('foo/bar///') //=> true\n```\n\nHowever, if there is no trailing separator in a pattern, strings will match even if they have separators at the end:\n\n```js\nconst isMatch = wcmatch('foo/bar')\n\nisMatch('foo/bar') //=> true\nisMatch('foo/bar/') //=> true\nisMatch('foo/bar///') //=> true\n```\n\n### Multiple Patterns\n\nWildcard-match can take an array of glob patterns as the first argument instead of a single pattern. In that case a string will be considered a match if it matches _any_ of the given patterns:\n\n```js\nconst isMatch = wcmatch(['src/*', 'tests/*'])\n\nisMatch('src/utils.js') //=> true\nisMatch('tests/utils.js') //=> true\n```\n\n### Matching Arrays of Strings\n\nThe returned function can work with arrays of strings when used as the predicate of the native array methods:\n\n```js\nconst isMatch = wcmatch('src/*.js')\nconst paths = ['readme.md', 'src/index.js', 'src/components/body.js']\n\npaths.map(isMatch) //=> [ false, true, false ]\npaths.filter(isMatch) //=> [ 'src/index.js' ]\npaths.some(isMatch) //=> true\npaths.every(isMatch) //=> false\npaths.find(isMatch) //=> 'src/index.js'\npaths.findIndex(isMatch) //=> 1\n```\n\n## API\n\n### wcmatch(patterns, options?): isMatch<br>wcmatch(patterns, separator?): isMatch\n\nTakes a single pattern string or an array of patterns and compiles them into a regular expression. Returns an isMatch function that takes a sample string as its only argument and returns true if the string matches the pattern(s).\n\n### isMatch(sample): boolean\n\nTests if a sample string matches the patterns that were used to compile the regular expression and create this function.\n\n### isMatch.regexp\n\nThe compiled regular expression.\n\n### isMatch.pattern\n\nThe original pattern or array of patterns that was used to compile the regular expression and create the isMatch function.\n\n### isMatch.options\n\nThe options object that was used to compile the regular expression and create the isMatch function.\n\n### Options\n\n| Option      | Type                        | Default Value | Description                                                                                                                                                                                                                       |\n| ----------- | --------------------------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |\n| `separator` | string&nbsp;\\|&nbsp;boolean | true          | Separator to be used to split patterns and samples into segments<ul><li>`true` — `/` in patterns match both `/` and `\\` in samples<li>`false` — don't split<li>_any string_ — custom separator                                    |\n| `flags`     | string                      | undefined     | [Flags](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions#Advanced_searching_with_flags) to pass to the RegExp. For example, setting this option to `'i'` will make the matching case-insensitive |\n\n## Comparison\n\n```\nPattern: src/test/**/*.?s\nSample: src/test/foo/bar.js\n\nCompilation\n  wildcard-match     1,046,326 ops/sec\n  picomatch            261,589 ops/sec\n\nMatching\n  wildcard-match     34,646,993 ops/sec\n  picomatch          10,750,888 ops/sec\n```\n\nA better comparison is in the works."
+}

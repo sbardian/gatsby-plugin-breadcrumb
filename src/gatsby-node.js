@@ -1,6 +1,13 @@
 // import wcmatch from 'wildcard-match'
 const wcmatch = require('wildcard-match')
 
+exports.onCreateBabelConfig = ({ actions }) => {
+  actions.setBabelPreset({
+    name: 'babel-preset-gatsby',
+    options: { browser: true },
+  })
+}
+
 exports.onCreatePage = ({ page, pathPrefix, actions }, pluginOptions) => {
   if (pluginOptions.useAutoGen) {
     const { createPage, deletePage } = actions
