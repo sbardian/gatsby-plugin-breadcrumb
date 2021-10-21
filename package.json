@@ -41,7 +41,7 @@
   "dependencies": {
     "identity-obj-proxy": "3.0.0",
     "prop-types": "15.7.2",
-    "wildcard-match": "5.1.0"
+    "wildcard-match": "5.1.2"
   },
   "devDependencies": {
     "@babel/cli": "7.15.7",

@@ -326,7 +326,7 @@
     "@babel/helper-regex" "^7.8.3"
     regexpu-core "^4.7.0"
 
-"@babel/helper-define-map@^7.15.4":
+"@babel/helper-define-map@7.15.4":
   version "7.15.4"
   resolved "https://registry.yarnpkg.com/@babel/helper-define-map/-/helper-define-map-7.15.4.tgz#d40a12a387cf08ba2832e07a4c0429d2de65210a"
   integrity sha512-U1kDKaf4Q7587THlC0Qtk7DVLga2tli0n33uzJn+Z1H1a9WClxy397u+Mtc5uEg6NzNQrSf8b/NwIcMJ7du2VA==
@@ -16680,10 +16680,10 @@ widest-line@^3.1.0:
   dependencies:
     string-width "^4.0.0"
 
-wildcard-match@5.1.0:
-  version "5.1.0"
-  resolved "https://registry.yarnpkg.com/wildcard-match/-/wildcard-match-5.1.0.tgz#cb9d0c54a8bde298e534054146f3577f9e7b3c97"
-  integrity sha512-Q02fSwOl4xPEyLLMs3TiAOBD735ELrdiczcCnvYAn5VRDAycmzYzc69BmWI1MGONfngCSq+5mgIaYMoGfICqQg==
+wildcard-match@5.1.2:
+  version "5.1.2"
+  resolved "https://registry.yarnpkg.com/wildcard-match/-/wildcard-match-5.1.2.tgz#66b438001391674d8599b45da051e0bd9f33cd2a"
+  integrity sha512-qNXwI591Z88c8bWxp+yjV60Ch4F8Riawe3iGxbzquhy8Xs9m+0+SLFBGb/0yCTIDElawtaImC37fYZ+dr32KqQ==
 
 wildcard@^2.0.0:
   version "2.0.0"
