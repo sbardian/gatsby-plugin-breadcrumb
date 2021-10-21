@@ -5,6 +5,14 @@ import Breadcrumb from './Breadcrumb'
 import { OptionsProvider } from './options-context'
 import { BreadcrumbProvider } from './breadcrumb-context'
 
+const Separator = () => {
+  return (
+    <div>
+      <span>/</span>
+    </div>
+  )
+}
+
 const props = {
   breadcrumb: {
     crumbs: [
@@ -25,6 +33,7 @@ const props = {
   },
   crumbLabel: 'testLabel',
   crumbSeparator: ' - ',
+  crumbSeparatorComponent: <Separator />,
   title: 'Breadcrumb',
 }
 
@@ -42,7 +51,7 @@ describe('Breadcrumb Click Tracking', () => {
             title={props.title}
             crumbs={props.breadcrumb.crumbs}
             crumbLabel={props.crumbLabel}
-            crumbSeparator={props.crumbSeparator}
+            crumbSeparator={props.crumbSeparatorComponent}
           />
         </BreadcrumbProvider>
       </OptionsProvider>,

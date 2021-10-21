@@ -6,12 +6,8 @@ import { BreadcrumbProvider } from './breadcrumb-context'
 import { OptionsProvider } from './options-context'
 
 export const AppProviders = ({ element, pluginOptions }) => {
-  const {
-    defaultCrumb,
-    useClassNames,
-    useAutoGen,
-    usePathPrefix,
-  } = pluginOptions
+  const { defaultCrumb, useClassNames, useAutoGen, usePathPrefix } =
+    pluginOptions
 
   return (
     <OptionsProvider
