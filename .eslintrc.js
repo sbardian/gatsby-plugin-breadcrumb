@@ -4,7 +4,7 @@ module.exports = {
   env: {
     jest: true,
   },
-  parser: 'babel-eslint',
+  parser: '@babel/eslint-parser',
   rules: {
     'react/jsx-filename-extension': 'off',
     'react/jsx-props-no-spreading': 'off',
