@@ -12,57 +12,55 @@ const AutoGenCrumb = ({
   disableLinks,
   hiddenCrumbs,
   ...rest
-}) => {
-  return (
-    <>
-      {title && <span className="breadcrumb__title">{title}</span>}
-      <nav className="breadcrumb" aria-label="Breadcrumb">
-        <ol className="breadcrumb__list">
-          {autoGenCrumbs.map((c, i) => {
-            if (hiddenCrumbs.includes(c.pathname)) {
-              return null
-            }
-            return (
-              <React.Fragment key={`${i}-${c.pathname}`}>
-                {!disableLinks.includes(c.pathname) && (
-                  <li className="breadcrumb__list__item">
-                    <Link
-                      to={c.pathname}
-                      className="breadcrumb__link"
-                      activeClassName="breadcrumb__link__active"
-                      aria-current={
-                        i === autoGenCrumbs.length - 1 ? 'page' : null
-                      }
-                      {...rest}
-                    >
-                      {crumbLabelOverride && i === autoGenCrumbs.length - 1
-                        ? crumbLabelOverride
-                        : c.crumbLabel}
-                    </Link>
-                  </li>
-                )}
-                {disableLinks.includes(c.pathname) && (
-                  <li className="breadcrumb__list__item">
-                    <span className="breadcrumb__link__disabled" {...rest}>
-                      {crumbLabelOverride && i === autoGenCrumbs.length - 1
-                        ? crumbLabelOverride
-                        : c.crumbLabel}
-                    </span>
-                  </li>
-                )}
-                {i === autoGenCrumbs.length - 1 ? null : (
-                  <span className="breadcrumb__separator" aria-hidden="true">
-                    {crumbSeparator}
+}) => (
+  <>
+    {title && <span className="breadcrumb__title">{title}</span>}
+    <nav className="breadcrumb" aria-label="Breadcrumb">
+      <ol className="breadcrumb__list">
+        {autoGenCrumbs.map((c, i) => {
+          if (hiddenCrumbs.includes(c.pathname)) {
+            return null
+          }
+          return (
+            <React.Fragment key={`${i}-${c.pathname}`}>
+              {!disableLinks.includes(c.pathname) && (
+                <li className="breadcrumb__list__item">
+                  <Link
+                    to={c.pathname}
+                    className="breadcrumb__link"
+                    activeClassName="breadcrumb__link__active"
+                    aria-current={
+                      i === autoGenCrumbs.length - 1 ? 'page' : null
+                    }
+                    {...rest}
+                  >
+                    {crumbLabelOverride && i === autoGenCrumbs.length - 1
+                      ? crumbLabelOverride
+                      : c.crumbLabel}
+                  </Link>
+                </li>
+              )}
+              {disableLinks.includes(c.pathname) && (
+                <li className="breadcrumb__list__item">
+                  <span className="breadcrumb__link__disabled" {...rest}>
+                    {crumbLabelOverride && i === autoGenCrumbs.length - 1
+                      ? crumbLabelOverride
+                      : c.crumbLabel}
                   </span>
-                )}
-              </React.Fragment>
-            )
-          })}
-        </ol>
-      </nav>
-    </>
-  )
-}
+                </li>
+              )}
+              {i === autoGenCrumbs.length - 1 ? null : (
+                <span className="breadcrumb__separator" aria-hidden="true">
+                  {crumbSeparator}
+                </span>
+              )}
+            </React.Fragment>
+          )
+        })}
+      </ol>
+    </nav>
+  </>
+)
 
 AutoGenCrumb.defaultProps = {
   title: '',

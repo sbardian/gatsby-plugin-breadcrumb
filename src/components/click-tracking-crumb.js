@@ -31,26 +31,24 @@ const ClickTrackingCrumb = ({
       {title && <span className="breadcrumb__title">{title}</span>}
       <nav className="breadcrumb" aria-label="Breadcrumb">
         <ol className="breadcrumb__list">
-          {crumbs.map((c, i) => {
-            return (
-              <li className="breadcrumb__item" key={i}>
-                <Link
-                  to={c.pathname || ''}
-                  className="breadcrumb__link"
-                  activeClassName="breadcrumb__link__active"
-                  aria-current={i === crumbs.length - 1 ? 'page' : null}
-                  {...rest}
-                >
-                  {c.crumbLabel}
-                </Link>
-                {i === crumbs.length - 1 ? null : (
-                  <span className="breadcrumb__separator" aria-hidden="true">
-                    {c.crumbSeparator}
-                  </span>
-                )}
-              </li>
-            )
-          })}
+          {crumbs.map((c, i) => (
+            <li className="breadcrumb__item" key={i}>
+              <Link
+                to={c.pathname || ''}
+                className="breadcrumb__link"
+                activeClassName="breadcrumb__link__active"
+                aria-current={i === crumbs.length - 1 ? 'page' : null}
+                {...rest}
+              >
+                {c.crumbLabel}
+              </Link>
+              {i === crumbs.length - 1 ? null : (
+                <span className="breadcrumb__separator" aria-hidden="true">
+                  {c.crumbSeparator}
+                </span>
+              )}
+            </li>
+          ))}
         </ol>
       </nav>
     </>

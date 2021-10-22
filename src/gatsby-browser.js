@@ -4,6 +4,6 @@
 import React from 'react'
 import { AppProviders } from './components/app-providers'
 
-export const wrapRootElement = ({ element }, pluginOptions) => {
-  return <AppProviders element={element} pluginOptions={pluginOptions} />
-}
+export const wrapRootElement = ({ element }, pluginOptions) => (
+  <AppProviders element={element} pluginOptions={pluginOptions} />
+)

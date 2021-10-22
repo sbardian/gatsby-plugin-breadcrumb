@@ -5,13 +5,11 @@ import Breadcrumb from './Breadcrumb'
 import { OptionsProvider } from './options-context'
 import { BreadcrumbProvider } from './breadcrumb-context'
 
-const Separator = () => {
-  return (
-    <div>
-      <span>/</span>
-    </div>
-  )
-}
+const Separator = () => (
+  <div>
+    <span>/</span>
+  </div>
+)
 
 const props = {
   breadcrumb: {
