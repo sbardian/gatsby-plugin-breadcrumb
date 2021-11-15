@@ -8645,10 +8645,10 @@ gatsby-worker@^1.1.0:
     "@babel/core" "^7.15.5"
     "@babel/runtime" "^7.15.4"
 
-gatsby@4.1.4:
-  version "4.1.4"
-  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-4.1.4.tgz#305f46567f74a7043042d61910fefaf5f27a63f2"
-  integrity sha512-uO+wSjcWONIER2tuJlpc2vKm7f9BNjVPrSMTemNINBEI8ffYtVB9Zhf8L/qyzJ3PiPibbo2CHXZjZ+ijABr4jA==
+gatsby@4.1.5:
+  version "4.1.5"
+  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-4.1.5.tgz#11a8d87ed880f9b227178bf5299b66f5fea5b199"
+  integrity sha512-TbPqdZl86vm47v04mfTkdFmv+Hnnob3qMEGCBEeaHI6Z9a38RaPQsRMBkbQh+l7Z1Pc6UWD1Lw/wDhL4cDNe+Q==
   dependencies:
     "@babel/code-frame" "^7.14.0"
     "@babel/core" "^7.15.5"
