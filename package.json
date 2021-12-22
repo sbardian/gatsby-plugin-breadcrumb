@@ -40,7 +40,7 @@
   },
   "dependencies": {
     "identity-obj-proxy": "3.0.0",
-    "prop-types": "15.7.2",
+    "prop-types": "15.8.0",
     "wildcard-match": "5.1.2"
   },
   "devDependencies": {
