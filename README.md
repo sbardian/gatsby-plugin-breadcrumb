@@ -18,6 +18,10 @@
   - Give these a quick read to see common issues you might face while using this
     plugin!
 
+## Gatsby Versions
+
+This plugin should work fine on Gatsby v2, v3, and v4.
+
 ## Installation
 
 ```bash
