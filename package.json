@@ -44,11 +44,11 @@
     "wildcard-match": "5.1.2"
   },
   "devDependencies": {
-    "@babel/cli": "7.16.0",
-    "@babel/core": "7.16.5",
+    "@babel/cli": "7.16.7",
+    "@babel/core": "7.16.7",
     "@babel/eslint-parser": "7.16.5",
-    "@babel/helper-define-map": "7.16.5",
-    "@babel/runtime": "7.16.5",
+    "@babel/helper-define-map": "7.16.7",
+    "@babel/runtime": "7.16.7",
     "@commitlint/cli": "14.1.0",
     "@commitlint/config-conventional": "14.1.0",
     "@testing-library/dom": "8.11.1",
