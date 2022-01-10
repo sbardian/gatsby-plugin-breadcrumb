@@ -44,7 +44,7 @@
     "wildcard-match": "5.1.2"
   },
   "devDependencies": {
-    "@babel/cli": "7.16.7",
+    "@babel/cli": "7.16.8",
     "@babel/core": "7.16.7",
     "@babel/eslint-parser": "7.16.5",
     "@babel/helper-define-map": "7.16.7",
