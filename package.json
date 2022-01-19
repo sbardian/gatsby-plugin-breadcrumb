@@ -45,7 +45,7 @@
   },
   "devDependencies": {
     "@babel/cli": "7.16.8",
-    "@babel/core": "7.16.7",
+    "@babel/core": "7.16.10",
     "@babel/eslint-parser": "7.16.5",
     "@babel/helper-define-map": "7.16.7",
     "@babel/runtime": "7.16.7",
