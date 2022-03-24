@@ -52,7 +52,7 @@
     "@commitlint/cli": "14.1.0",
     "@commitlint/config-conventional": "14.1.0",
     "@testing-library/dom": "8.11.4",
-    "@testing-library/jest-dom": "5.16.2",
+    "@testing-library/jest-dom": "5.16.3",
     "@testing-library/react": "12.1.4",
     "babel-jest": "27.5.1",
     "babel-plugin-dynamic-import-node": "2.3.3",
