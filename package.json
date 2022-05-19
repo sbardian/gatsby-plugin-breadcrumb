@@ -45,10 +45,10 @@
   },
   "devDependencies": {
     "@babel/cli": "7.17.10",
-    "@babel/core": "7.17.12",
+    "@babel/core": "7.18.0",
     "@babel/eslint-parser": "7.17.0",
-    "@babel/helper-define-map": "7.16.7",
-    "@babel/runtime": "7.17.9",
+    "@babel/helper-define-map": "7.18.0",
+    "@babel/runtime": "7.18.0",
     "@commitlint/cli": "14.1.0",
     "@commitlint/config-conventional": "14.1.0",
     "@testing-library/dom": "8.13.0",
