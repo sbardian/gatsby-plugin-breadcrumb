@@ -51,7 +51,7 @@
     "@babel/runtime": "7.18.9",
     "@commitlint/cli": "14.1.0",
     "@commitlint/config-conventional": "14.1.0",
-    "@testing-library/dom": "8.16.1",
+    "@testing-library/dom": "8.17.1",
     "@testing-library/jest-dom": "5.16.5",
     "@testing-library/react": "12.1.5",
     "babel-jest": "27.5.1",
