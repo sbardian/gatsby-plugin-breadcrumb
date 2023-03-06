@@ -82,6 +82,6 @@
     "semantic-release": "18.0.1"
   },
   "peerDependencies": {
-    "gatsby": "^3.0.0 || ^4.0.0"
+    "gatsby": "3.x - 5.x"
   }
 }
