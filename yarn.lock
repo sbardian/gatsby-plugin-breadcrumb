@@ -233,10 +233,10 @@
     semver "^6.3.0"
     source-map "^0.5.0"
 
-"@babel/eslint-parser@7.24.8":
-  version "7.24.8"
-  resolved "https://registry.yarnpkg.com/@babel/eslint-parser/-/eslint-parser-7.24.8.tgz#bc655255fa4ded3694cc10ef3dbea6d69639c831"
-  integrity sha512-nYAikI4XTGokU2QX7Jx+v4rxZKhKivaQaREZjuW3mrJrbdWJ5yUfohnoUULge+zEEaKjPYNxhoRgUKktjXtbwA==
+"@babel/eslint-parser@7.25.0":
+  version "7.25.0"
+  resolved "https://registry.yarnpkg.com/@babel/eslint-parser/-/eslint-parser-7.25.0.tgz#08ee4d119a86d73365580568626de0b59145af9e"
+  integrity sha512-mlcTKuQAjczDRwWLIxv+Q925jaMUO8Jl5dxmWJSSGVYfZ4rKMp8daQvVC3rM1G2v8V+/fO0yIVTSLS+2zcB8rg==
   dependencies:
     "@nicolo-ribaudo/eslint-scope-5-internals" "5.1.1-v1"
     eslint-visitor-keys "^2.1.0"
@@ -1971,10 +1971,10 @@
     core-js-pure "^3.0.0"
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@7.24.8":
-  version "7.24.8"
-  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.24.8.tgz#5d958c3827b13cc6d05e038c07fb2e5e3420d82e"
-  integrity sha512-5F7SDGs1T72ZczbRwbGO9lQi0NLjQxzl6i4lJxLxfW9U5UluCSyEJeniWvnhl3/euNiqQVbo8zruhsDfid0esA==
+"@babel/runtime@7.25.0":
+  version "7.25.0"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.25.0.tgz#3af9a91c1b739c569d5d80cc917280919c544ecb"
+  integrity sha512-7dRy4DwXwtzBrPbZflqxnvfxLF8kdZXPkhymtDeFoFqE6ldzjQFgYTtYIFARcLEYDrqfBfYcZt1WqFxRoyC9Rw==
   dependencies:
     regenerator-runtime "^0.14.0"
 
