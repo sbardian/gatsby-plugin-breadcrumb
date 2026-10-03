@@ -20301,10 +20301,10 @@ widest-line@^3.1.0:
   dependencies:
     string-width "^4.0.0"
 
-wildcard-match@5.1.4:
-  version "5.1.4"
-  resolved "https://registry.yarnpkg.com/wildcard-match/-/wildcard-match-5.1.4.tgz#26428c802f20743ebae255e4e9526ae81ddf1816"
-  integrity sha512-wldeCaczs8XXq7hj+5d/F38JE2r7EXgb6WQDM84RVwxy81T/sxB5e9+uZLK9Q9oNz1mlvjut+QtvgaOQFPVq/g==
+wildcard-match@5.1.6:
+  version "5.1.6"
+  resolved "https://registry.yarnpkg.com/wildcard-match/-/wildcard-match-5.1.6.tgz#7cce4c5237c74ee48abec2cd165d48c9975a8b60"
+  integrity sha512-Dh5N543my42ynFsbT0v6iPpaqJt95MOK1n/lhojVTe/hS3gpP6e938bbzsfaS0goLlJbhEOCIJPe/Tc3hckoaQ==
 
 wildcard@^2.0.0:
   version "2.0.0"
